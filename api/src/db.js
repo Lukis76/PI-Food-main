@@ -1,5 +1,10 @@
 require('dotenv').config();
 const { Sequelize } = require('sequelize');
+//------------------------------------------------------------------------------
+const modelReceta = require('./models/reseta.js')
+const modelDieta = require('./models/dieta.js')
+//------------------------------------------------------------------------------
+
 const fs = require('fs');
 const path = require('path');
 const {
@@ -30,7 +35,16 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Recipe } = sequelize.models;
+//----------------------------------------------------------------
+// modelReceta(sequelize)
+// modelDieta(sequelize)
+
+const { reseta, dieta } = sequelize.models;
+
+reseta.belongsToMany(dieta , {through: 'reset_diet'})
+dieta.belongsToMany(reseta , {through: 'reset_diet'})
+
+//----------------------------------------------------------------
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
