@@ -44,10 +44,10 @@ sequelize.models = Object.fromEntries(capsEntries)
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 //----------------------------------------------------------------
-const { Receta, Dieta } = sequelize.models
+const { Recipe, Diet } = sequelize.models
 
-Receta.belongsToMany(Dieta, { through: 'reset_diet' })
-Dieta.belongsToMany(Receta, { through: 'reset_diet' })
+Recipe.belongsToMany(Diet, { through: 'reset_diet' })
+Diet.belongsToMany(Recipe, { through: 'reset_diet' })
 
 //----------------------------------------------------------------
 
