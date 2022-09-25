@@ -1,19 +1,17 @@
 require('dotenv').config()
 const { Sequelize } = require('sequelize')
 //------------------------------------------------------------------------------
-// const modelReceta = require('./models/Reseta.js')
-// const modelDieta = require('./models/Dieta.js')
 //------------------------------------------------------------------------------
 
 const fs = require('fs')
 const path = require('path')
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env
+console.log("🚀 ~ file: db.js ~ line 9 ~ DB_HOST", DB_HOST)
 
 // 'postgres://postgres:mano76@localhost:7777/henry_sequelize'
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,
-  // 'postgres://postgres:mano76@localhost:7777/food',
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
@@ -46,13 +44,7 @@ sequelize.models = Object.fromEntries(capsEntries)
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 //----------------------------------------------------------------
-// modelReceta(sequelize)
-// modelDieta(sequelize)
-
-// console.log("🚀 ~ file: db.js ~ line 53 ~ sequelize.models", sequelize.models)
 const { Receta, Dieta } = sequelize.models
-
-// reseta.belongsToMany
 
 Receta.belongsToMany(Dieta, { through: 'reset_diet' })
 Dieta.belongsToMany(Receta, { through: 'reset_diet' })
