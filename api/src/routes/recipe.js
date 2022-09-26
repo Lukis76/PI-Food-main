@@ -16,16 +16,9 @@ router.get('/', async (req, res) => {
   if (apiResult.totalResults === 0 && !dbResult) {
     return res.status(400).send(`no se an encontrado resultadors para ${name}`)
   }
-  // if (apiResult.results.length > 0) {
-  //   const resu =[...apiResult.results]
-  //   const respuesta = await resu.map((el) => apiSearchID(el.id).then((hola) => el.detalle = hola))
-  //   console.log("🚀 ~ file: recipe.js ~ line 24 ~ respuesta ~ respuesta", respuesta)
-  //   // console.log(
-  //     // '🚀 ~ file: recipe.js ~ line 19 ~ router.get ~ respuesta',
-  //     // apiResult
-  //   // )
-  //   return res.send(respuesta)
-  // }
+
+  apiResult.
+
   res.send(apiResult)
   console.log(
     '🚀 ~ file: recipe.js ~ line 19 ~ router.get ~ apiResult',

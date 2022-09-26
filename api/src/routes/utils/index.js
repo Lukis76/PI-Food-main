@@ -11,12 +11,36 @@ console.log('🚀 ~ file: apiInfo.js ~ line 6 ~ API_KEY', API_KEY)
 
 const apiAllSearchRecipe = async () => {
   const result = await axios.get(`${API_URL_ONE}${API_KEY}${API_EXTRA}`)
-  return result.data
+  const apiInfo = result.data.results.map(el => {
+    return {
+      name: el.title,
+      img: el.image,
+      id: el.id,
+      diets: el.diets,
+      healthScore: el.healthScore,
+      dishType: el.dishType,
+      summary: el.summary,
+      instructions: el.analyzedInstructions[0].steps
+    }
+  })
+  return apiInfo
 }
 
 const apiSearchRecipe = async (name) => {
   const result = await axios.get(`${API_URL_ONE}query=${name}&${API_KEY}${API_EXTRA}`)
-  return result.data
+  const apiInfo = result.data.results.map(el => {
+    return {
+      name: el.title,
+      img: el.image,
+      id: el.id,
+      diets: el.diets,
+      healthScore: el.healthScore,
+      dishType: el.dishType,
+      summary: el.summary,
+      instructions: el.analyzedInstructions[0].steps
+    }
+  })
+  return apiInfo
 }
 
 const dbSearchRecipe = async (name) => {
