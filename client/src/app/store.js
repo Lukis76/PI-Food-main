@@ -1,0 +1,8 @@
+import {configureStore} from '@reduxjs/toolkit'
+import taskReducer from '../feactures/task/taskSlice'
+
+export const store = configureStore({
+  reducer: {
+    tasks: taskReducer // tasks => stado de redux
+  }
+})
