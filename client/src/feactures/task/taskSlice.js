@@ -6,21 +6,23 @@ const initialState = {
   data: [],
 }
 
-export const fetchRecipe = createAsyncThunk('tanks/fetchRecipe', (name) => {
-  return axios
-    .get(`http://localhost:3088/recipes?name=${name}`)
-    .then((res) => res.data.results)
-})
-
 export const taskSlice = createSlice({
   name: 'tasks',
   initialState,
-  extraReducers: (builder) => {
-    builder.addCase(fetchRecipe.fulfilled, (state, action) => {
-      state.loading = true
+  reducers: {
+    setTasks: (state, action) => {
       state.data = action.payload
-    })
+    },
   },
 })
 
+export const { setTasks } = taskSlice.actions
+
 export default taskSlice.reducer
+
+export const fetchRecipe = (name) => (dispatch) => {
+  axios
+    .get(`http://localhost:3088/recipes?name=${name}`)
+    .then((res) => dispatch(setTasks(res.data)))
+    .catch((err) => console.error(err))
+}

@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-
-// #09f
+import img from '../assets/Green.jpg'
 
 export const GlobalStyle = createGlobalStyle`
 * {
@@ -17,5 +16,9 @@ export const GlobalStyle = createGlobalStyle`
 body, #root, .App {
   min-height: 100vh;
   max-width: 100vw;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url(${img});
 }
 `

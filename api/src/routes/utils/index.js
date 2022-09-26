@@ -87,7 +87,7 @@ const getApiInfo = async () => {
           dishType: el.dishTypes?.map((el) => el),
           diets: el.diets?.map((el) => el),
           summary: el.summary,
-          steps: el.analyzedInstructions,
+          steps: el.analyzedInstructions[0],
         }
       })
       return result
@@ -134,7 +134,7 @@ const getApiName = async (name) => {
           dishType: el.dishTypes?.map((el) => el),
           diets: el.diets?.map((el) => el),
           summary: el.summary,
-          steps: el.analyzedInstructions,
+          steps: el.analyzedInstructions[0],
         }
       })
       return result

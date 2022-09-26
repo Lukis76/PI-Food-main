@@ -11,7 +11,6 @@ export const Home = () => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log('hola => ', search)
     dispatch(fetchRecipe(search))
   }
   
@@ -34,12 +33,12 @@ export const Home = () => {
         <button type='Submit'>Search</button>
       </form>
       <div>
-        {taskState.map((task) => (
+        {/* {taskState.map((task) => (
           <div key={task.id}>
             <h3>{task.title}</h3>
             <img src={task.image} alt={task.title} />
           </div>
-        ))}
+        ))} */}
       </div>
     </ContentHome>
   )

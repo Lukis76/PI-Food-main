@@ -3,7 +3,7 @@ import { center } from '../style/shorcuts'
 import { dark } from '../style/theme/theme'
 import { Link } from 'react-router-dom'
 
-export const Landing = () => {
+export const LandingPage = () => {
   return (
     <ContentLanging>
       <h1>Henry Food</h1>
