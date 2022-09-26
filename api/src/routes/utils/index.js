@@ -20,7 +20,7 @@ const apiAllSearchRecipe = async () => {
       healthScore: el.healthScore,
       dishType: el.dishType,
       summary: el.summary,
-      instructions: el.analyzedInstructions[0].steps
+      instructions: el.analyzedInstructions
     }
   })
   return apiInfo
