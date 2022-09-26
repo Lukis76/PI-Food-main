@@ -14,14 +14,20 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    resumen: {
+    summary: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    healthScore: {
-      type: DataTypes.INTEGER,
+    score: {
+      type: DataTypes.FLOAT,
     },
-    instructions: {
+    healthScore: {
+      type: DataTypes.FLOAT,
+    },
+    img: {
+      type: DataTypes.STRING,
+    },
+    steps: {
       type: DataTypes.TEXT,
     },
   })
