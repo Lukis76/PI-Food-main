@@ -37,7 +37,7 @@ const apiSearchRecipe = async (name) => {
       healthScore: el.healthScore,
       dishType: el.dishType,
       summary: el.summary,
-      instructions: el.analyzedInstructions[0].steps
+      instructions: (result.analyzedInstructions[0] && result.analyzedInstructions[0].steps?result.analyzedInstructions[0].steps.map(item=>item.step).join(" \n"):'')
     }
   })
   return apiInfo
