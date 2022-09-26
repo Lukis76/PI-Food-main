@@ -17,13 +17,11 @@ router.get('/', async (req, res) => {
     return res.status(400).send(`no se an encontrado resultadors para ${name}`)
   }
 
-  apiResult.
-
-  res.send(apiResult)
   console.log(
     '🚀 ~ file: recipe.js ~ line 19 ~ router.get ~ apiResult',
     apiResult
   )
+  res.send(apiResult)
 
   // return res.send(`total de resetas en contradas ${apiResult.totalResults + dbResult.length}`)
 })

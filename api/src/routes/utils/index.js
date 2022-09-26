@@ -52,6 +52,7 @@ const dbSearchRecipe = async (name) => {
 
   return result
 }
+// n:n
 
 const apiSearchID = async (id) => {
   const result = await axios.get(`${API_URL_TWO}${id}/information?${API_KEY}`)
