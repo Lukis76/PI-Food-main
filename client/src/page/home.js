@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { center } from '../style/shorcuts'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
-import { fetchRecipe } from '../feactures/task/taskSlice'
+import { fetchRecipe } from '../app/recucer/taskSlice'
 
 export const Home = () => {
   const taskState = useSelector((state) => state.tasks.data)
