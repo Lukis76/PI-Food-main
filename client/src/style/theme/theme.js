@@ -1,8 +1,14 @@
 export const dark = {
   color: {
     blueMidu: '#09f;',
-    blank: '#dad7cd;'
-  }
+    blank: '#fefefe;',
+  },
+}
+export const light = {
+  color: {
+    blueMidu: '#09f;',
+    blank: '#fefefe;',
+  },
 }
 
 // #09f
@@ -20,7 +26,7 @@ export const dark = {
 // #dad7cd
 // #485696
 // #788bff
-// #
+// #fefefe
 // #
 // #
 // #

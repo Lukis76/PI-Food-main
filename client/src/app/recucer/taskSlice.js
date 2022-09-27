@@ -102,6 +102,16 @@ export const taskSlice = createSlice({
   },
 })
 
-export const { setTasks } = taskSlice.actions
+export const {
+  setTasks,
+  setGetRecipes,
+  setFilterDiets,
+  setFilterOrder,
+  setFilterSearch,
+  setGetRecipesName,
+  setGetStateID,
+  setGetTypes,
+  setOrderScore,
+} = taskSlice.actions
 
 export default taskSlice.reducer

@@ -4,17 +4,21 @@ import { Home } from './page/home'
 import { Add } from './page/add'
 import { Details } from './page/details'
 import { About } from './page/about'
+import { ThemeProvider } from 'styled-components'
+import { useState } from 'react'
+import { light, dark } from './style/theme/theme'
 
 export const App = () => {
+  const [theme, setTheme] = useState(light)
   return (
-    <div className='App'>
+    <ThemeProvider theme={theme}>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={<Home setTheme={setTheme} />} />
         <Route path='/add' element={<Add />} />
         <Route path='/deatils' element={<Details />} />
         <Route path='/about' element={<About />} />
       </Routes>
-    </div>
+    </ThemeProvider>
   )
 }
