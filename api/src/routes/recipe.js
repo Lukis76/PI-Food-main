@@ -1,11 +1,5 @@
 const { Router } = require('express')
-const {
-  // apiSearchRecipe,
-  // dbSearchRecipe,
-  // apiSearchID,
-  getAllInfo,
-  getInfoName,
-} = require('./utils/index.js')
+const { getAllInfo, getInfoName } = require('./utils/index.js')
 
 const router = Router()
 
@@ -23,7 +17,7 @@ router.get('/', async (req, res) => {
       }
     } else {
       const allData = await getAllInfo()
-      if (allData !== error) {
+      if (allData !== 'error') {
         res.json(allData)
       } else {
         res.status(404).json({ msg: 'Error en la busqueda de datos' })
@@ -32,17 +26,6 @@ router.get('/', async (req, res) => {
   } catch (error) {
     return res.status(500).send('Error Inesperado')
   }
-
-  // const apiResult = await apiSearchRecipe(name)
-  // const dbResult = await dbSearchRecipe(name)
-
-  // if (apiResult.totalResults === 0 && !dbResult) {
-  //   return res.status(400).send(`no se an encontrado resultadors para ${name}`)
-  // }
-
-  // res.send(apiResult)
-
-  // return res.send(`total de resetas en contradas ${apiResult.totalResults + dbResult.length}`)
 })
 
 router.get('/:RecipeID', async (req, res) => {
