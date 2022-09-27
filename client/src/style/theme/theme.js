@@ -1,6 +1,7 @@
 export const dark = {
   color: {
-    blueMidu: '#09f'
+    blueMidu: '#09f;',
+    blank: '#dad7cd;'
   }
 }
 
