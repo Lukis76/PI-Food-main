@@ -1,4 +1,4 @@
-const SvgSearch = (props) => (
+export const SvgSearch = (props) => (
   <svg viewBox='0 0 512 512' width={48} height={48} {...props}>
     <path
       fill='#127274'

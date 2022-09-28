@@ -26,7 +26,7 @@ const ContentLanging = styled.div`
         border-radius: 0.5rem;
         font-size: 1.2rem;
         font-weight: 700;
-        background-color: ${dark.color.blueMidu};
+        background: ${props => props.theme.color.blueMidu};
       }
     }
   }
