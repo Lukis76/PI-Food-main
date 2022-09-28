@@ -44,6 +44,7 @@ const ContentCard = styled.div`
   }
   div {
     ${center('row')}
+    width: 100%;
     padding: .5rem;
     background: ${(props) => props.theme.color.blank};
     h3 {
@@ -53,6 +54,7 @@ const ContentCard = styled.div`
   section {
     ${center()}
     height: 6rem;
+    width: 100%;
     background: green;
     h6 {
       font-size: 1rem;
