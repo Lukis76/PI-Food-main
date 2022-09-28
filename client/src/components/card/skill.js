@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { SvgHealthScore } from '../../assets/svg/svgHealthScore'
 import { center } from '../../style/shorcuts'
 
 export const Skill = ({
@@ -12,7 +13,9 @@ export const Skill = ({
     <ContentSkill>
       <div>
         <div>
-          <h6>health score</h6> <span>{healthScore}</span>
+          <h6>
+          <SvgHealthScore/>
+          </h6> <span>{healthScore}</span>
         </div>
         <div>
           <h6>gluten free</h6> <span>{glutenFree ? 'True' : 'False'}</span>
