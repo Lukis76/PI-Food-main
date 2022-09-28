@@ -1,14 +1,23 @@
+import { center } from '../shorcuts'
+
 export const dark = {
   color: {
     blueMidu: '#09f;',
     blank: '#fefefe;',
+    blueLight: '#0072bb;',
+    grey: '#50514f'
+
   },
+  mode:`${center('row', 'flex-start')}` ,
 }
 export const light = {
   color: {
     blueMidu: '#09f;',
     blank: '#fefefe;',
+    blueLight: '#0072bb;',
+    grey: '#50514f'
   },
+  mode:`${center('row', 'flex-end')}` ,
 }
 
 // #09f

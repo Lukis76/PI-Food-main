@@ -13,24 +13,28 @@ export const SearchBar = () => {
 
   const handleChange = (e) => {
     setName((state) => (state = e.target.value))
+    console.log(name);
     dispatch(searchBarName(name))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (name.length > 1) {
+      console.log('dentro => ',name);
       dispatch(getRecipesName(name))
+      setName('')
     }
   }
 
   return (
     <ContentSearchBar>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type='text'
           name='search'
+          value={name}
           placeholder='Search Recipe...'
-          onChange={handleChange}
+          onChange={(e) => handleChange(e)}
         />
         <button type='submit'>
           <SvgSearch height={28} width={28} />
