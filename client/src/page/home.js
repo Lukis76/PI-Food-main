@@ -7,6 +7,7 @@ import { getRecipesAll } from '../app/actions/getRecipesAll'
 import { getTypes } from '../app/actions/getTypes'
 import { Card } from '../components/card/card'
 import { NextPage } from '../components/nextPage'
+import { Filter } from '../components/filter'
 
 export const Home = ({ setTheme }) => {
   const dispatch = useDispatch()
@@ -36,6 +37,7 @@ export const Home = ({ setTheme }) => {
         <NavBar setTheme={setTheme} />
       </header>
 
+      <section>
       <NextPage
         // recipesLength={recipes.length}
         page={page}
@@ -43,6 +45,10 @@ export const Home = ({ setTheme }) => {
         setPage={setPage}
         max={max}
       />
+      <Filter
+        types={types}
+      />
+      </section>
       <main>
         {recipes
           .slice((page - 1) * perPage, (page - 1) * perPage + perPage)
