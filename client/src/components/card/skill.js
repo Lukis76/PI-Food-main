@@ -35,6 +35,8 @@ export const Skill = ({
 }
 
 const ContentSkill = styled.div`
+  width: 100%;
+
   /* padding: 0; */
   border-radius: 0 0 0.7rem 0.7rem;
   background: ${(props) => props.theme.color.grey};

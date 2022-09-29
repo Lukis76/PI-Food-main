@@ -12,10 +12,10 @@ export const dark = {
 }
 export const light = {
   color: {
-    blueMidu: '#09f;',
-    blank: '#fefefe;',
-    blueLight: '#0072bb;',
-    grey: '#50514f'
+    blueMidu: '#ffe066;',
+    blank: '#50514f;',
+    blueLight: '#8fc93a;',
+    grey: '#f25f5c;'
   },
   mode:`${center('row', 'flex-end')}` ,
 }

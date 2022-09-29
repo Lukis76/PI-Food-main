@@ -14,9 +14,7 @@ export const Mode = ({ setTheme }) => {
   )
 }
 const ContentMode = styled.div`
-  margin: 5rem;
   div {
-    /* height: 2rem; */
     padding: 1px;
     width: 5rem;
     border-radius: 9rem;

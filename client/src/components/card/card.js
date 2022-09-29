@@ -13,6 +13,7 @@ export const Card = ({
   dairyFree,
   vegan,
   vegetarian,
+  summary,
 }) => {
   return (
     <ContentCard>
@@ -21,8 +22,9 @@ export const Card = ({
         <h3>{name}</h3>
       </div>
       <section>
-        <h6>{types}</h6>
-        <h6>{diets}</h6>
+        <p>{summary}</p>
+        {/* <h6>{types}</h6>
+        <h6>{diets}</h6> */}
       </section>
       <Skill
         healthScore={healthScore}
@@ -39,13 +41,17 @@ const ContentCard = styled.div`
   ${center()}
   width: min-content;
   border-radius: 0.7rem 0.7rem 0 0;
+  width: 100%;
+  max-width: 18rem;
   img {
+    width: 100%;
+
     border-radius: 0.7rem 0.7rem 0 0;
   }
   div {
     ${center('row')}
     width: 100%;
-    padding: .5rem;
+    padding: 0.5rem;
     background: ${(props) => props.theme.color.blank};
     h3 {
       text-align: center;
@@ -56,8 +62,12 @@ const ContentCard = styled.div`
     height: 6rem;
     width: 100%;
     background: green;
-    h6 {
-      font-size: 1rem;
+    p {
+      /* font-size: 1rem; */
+      width: 100%;
+      padding: 0 1rem;
+      text-overflow: unset;
+      overflow: hidden;
     }
   }
 `
