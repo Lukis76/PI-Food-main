@@ -60,7 +60,8 @@ export const taskSlice = createSlice({
     },
     setFilterOrder: (state, action) => {
       const recipesOrder =
-        action.payload === 'up'
+        action.payload === 'A-z'
+        
           ? state.recipesAll.sort((a, b) => {
               if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
               else return -1
@@ -74,7 +75,7 @@ export const taskSlice = createSlice({
     },
     setFilterDiets: (state, action) => {
       const filtDiets =
-        action.payload === 'Filter Type'
+        action.payload === 'all diets'
           ? state.recipesAll
           : state.recipesAll.filter((el) => {
               if (el.diets.length > 0) {

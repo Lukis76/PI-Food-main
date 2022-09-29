@@ -29,7 +29,7 @@ export const Home = ({ setTheme }) => {
   useEffect(() => {
     dispatch(getRecipesAll())
     dispatch(getTypes())
-  }, [])
+  }, [dispatch])
 
   return (
     <ContentHome>
@@ -47,6 +47,9 @@ export const Home = ({ setTheme }) => {
       />
       <Filter
         types={types}
+        setPage={setPage}
+        perPage={perPage}
+        setPerPage={setPerPage}
       />
       </section>
       <main>

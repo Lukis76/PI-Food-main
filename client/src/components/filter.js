@@ -1,45 +1,61 @@
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { filterOrder } from '../app/actions/filterOrder'
+import { getFilterDiet } from '../app/actions/getFilterDiet'
+import { getRecipesAll } from '../app/actions/getRecipesAll'
 import { center } from '../style/shorcuts'
 
-export const Filter = ({ types }) => {
+export const Filter = ({ types, setPage, perPage, setPerPage }) => {
+  const dispatch = useDispatch()
+
+  const handleFilterDiet = (e) => {
+    dispatch(getFilterDiet(e.target.value))
+    setPage(1)
+  }
+  const handleItems = (e) => {
+    console.log(e.target.value)
+    setPerPage(e.target.value.toString())
+    setPage(1)
+  }
+
+  const handleOrder = (e) => {
+    dispatch(filterOrder(e.target.value))
+    setPage(1)
+  }
+
   return (
     <ContentFilter>
       <div>
-        <select defaultValue='filterOrder' name='' id=''>
-          <option value='' disabled>
-            Filter order
-          </option>
-          <option key='up' value='up'>
-            Up
-          </option>
-          <option key='down' value='down'>
-            Down
-          </option>
+        <select defaultValue='all' onChange={handleOrder}>
+          <option disabled value='all'>all</option>
+          <option value='A-z'>A-z</option>
+          <option value='Z-a'>Z-a</option>
         </select>
       </div>
 
       <div>
-        <select defaultValue='filterType' name='' id=''>
-          <option value='' disabled>
-            Filter tipe
-          </option>
-          {types.map((el) => (
-            <option key={el.name} value={el.name}>
-              {el.name}
-            </option>
-          ))}
+        <select defaultValue='all diets' onChange={handleFilterDiet}>
+          <option value='all diets'>all diets</option>
+          <option value='gluten free'>gluten free</option>
+          <option value='dairy free'>dairy free</option>
+          <option value='lacto ovo vegetarian'>lacto ovo vegetarian</option>
+          <option value='vegan'>vegan</option>
+          <option value='paleolithic'>paleolithic</option>
+          <option value='primal'>primal</option>
+          <option value='whole 30'>whole 30</option>
+          <option value='fodmap friendly'>fodmap friendly</option>
+          <option value='vegetarian'>vegetarian</option>
+          <option value='pescatarian'>pescatarian</option>
+          <option value='ketogenic'>ketogenic</option>
         </select>
       </div>
 
       <div>
-        <select defaultValue='filterOrder' name='' id=''>
-          <option value=''>Filter order</option>
-          <option key='up' value='up'>
-            Up
-          </option>
-          <option key='down' value='down'>
-            Down
-          </option>
+        <select defaultValue={9} onChange={handleItems}>
+          <option value='9'>9</option>
+          <option value='15'>15</option>
+          <option value='21'>21</option>
+          <option value='33'>33</option>
         </select>
       </div>
     </ContentFilter>
