@@ -43,6 +43,10 @@ const ContentCard = styled.div`
   border-radius: 0.7rem 0.7rem 0 0;
   width: 100%;
   max-width: 18rem;
+  &:hover {
+    scale: 1.05;
+    transition: all .2s ease-out;
+  }
   img {
     width: 100%;
 
