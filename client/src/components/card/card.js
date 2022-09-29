@@ -22,7 +22,7 @@ export const Card = ({
         <h3>{name}</h3>
       </div>
       <section>
-        <p>{summary}</p>
+        <p dangerouslySetInnerHTML ={{__html: summary}}></p>
         {/* <h6>{types}</h6>
         <h6>{diets}</h6> */}
       </section>
@@ -66,8 +66,11 @@ const ContentCard = styled.div`
       /* font-size: 1rem; */
       width: 100%;
       padding: 0 1rem;
-      text-overflow: unset;
       overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
   }
 `

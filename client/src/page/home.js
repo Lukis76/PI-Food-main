@@ -17,10 +17,13 @@ export const Home = ({ setTheme }) => {
   console.log('🚀 ~ file: home.js ~ line 10 ~ Home ~ types', types)
 
   const [page, setPage] = useState(1)
-  const lengthPage = 9
-  const lastPage = page * lengthPage
-  const firstPage = lastPage - lengthPage
-  const current = recipes.length ? recipes.slice(firstPage, lastPage) : []
+  const [perPage, setPerPage] = useState(9)
+  const max = Math.ceil(recipes.length / perPage)
+
+  // const lengthPage = 9
+  // const lastPage = page * perPage
+  // const firstPage = lastPage - perPage
+  // const current = recipes.length ? recipes.slice(firstPage, lastPage) : []
 
   useEffect(() => {
     dispatch(getRecipesAll())
@@ -34,34 +37,41 @@ export const Home = ({ setTheme }) => {
       </header>
 
       <NextPage
-        lengthPage={lengthPage}
-        recipesLength={recipes.length}
+        // recipesLength={recipes.length}
+        page={page}
+        perPage={perPage}
         setPage={setPage}
+        max={max}
       />
       <main>
-        {current.map((el) => {
-          return (
-            <Card
-              key={el.apiID ? el.apiID : el.id}
-              id={el.apiID ? el.apiID : el.id}
-              name={el.name}
-              img={el.img}
-              types={el.diets}
-              diets={el.dishType}
-              healthScore={el.healthScore}
-              glutenFree={el.glutenFree}
-              dairyFree={el.dairyFree}
-              vegan={el.vegan}
-              vegetarian={el.vegetarian}
-              summary={el.summary}
-            />
-          )
-        })}
+        {recipes
+          .slice((page - 1) * perPage, (page - 1) * perPage + perPage)
+          .map((el) => {
+            return (
+              <Card
+                key={el.apiID ? el.apiID : el.id}
+                id={el.apiID ? el.apiID : el.id}
+                name={el.name}
+                img={el.img}
+                types={el.diets}
+                diets={el.dishType}
+                healthScore={el.healthScore}
+                glutenFree={el.glutenFree}
+                dairyFree={el.dairyFree}
+                vegan={el.vegan}
+                vegetarian={el.vegetarian}
+                summary={el.summary}
+              />
+            )
+          })}
       </main>
       <NextPage
-        lengthPage={lengthPage}
-        recipesLength={recipes.length}
+        // recipesLength={recipes.length}
+        page={page}
+        perPage={perPage}
         setPage={setPage}
+        max={max}
+
       />
     </ContentHome>
   )
