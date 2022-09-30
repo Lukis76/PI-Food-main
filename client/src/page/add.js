@@ -18,9 +18,9 @@ export const Add = () => {
     img: '',
     diet: [],
   })
-console.log('init => ', newRecipe);
+  console.log('init => ', newRecipe)
   const handleChenge = (e) => {
-    console.log('onChange');
+    console.log('onChange')
     if (e.target.name === 'name') {
       setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value })
     }
@@ -109,10 +109,43 @@ console.log('init => ', newRecipe);
               {el.name}
             </input>
           ))}
-          <input type='checkbox' value='oscar' />
+        </label>
+        <label>
+          <label>
+            vegetarian
+            <input
+              type='checkbox'
+              name='vegetarian'
+              onChange={(e) => console.log(e.target.checked)}
+            />
+          </label>
+          <label>
+            vegan
+            <input
+              type='checkbox'
+              name='vegan'
+              onChange={(e) => console.log(e.target.checked)}
+            />
+          </label>
+          <label>
+            gluten Fee
+            <input
+              type='checkbox'
+              name='glutenFree'
+              onChange={(e) => console.log(e.target.checked)}
+            />
+          </label>
+          <label>
+            dairy Free
+            <input
+              type='checkbox'
+              name='dairyFree'
+              onChange={(e) => console.log(e.target.checked)}
+            />
+          </label>
         </label>
 
-        <button type='submit'></button>
+        <button type='submit'>Add Recipe</button>
       </form>
     </ContentAdd>
   )
@@ -120,4 +153,23 @@ console.log('init => ', newRecipe);
 
 const ContentAdd = styled.div`
   ${center()}
+  form {
+    ${center()}
+    label {
+      ${center()}
+      padding: 0.5rem;
+      textarea {
+        width: 90%;
+
+        padding: .3rem;
+        border-radius: 0.5rem;
+      }
+      input {
+        width: 90%;
+        font-size: 1rem;
+        padding: .3rem;
+        border-radius: 0.5rem;
+      }
+    }
+  }
 `

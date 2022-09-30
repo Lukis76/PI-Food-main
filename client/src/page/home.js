@@ -27,8 +27,8 @@ export const Home = ({ setTheme }) => {
   // const current = recipes.length ? recipes.slice(firstPage, lastPage) : []
 
   useEffect(() => {
-    dispatch(getRecipesAll())
-    dispatch(getTypes())
+    // dispatch(getRecipesAll())
+    // dispatch(getTypes())
   }, [dispatch])
 
   return (

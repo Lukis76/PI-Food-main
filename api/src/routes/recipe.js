@@ -43,12 +43,13 @@ router.post('/', async (req, res) => {
     vegan,
     vegetarian,
   } = req.body
+  console.log("🚀 ~ file: recipe.js ~ line 46 ~ router.post ~ body", req.body)
 
   try {
     const createRecipe = await Recipe.create({
       name,
-      // summary,
-      // healthScore,
+      summary,
+      healthScore,
       // img,
       // steps,
       // diets,
