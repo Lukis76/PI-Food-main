@@ -24,11 +24,14 @@ console.log('init => ', newRecipe);
     if (e.target.name === 'name') {
       setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value })
     }
-    // if (e.target.name === 'healthScore') {
-    //   setNewRecipe((state) => {
-    //     state = { ...newRecipe, [e.target.name]: e.target.value }
-    //   })
-    // }
+    if (e.target.name === 'summary') {
+      setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value })
+    }
+    if (e.target.name === 'healthScore') {
+      setNewRecipe((state) => {
+        state = { ...newRecipe, [e.target.name]: e.target.value }
+      })
+    }
     // if (e.target.name === 'img') {
     //   setNewRecipe((state) => {
     //     state = { ...newRecipe, [e.target.name]: e.target.value }
