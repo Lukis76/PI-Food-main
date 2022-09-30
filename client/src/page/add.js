@@ -1,3 +1,5 @@
+// eslint-disable
+
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
@@ -28,9 +30,9 @@ export const Add = () => {
       setNewRecipe({ ...newRecipe, [e.target.name]: e.target.value })
     }
     if (e.target.name === 'healthScore') {
-      setNewRecipe((state) => {
-        state = { ...newRecipe, [e.target.name]: e.target.value }
-      })
+
+      // const result = {...newRecipe, [e.target.name]: e.target.value}
+      setNewRecipe({...newRecipe, [e.target.name]: e.target.value})
     }
     // if (e.target.name === 'img') {
     //   setNewRecipe((state) => {
@@ -91,6 +93,7 @@ export const Add = () => {
             max={100}
             onChange={handleChenge}
           />
+          <span>{newRecipe.healthScore}</span>
         </label>
         <label>
           <textarea
@@ -155,9 +158,12 @@ const ContentAdd = styled.div`
   ${center()}
   form {
     ${center()}
+    width: 100%;
     label {
       ${center()}
       padding: 0.5rem;
+      width: 90%;
+      max-width: 30rem;
       textarea {
         width: 90%;
 
