@@ -4,6 +4,6 @@ import axios from 'axios'
 export const postRecipe = (data) => (dispatch) => {
   axios
     .post(`http://localhost:3088/recipes`, data)
-    .then((res) => res)
+    .then((res) => console.log('dispatch post' ))
     .catch((err) => console.error(err))
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
+import { BrtNewRecipe } from './brtNewRecipe'
 import { Mode } from './mode'
 import { SearchBar } from './searchBar'
 
@@ -8,6 +9,7 @@ export const NavBar = ({setTheme}) => {
     <ContentNavBar>
       <SearchBar />
       <Mode setTheme={setTheme}/>
+      <BrtNewRecipe/>
 
     </ContentNavBar>
   )

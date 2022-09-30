@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
+  console.log('ejecutando el post a nivel bak-end')
   const {
     name,
     summary,
@@ -46,15 +47,15 @@ router.post('/', async (req, res) => {
   try {
     const createRecipe = await Recipe.create({
       name,
-      summary,
-      healthScore,
-      img,
-      steps,
-      diets,
-      glutenFree,
-      dairyFree,
-      vegan,
-      vegetarian,
+      // summary,
+      // healthScore,
+      // img,
+      // steps,
+      // diets,
+      // glutenFree,
+      // dairyFree,
+      // vegan,
+      // vegetarian,
     })
 
     const dietDB = await Diet.findAll({
@@ -75,8 +76,7 @@ router.post('/', async (req, res) => {
 
     createRecipe.addDiet(dietDB)
 
-    res.send("Successfully created a new Recipe !")
-
+    res.send('Successfully created a new Recipe !')
   } catch (error) {}
 })
 
