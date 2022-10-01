@@ -16,9 +16,23 @@ export const light = {
     blank: '#50514f;',
     blueLight: '#8fc93a;',
     grey: '#f25f5c;',
-    cardDietsH6: '',
-    cardDietsSpan: '',
+
+    /*----- section color cards ---------*/ 
+    // Title
+    titleBg: '#fefefe;',
+    titleH3: '#50514f;',
+
+
+    // Summary
+    sumaryBg: '#fefefe;',
+    summayP: '#50514f;',
+    
+    // Skill
+    cardDietsH6: '#50514f;',
+    cardDietsSpan: '#50514f;',
     cardDietsBg: '#8fc93a;',
+    /*----------------------------------*/ 
+
 
   },
   mode:`${center('row', 'flex-end')}` ,
