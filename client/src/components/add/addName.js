@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 
@@ -24,7 +23,7 @@ export const AddName = ({ setError, setNewRecipe, error }) => {
     } else {
       setError((state) => ({
         ...state,
-        name: true,
+        requiredFieldName: true,
       }))
     }
   }
@@ -51,6 +50,7 @@ const ContentAddName = styled.div`
   margin: 1rem 0;
   width: 100%;
   div {
+    ${center()}
     width: 100%;
     position: relative;
     label {

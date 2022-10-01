@@ -1,49 +1,26 @@
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 
-export const AddSummary = ({ setError, setNewRecipe, error }) => {
+export const AddSteps = ({ setError, setNewRecipe, error }) => {
+  
+  
   const handleChange = (e) => {
-    if (e.target.value.length > 5) {
-      setError((state) => ({ ...state, validSummary: '' }))
-    }
     setNewRecipe((state) => ({ ...state, [e.target.name]: e.target.value }))
   }
-  const handleBlur = (e) => {
-    if (e.target.value === '') {
-      setError((state) => ({
-        ...state,
-        validSummary: 'recipe description is requered',
-      }))
-    } else if (e.target.value.length < 11) {
-      setError((state) => ({
-        ...state,
-        validSummary:
-          'the recipe description must contain at last 10 characters',
-      }))
-    } else {
-      setError((state) => ({
-        ...state,
-        requiredFieldSummary: true,
-      }))
-    }
-  }
+
+
   return (
-    <ContentAdSummary>
+    <ContetAddSteps>
       <div>
-        <textarea
-          name='summary'
-          placeholder=' '
-          onChange={handleChange}
-          onBlur={handleBlur}
-        />
-        <label>Summary</label>
+        <textarea name='step' placeholder=' ' onChange={handleChange} />
+        <label>Steps</label>
       </div>
-      <p>{error.validSummary}</p>
-    </ContentAdSummary>
+      <p>{}</p>
+    </ContetAddSteps>
   )
 }
 
-const ContentAdSummary = styled.div`
+const ContetAddSteps = styled.div`
   ${center()}
   width: 100%;
   margin: 0.5rem 0;

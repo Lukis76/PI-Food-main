@@ -5,9 +5,9 @@ import { center } from '../../style/shorcuts'
 export const AddHealthScore = () => {
   const [value, setValue] = useState(1)
 
-  const handleChenge = (e) => {
+  const handleChange = (e) => {
     e.preventDefault()
-    setValue((state) => (state = e.target.value))
+    setValue(() => e.target.value)
   }
   return (
     <ContentAddHealthScore>
@@ -19,7 +19,7 @@ export const AddHealthScore = () => {
           defaultValue={1}
           min={1}
           max={100}
-          onChange={handleChenge}
+          onChange={handleChange}
         />
         <span>{value}</span>
       </div>

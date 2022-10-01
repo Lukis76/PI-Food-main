@@ -6,28 +6,30 @@ import styled from 'styled-components'
 import { center } from '../style/shorcuts'
 import { useNavigate } from 'react-router-dom'
 import { postRecipe } from '../app/actions/postRecipe'
-import { AddDiets } from '../components/add/aadDiets'
+import { AddDiets } from '../components/add/addDiets'
 import { AddName } from '../components/add/addName'
 import { AddSummary } from '../components/add/addSummary'
 import { AddHealthScore } from '../components/add/addHealthScore'
 import { AddImg } from '../components/add/addImg'
+import { AddSteps } from '../components/add/addSteps'
+import { useEffect } from 'react'
+import { getTypes } from '../app/actions/getTypes'
 
 export const Add = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
+ 
+
   const [error, setError] = useState({
-    name: false,
+    requiredFieldName: false,
+    requiredFieldSummary: false,
+    extraFields: false,
     validName: '',
-    summary: false,
     validSummary: '',
-    healthScore: false,
     validHealthScore: '',
-    steps: false,
     validSteps: '',
-    img: false,
     validImg: '',
-    diets: false,
     validDiets: '',
   })
   const [newRecipe, setNewRecipe] = useState({
@@ -78,16 +80,16 @@ export const Add = () => {
           setNewRecipe={setNewRecipe}
           newRecipe={newRecipe}
         />
-        <label>
-          <textarea
-            name='step'
-            cols='30'
-            rows='10'
-            // onChange={handleChenge}
-          ></textarea>
-        </label>
-
-        <AddDiets />
+        <AddSteps
+          setError={setError}
+          setNewRecipe={setNewRecipe}
+          newRecipe={newRecipe}
+        />
+        <AddDiets
+          setError={setError}
+          setNewRecipe={setNewRecipe}
+          newRecipe={newRecipe}
+        />
         <button type='submit'>Add Recipe</button>
       </form>
     </ContentAdd>

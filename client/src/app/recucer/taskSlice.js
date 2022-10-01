@@ -20,7 +20,9 @@ export const taskSlice = createSlice({
       state.recipesAll = action.payload
     },
     setGetTypes: (state, action) => {
+
       state.types = action.payload
+
     },
     // setGetDataBase: (state, action) => {
     //   state.dataBase = action.payload
