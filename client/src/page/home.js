@@ -27,9 +27,9 @@ export const Home = ({ setTheme }) => {
   // const current = recipes.length ? recipes.slice(firstPage, lastPage) : []
 
   useEffect(() => {
-    // dispatch(getRecipesAll())
-    // dispatch(getTypes())
-  }, [dispatch])
+    dispatch(getRecipesAll())
+    dispatch(getTypes())
+  }, [])
 
   return (
     <ContentHome>
@@ -38,19 +38,19 @@ export const Home = ({ setTheme }) => {
       </header>
 
       <section>
-      <NextPage
-        // recipesLength={recipes.length}
-        page={page}
-        perPage={perPage}
-        setPage={setPage}
-        max={max}
-      />
-      <Filter
-        types={types}
-        setPage={setPage}
-        perPage={perPage}
-        setPerPage={setPerPage}
-      />
+        <NextPage
+          // recipesLength={recipes.length}
+          page={page}
+          perPage={perPage}
+          setPage={setPage}
+          max={max}
+        />
+        <Filter
+          types={types}
+          setPage={setPage}
+          perPage={perPage}
+          setPerPage={setPerPage}
+        />
       </section>
       <main>
         {recipes
@@ -80,7 +80,6 @@ export const Home = ({ setTheme }) => {
         perPage={perPage}
         setPage={setPage}
         max={max}
-
       />
     </ContentHome>
   )
