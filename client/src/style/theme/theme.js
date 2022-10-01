@@ -15,7 +15,11 @@ export const light = {
     blueMidu: '#ffe066;',
     blank: '#50514f;',
     blueLight: '#8fc93a;',
-    grey: '#f25f5c;'
+    grey: '#f25f5c;',
+    cardDietsH6: '',
+    cardDietsSpan: '',
+    cardDietsBg: '#8fc93a;',
+
   },
   mode:`${center('row', 'flex-end')}` ,
 }
