@@ -17,6 +17,12 @@ export const light = {
     blueLight: '#8fc93a;',
     grey: '#f25f5c;',
     /*----------- landig page----- ---------*/ 
+    // Mode
+    modeBg: '#fefefe',
+    modeBtn: '#247ba0',
+    /*--------------------------------------*/ 
+
+    /*----------- landig page----- ---------*/ 
     // button
     btnStart: '#09f;',
     btnString: '#000000aa;',
