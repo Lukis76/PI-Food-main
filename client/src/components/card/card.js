@@ -17,15 +17,15 @@ export const Card = ({
 }) => {
   return (
     <ContentCard>
-      <img src={img} alt={name} />
-      <div>
+      <Image src={img} alt={name} />
+      <Title>
         <h3>{name}</h3>
-      </div>
-      <section>
-        <p dangerouslySetInnerHTML ={{__html: summary}}></p>
+      </Title>
+      <ContSummary>
+        <p dangerouslySetInnerHTML={{ __html: summary }}></p>
         {/* <h6>{types}</h6>
         <h6>{diets}</h6> */}
-      </section>
+      </ContSummary>
       <Skill
         healthScore={healthScore}
         glutenFree={glutenFree}
@@ -43,38 +43,44 @@ const ContentCard = styled.div`
   border-radius: 0.7rem 0.7rem 0 0;
   width: 100%;
   max-width: 18rem;
+
   &:hover {
     scale: 1.05;
-    transition: all .2s ease-out;
+    transition: scale 0.2s ease-out;
   }
-  img {
-    width: 100%;
+`
+const Image = styled.img`
+  width: 100%;
 
-    border-radius: 0.7rem 0.7rem 0 0;
+  border-radius: 0.7rem 0.7rem 0 0;
+`
+
+const Title = styled.div`
+  ${center('row')}
+  width: 100%;
+  padding:.5rem 0.5rem 0 .5rem;
+  background: ${(props) => props.theme.color.titleBg};
+  h3 {
+    text-align: center;
+    color: ${(props) => props.theme.color.titleH3};
   }
-  div {
-    ${center('row')}
+`
+
+const ContSummary = styled.section`
+  ${center()}
+  height: 100%;
+  padding: 0 .5rem .5rem 0.5rem;
+
+  width: 100%;
+  background: ${props => props.theme.color.summaryBg};
+  p {
     width: 100%;
-    padding: 0.5rem;
-    background: ${(props) => props.theme.color.blank};
-    h3 {
-      text-align: center;
-    }
-  }
-  section {
-    ${center()}
-    height: 6rem;
-    width: 100%;
-    background: green;
-    p {
-      /* font-size: 1rem; */
-      width: 100%;
-      padding: 0 1rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-    }
+    padding: 0 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: ${props => props.theme.color.summaryP}
   }
 `

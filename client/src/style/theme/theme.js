@@ -14,7 +14,7 @@ export const light = {
   color: {
     blueMidu: '#ffe066;',
     blank: '#50514f;',
-    blueLight: '#8fc93a;',
+    blueLight: '#8fc93aee;',
     grey: '#f25f5c;',
     /*----------- landig page----- ---------*/ 
     // Mode

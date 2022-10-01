@@ -8,14 +8,14 @@ export const NavBar = ({setTheme}) => {
   return (
     <ContentNavBar>
       <SearchBar />
-      <Mode setTheme={setTheme}/>
       <BrtNewRecipe/>
+      <Mode setTheme={setTheme}/>
 
     </ContentNavBar>
   )
 }
 
 const ContentNavBar = styled.div`
-${center('row',"space-be")}
-
+${center('row',"space-evenly")}
+margin: 1rem;
 `

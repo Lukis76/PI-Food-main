@@ -11,51 +11,48 @@ export const Skill = ({
 }) => {
   return (
     <ContentSkill>
-      <div>
-        <div>
-          <h6>
-          <SvgHealthScore/>
-          </h6> <span>{healthScore}</span>
-        </div>
-        <div>
-          <h6>gluten free</h6> <span>{glutenFree ? 'True' : 'False'}</span>
-        </div>
-        <div>
-          <h6>dairy free</h6> <span>{dairyFree ? 'True' : 'False'}</span>
-        </div>
-        <div>
-          <h6>vegan</h6> <span>{vegan ? 'True' : 'False'}</span>
-        </div>
-        <div>
-          <h6>vegetarian</h6> <span>{vegetarian ? 'True' : 'False'}</span>
-        </div>
-      </div>
+      <Box>
+        <h6>
+          <SvgHealthScore />
+        </h6>
+        <span>{healthScore}</span>
+      </Box>
+      <Box>
+        <h6>gluten free</h6> <span>{glutenFree ? 'True' : 'False'}</span>
+      </Box>
+      <Box>
+        <h6>dairy free</h6> <span>{dairyFree ? 'True' : 'False'}</span>
+      </Box>
+      <Box>
+        <h6>vegan</h6> <span>{vegan ? 'True' : 'False'}</span>
+      </Box>
+      <Box>
+        <h6>veget.</h6> <span>{vegetarian ? 'True' : 'False'}</span>
+      </Box>
     </ContentSkill>
   )
 }
 
 const ContentSkill = styled.div`
   width: 100%;
-
-  /* padding: 0; */
   border-radius: 0 0 0.7rem 0.7rem;
-  background: ${(props) => props.theme.color.grey};
-div {
-  ${center('row')}
-  /* padding: 0.5rem; */
-  div {
-    height: 4rem;
-    ${center('column', 'space-between')}
-    justify-content: space-between;
-    h6 {
-      text-align: center;
-      font-size: 0.75rem;
-      height: min-content;
-    }
-    span {
-      font-weight: 700;
-      /* align-self: stretch; */
-    }
+  background: ${(props) => props.theme.color.cardDietsBg};
+  ${center('row', 'space-evenly')}
+`
+const Box = styled.div`
+  ${center('column')}
+  justify-content: space-between;
+  height: 100%;
+  padding: 0.5rem 0;
+  h6 {
+    width: min-content;
+    text-align: center;
+    font-size: 0.85rem;
+    color: ${props => props.theme.color.cardDietsH6}
   }
-}
+  span {
+    font-weight: 700;
+    color: ${props => props.theme.color.cardDietsSpan}
+
+  }
 `

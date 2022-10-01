@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { center } from '../style/shorcuts'
+import { center, S } from '../style/shorcuts'
 import { dark } from '../style/theme/theme'
 import { Link } from 'react-router-dom'
 
