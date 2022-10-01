@@ -12,6 +12,10 @@ export const GlobalStyle = createGlobalStyle`
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   border: none;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+}
+.img-active {
+  background: #0072bb66;
 }
 body, #root, .App {
   min-height: 100vh;

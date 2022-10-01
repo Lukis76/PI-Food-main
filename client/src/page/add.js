@@ -4,12 +4,24 @@ import styled from 'styled-components'
 import { center } from '../style/shorcuts'
 import { Link, useHistory, useNavigate } from 'react-router-dom'
 import { postRecipe } from '../app/actions/postRecipe'
+import { AddDiets } from '../components/add/aadDiets'
+import { AddName } from '../components/add/addName'
+import { AddSummary } from '../components/add/addSummary'
+import { AddHealthScore } from '../components/add/addHealthScore'
+import { AddImg } from '../components/add/addImg'
 
 export const Add = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const diets = useSelector((state) => state.diets)
-
+const [error, setError] = useState({
+  name: false,
+  summary: false,
+  healthScore: false,
+  steps: false,
+  img: false,
+  diets: false,
+})
   const [newRecipe, setNewRecipe] = useState({
     name: '',
     summary: '',
@@ -17,6 +29,7 @@ export const Add = () => {
     steps: [],
     img: '',
     diet: [],
+    createdb: true
   })
   console.log('init => ', newRecipe)
   const handleChenge = (e) => {
@@ -69,29 +82,10 @@ export const Add = () => {
   return (
     <ContentAdd>
       <form onSubmit={handleSubmit}>
-        <label>
-          new recipe
-          <input type='text' name='name' onChange={handleChenge} />
-        </label>
-        <label>
-          summary
-          <textarea
-            name='summary'
-            cols='30'
-            rows='10'
-            onChange={handleChenge}
-          ></textarea>
-        </label>
-        <label>
-          health Score
-          <input
-            type='range'
-            name='healthScore'
-            min={1}
-            max={100}
-            onChange={handleChenge}
-          />
-        </label>
+        <AddName />
+        <AddSummary />
+        <AddHealthScore />
+        <AddImg />
         <label>
           <textarea
             name='step'
@@ -100,11 +94,8 @@ export const Add = () => {
             onChange={handleChenge}
           ></textarea>
         </label>
-        <label>
-          <input type='text' name='img' onChange={handleChenge} />
-        </label>
-      
 
+        <AddDiets />
         <button type='submit'>Add Recipe</button>
       </form>
     </ContentAdd>
@@ -113,23 +104,11 @@ export const Add = () => {
 
 const ContentAdd = styled.div`
   ${center()}
+  min-height: 100vh;
   form {
     ${center()}
-    label {
-      ${center()}
-      padding: 0.5rem;
-      textarea {
-        width: 90%;
-
-        padding: .3rem;
-        border-radius: 0.5rem;
-      }
-      input {
-        width: 90%;
-        font-size: 1rem;
-        padding: .3rem;
-        border-radius: 0.5rem;
-      }
-    }
+    background: #ffffffea;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
   }
 `
