@@ -24,7 +24,7 @@ export const light = {
 
 
     // Summary
-    sumaryBg: '#fefefe;',
+    summaryBg: '#fefefe;',
     summayP: '#50514f;',
     
     // Skill
