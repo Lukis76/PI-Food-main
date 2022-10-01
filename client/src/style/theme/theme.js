@@ -16,6 +16,13 @@ export const light = {
     blank: '#50514f;',
     blueLight: '#8fc93a;',
     grey: '#f25f5c;',
+    /*----------- landig page----- ---------*/ 
+    // button
+    btnStart: '#09f;',
+    btnString: '#000000aa;',
+    /*--------------------------------------*/ 
+
+
 
     /*----- section color cards ---------*/ 
     // Title
