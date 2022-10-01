@@ -17,7 +17,7 @@ export const App = () => {
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<Home setTheme={setTheme} />} />
         <Route path='/add' element={<Add />} />
-        <Route path='/deatils' element={<Details />} />
+        <Route path='/details' element={<Details />} />
         <Route path='/about' element={<About />} />
       </Routes>
     </ThemeProvider>

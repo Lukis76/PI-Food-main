@@ -6,14 +6,14 @@ import { getTypes } from '../../app/actions/getTypes'
 import { center } from '../../style/shorcuts'
 
 export const AddDiets = () => {
-  const diets = useSelector((state) => state.types)
-  const[diet, setDiet] = useState('')
+  const diets = useSelector((state) => state.tasks.types)
+  // const[diet, setDiet] = useState('')
   const dispatch = useDispatch()
   console.log('🚀 ~ file: addDiets.js ~ line 7 ~ AddDiets ~ diets', diets)
   useEffect(() => {
-    // dispatch(getTypes())
-    setDiet(diets)
-  }, [diets])
+    dispatch(getTypes())
+    // setDiet(diets)
+  }, [])
 
   const chimago = [
     'gluten free',
@@ -38,11 +38,8 @@ export const AddDiets = () => {
       </label> */}
 
         {
-         diet?.map((el) => {
-            console.log(
-              '🚀 ~ file: addDiets.js ~ line 41 ~ {diets?.map ~ el',
-              el
-            )
+         diets?.map((el) => {
+
 
             return (
               <label key={el}>

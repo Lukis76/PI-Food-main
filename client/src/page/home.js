@@ -29,7 +29,7 @@ export const Home = ({ setTheme }) => {
   useEffect(() => {
     dispatch(getRecipesAll())
     dispatch(getTypes())
-  }, [dispatch])
+  }, [])
 
   return (
     <ContentHome>
