@@ -5,6 +5,7 @@ import { useRef, useState } from 'react'
 export const AddImg = () => {
   let file = ''
   const [valid, setValid] = useState({
+    locura: 'automatica',
     imgextensionValid: '',
   })
   const inputRef = useRef()
@@ -26,10 +27,11 @@ export const AddImg = () => {
   const handleDrop = (e) => {
     e.preventDefault()
     if (e.dataTransfer.files.length) {
-      setValid({
-        ...valid,
+      setValid(state => {
+        return{
+        ...state,
         imgextensionValid: 'more than one file is not supported',
-      })
+      }})
     } else {
       const file = e.dataTransfer.files[0]
       processFile(file)
@@ -45,7 +47,7 @@ export const AddImg = () => {
       setValid({ ...valid, imgextensionValid: 'invalid file extension' })
     }
   }
-
+console.log('console programatico => ', valid)
   return (
     <ContentAddImg>
       <div
