@@ -1,15 +1,20 @@
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 
 export const AddDiets = () => {
+const diets = useSelector(state => state.diets)
+
+
+
   return (
     <ContentAddDiets>
       <label>
-        {/* {diets?.map((el) => (
+        {diets?.map((el) => (
       <input type='check' value={el.name}>
         {el.name}
       </input>
-    ))} */}
+    ))}
       </label>
       <label>
         <label>
