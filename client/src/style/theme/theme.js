@@ -25,11 +25,22 @@ export const dark = {
       /*----------------------------------------*/
   
       // Mode
-      modeBg: '#fefefe',
-      modeBtn: '#247ba0',
+      modeBg: '#fefefe;',
+      modeBtn: '#247ba0;',
       /*--------------------------------------*/ 
-  
-      /*----------- landig page----- ---------*/ 
+      
+      /*-----------  pagination--------------*/ 
+      // position
+      paginationBg: '#50514f;',
+      paginationText: '#fefefe;',
+
+      // next last pagination
+      paginationBtnBg: '#386641;',
+
+
+
+      /*--------------------------------------*/ 
+      /*----------- landig page--------------*/ 
       // button
       btnStart: '#09f;',
       btnString: '#000000aa;',
