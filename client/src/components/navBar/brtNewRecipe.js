@@ -5,7 +5,7 @@ export const BrtNewRecipe = () => {
   return (
     <ContentBtnNewrecipe>
       <Link to='/add'>
-        <Btn>Add New Recipe</Btn>
+        <Btn>Add Recipe</Btn>
       </Link>
     </ContentBtnNewrecipe>
   )
@@ -18,5 +18,12 @@ const Btn = styled.button`
   font-size: 1rem;
   font-weight: 700;
   padding: 0.5rem;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
+  background: ${props => props.theme.color.newRecipeBg};
+  color: ${props => props.theme.color.newRecipeText};
+  opacity: .9;
+  &:hover {
+    scale: 1.1;
+    transition: scale .2s ease-out;
+  }
 `

@@ -38,7 +38,7 @@ export const SearchBar = () => {
         <BtnSearch 
         // type='submit'
         >
-          {/* <SvgSearch height={28} width={28} /> */}
+          <SvgSearch height={28} width={28} />
         </BtnSearch>
       </form>
     </ContentSearchBar>
@@ -69,7 +69,7 @@ const BtnSearch = styled.button`
   ${center()}
   padding: 0 .3rem 0 .5rem;
   border-radius: 0 0.3rem 0.3rem 0;
-  height: 1.95rem;
+  height: 100%;
   background-color: ${(props) => props.theme.color.inputBtnBg};
   color: ${(props) => props.theme.color.btnText};
 `

@@ -7,13 +7,22 @@ export const dark = {
       blueLight: '#8fc93aee;',
       grey: '#f25f5c;',
       /*--------------- nav bar ---------------*/ 
+      /*----------------------------------------*/
       // Sesrch bar
       inputText: '',
       inputBg: '#fefefe;',
       // button
       inputBtnText: '',
       inputBtnBg: '#fefefe;',
-  
+      /*----------------------------------------*/
+      // btn new recipe
+      newRecipeBg: '#e18335;',
+      newRecipeText: '#fefefe;',
+
+
+
+
+      /*----------------------------------------*/
   
       // Mode
       modeBg: '#fefefe',
