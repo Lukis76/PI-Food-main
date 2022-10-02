@@ -1,5 +1,5 @@
 export const SvgCheckTrue = (props) => (
-  <svg viewBox='0 0 48 48' width={32} height={32} {...props}>
+  <svg viewBox='0 0 48 48' width={24} height={24} {...props}>
     <path
       fill='#c8e6c9'
       d='M44 24c0 11.045-8.955 20-20 20S4 35.045 4 24 12.955 4 24 4s20 8.955 20 20z'

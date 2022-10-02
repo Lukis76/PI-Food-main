@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { SvgHealthScore } from '../../assets/svg/svgHealthScore'
 import { center } from '../../style/shorcuts'
+import { SvgCheckTrue } from '../../assets/svg/checkTrue'
+import { SvgCheckFalse } from '../../assets/svg/checkFalse'
 
 export const Skill = ({
   healthScore,
@@ -18,16 +20,20 @@ export const Skill = ({
         <span>{healthScore}</span>
       </Box>
       <Box>
-        <h6>gluten free</h6> <span>{glutenFree ? 'True' : 'False'}</span>
+        <h6>gluten free</h6>
+        {glutenFree ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
       <Box>
-        <h6>dairy free</h6> <span>{dairyFree ? 'True' : 'False'}</span>
+        <h6>dairy free</h6>
+        {dairyFree ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
       <Box>
-        <h6>vegan</h6> <span>{vegan ? 'True' : 'False'}</span>
+        <h6>vegan</h6>
+        {vegan ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
       <Box>
-        <h6>veget.</h6> <span>{vegetarian ? 'True' : 'False'}</span>
+        <h6>veget.</h6>
+        {vegetarian ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
     </ContentSkill>
   )
@@ -48,11 +54,11 @@ const Box = styled.div`
     width: min-content;
     text-align: center;
     font-size: 0.85rem;
-    color: ${props => props.theme.color.cardDietsH6}
+    color: ${(props) => props.theme.color.cardDietsH6};
   }
   span {
     font-weight: 700;
-    color: ${props => props.theme.color.cardDietsSpan}
+    color: ${(props) => props.theme.color.cardDietsSpan}
 
   }
 `

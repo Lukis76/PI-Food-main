@@ -17,15 +17,17 @@ export const Card = ({
 }) => {
   return (
     <ContentCard>
+
       <Image src={img} alt={name} />
+
       <Title>
         <h3>{name}</h3>
       </Title>
+
       <ContSummary>
         <p dangerouslySetInnerHTML={{ __html: summary }}></p>
-        {/* <h6>{types}</h6>
-        <h6>{diets}</h6> */}
       </ContSummary>
+
       <Skill
         healthScore={healthScore}
         glutenFree={glutenFree}
@@ -33,6 +35,7 @@ export const Card = ({
         vegan={vegan}
         vegetarian={vegetarian}
       />
+
     </ContentCard>
   )
 }
@@ -79,6 +82,7 @@ const ContSummary = styled.section`
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
+
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     color: ${props => props.theme.color.summaryP}
