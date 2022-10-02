@@ -1,29 +1,42 @@
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { filterdb } from '../app/actions/filterdb'
 import { filterOrder } from '../app/actions/filterOrder'
 import { getFilterDiet } from '../app/actions/getFilterDiet'
-import { getRecipesAll } from '../app/actions/getRecipesAll'
+import { orderScore } from '../app/actions/orderScore'
 import { center } from '../style/shorcuts'
 
 export const Filter = ({ types, setPage, perPage, setPerPage }) => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 
-  const handleFilterDiet = (e) => {
+  
+  
+  const handleOrder = (e) => {            // handleOrderByName
+    dispatch(filterOrder(e.target.value))
+    setPage(1)
+  }
+
+  const handleFilterDiet = (e) => {       // handleFilterDiets
     dispatch(getFilterDiet(e.target.value))
     setPage(1)
   }
+
+  const handleHealthScore = (e) => {      // handleHealthScore
+  dispatch(orderScore(e.target.value))
+  setPage(1)
+  }
+
+  const handleCreated = (e) => {        // handleCreated
+  dispatch(filterdb(e.target.value))
+
+  }
+
   const handleItems = (e) => {
     console.log('number items => ', e.target.value)
     setPerPage(e.target.value.toString())
     setPage(1)
   }
-
-  const handleOrder = (e) => {
-    dispatch(filterOrder(e.target.value))
-    setPage(1)
-  }
-
   return (
     <ContentFilter>
       <div>
@@ -33,6 +46,22 @@ export const Filter = ({ types, setPage, perPage, setPerPage }) => {
           </option>
           <option value='A-z'>A-z</option>
           <option value='Z-a'>Z-a</option>
+        </select>
+      </div>
+
+      <div>
+        <select defaultValue='all' onChange={handleHealthScore} >
+          <option disabled value="all">all</option>
+          <option value="lower">Lower</option>
+          <option value="higher">Higher</option>
+        </select>
+      </div>
+
+      <div>
+        <select defaultValue='all' onChange={handleCreated} >
+          <option value="api">Api</option>
+          <option disabled value="all">all</option>
+          <option value="db">db</option>
         </select>
       </div>
 

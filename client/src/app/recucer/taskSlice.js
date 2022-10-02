@@ -20,9 +20,7 @@ export const taskSlice = createSlice({
       state.recipesAll = action.payload
     },
     setGetTypes: (state, action) => {
-
       state.types = action.payload
-
     },
     // setGetDataBase: (state, action) => {
     //   state.dataBase = action.payload
@@ -46,6 +44,16 @@ export const taskSlice = createSlice({
         if (el.name.toLowerCase().includes(action.payload)) return el
       })
     },
+    setFilterDataBase: (state, action) => {
+      const alldb = state.recipesAll
+
+      const filterAlldb =
+        action.payload === 'db'
+          ? alldb.filter((el) => el.createdb === true)
+          : alldb.filter((el) => el.createdb === false)
+
+      state.recipes = action.payload === 'all' ? state.recipesAll : filterAlldb
+    },
     setOrderScore: (state, action) => {
       const recipeScore =
         action.payload === 'SSc'
@@ -63,7 +71,6 @@ export const taskSlice = createSlice({
     setFilterOrder: (state, action) => {
       const recipesOrder =
         action.payload === 'A-z'
-        
           ? state.recipesAll.sort((a, b) => {
               if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
               else return -1
