@@ -100,13 +100,30 @@ const ContentAdd = styled.div`
   ${center()}
   min-height: 100vh;
   form {
+    width: 100%;
+    max-width: 25rem;
     ${center()}
-    background: #ffffffea;
+    background: ${props => props.theme.color.addFormBg};
     padding: 1rem 2rem;
     border-radius: 1rem;
+    @media (max-width: 400px) {
+    border-radius: 0;
+    }
   }
 `
 const Btn = styled.button`
-
-
+font-size: 1.2rem;
+font-weight: 700;
+text-align: center;
+margin: 1rem;
+padding: .5rem 1rem;
+border-radius: .5rem;
+color: ${props => props.theme.color.addBtnText};
+background: ${props => props.theme.color.addBtnBg};
+opacity: .7;
+&:hover {
+  opacity: 1.5;
+  scale: 1.05;
+  transition: all .2s ease;
+}
 `

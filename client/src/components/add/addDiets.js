@@ -1,46 +1,28 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+// import { useState } from 'react'
+// import { useEffect } from 'react'
+import { 
+  // useDispatch, 
+  useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { getTypes } from '../../app/actions/getTypes'
+// import { getTypes } from '../../app/actions/getTypes'
 import { center } from '../../style/shorcuts'
 
 export const AddDiets = () => {
   const diets = useSelector((state) => state.tasks.types)
   // const[diet, setDiet] = useState('')
-  const dispatch = useDispatch()
-  console.log('🚀 ~ file: addDiets.js ~ line 7 ~ AddDiets ~ diets', diets)
-  useEffect(() => {
-    dispatch(getTypes())
-    // setDiet(diets)
-  }, [])
+  // const dispatch = useDispatch()
+  // console.log('🚀 ~ file: addDiets.js ~ line 7 ~ AddDiets ~ diets', diets)
+  // useEffect(() => {
+  //   dispatch(getTypes())
+  //   // setDiet(diets)
+  // }, [])
 
-  const chimago = [
-    'gluten free',
-    'dairy free',
-    'lacto ovo vegetarian',
-    'vegan',
-    'paleolithic',
-    'primal',
-    'whole 30',
-    'pescatarian',
-    'ketogenic',
-    'fodmap friendly',
-  ]
+
   return (
     <ContentAddDiets>
-      <label>
-        {/* {diets?.map((el) => (
-      <input type='check' value={el.name}>
-        {el.name}
-      </input>
-    ))}
-      </label> */}
-
+      <div>
         {
          diets?.map((el) => {
-
-
             return (
               <label key={el}>
                 <input
@@ -53,21 +35,24 @@ export const AddDiets = () => {
             )
           })
         }
-      </label>
+      </div>
     </ContentAddDiets>
   )
 }
 const ContentAddDiets = styled.div`
   width: 100%;
-  label {
+  div {
     ${center()}
     label {
       ${center('row', 'flex-start')}
       width: 100%;
       p {
+        font-weight: 600;
+        margin-left: .5rem;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+        color : ${props => props.theme.color.addDietsPText}
       }
     }
   }

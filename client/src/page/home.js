@@ -19,15 +19,15 @@ export const Home = ({ setTheme, theme }) => {
   const max = Math.ceil(recipes.length / perPage)
 
   useEffect(() => {
-    dispatch(getRecipesAll())
-    dispatch(getTypes())
+    // dispatch(getRecipesAll())
+    // dispatch(getTypes())
   }, [])
 
   return (
     <ContentHome>
       <NavBar setTheme={setTheme} theme={theme} />
       <Box>
-        <div>
+        <Content>
           <Filter
             types={types}
             setPage={setPage}
@@ -35,7 +35,7 @@ export const Home = ({ setTheme, theme }) => {
             setPerPage={setPerPage}
           />
           <NextPage page={page} perPage={perPage} setPage={setPage} max={max} />
-        </div>
+        </Content>
         <ConstentCars perPage={perPage} page={page} recipes={recipes} />
 
         <NextPage page={page} perPage={perPage} setPage={setPage} max={max} />
@@ -51,5 +51,9 @@ const ContentHome = styled.div`
 const Box = styled.div`
   ${center('column', 'space-between')}
   min-height: 90vh;
+  /* height: 100%; */
   width: 100%;
+`
+const Content = styled.div`
+  ${center()}
 `

@@ -34,7 +34,9 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
 
 const ContentNextPage = styled.div`
   ${center('row', 'space-between')}
+  margin-bottom: .8rem;
   border-radius: .5rem;
+  width: 90%;
   opacity: .9;
   background: ${(props) => props.theme.color.paginationBg};
 `

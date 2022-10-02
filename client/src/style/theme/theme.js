@@ -64,9 +64,20 @@ export const dark = {
       cardDietsSpan: '#50514f;',
       cardDietsBg: '#8fc93a;',
       /*----------------------------------*/ 
-  
-  },
-  mode:`${center('row', 'flex-start')}` ,
+      /*-------------- add recipe -----------*/ 
+      // Form 
+      addFormBg: '#ffffffc0',
+
+      // Diets
+      addDietsPText: '#50514f',
+
+      // Button submit
+      addBtnText: '#fefefe',
+      addBtnBg:  '#09f',
+
+      /*--------------------------------------*/ 
+    },
+    mode:`${center('row', 'flex-start')}` ,
 
 }
 
