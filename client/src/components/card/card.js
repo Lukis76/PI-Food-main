@@ -15,7 +15,7 @@ export const Card = ({
   summary,
 }) => {
   return (
-    <Link>
+    <Link className='contentCard'>
       <ContentCard>
         <Image src={img} alt={name} />
 
@@ -39,8 +39,9 @@ export const Card = ({
   )
 }
 
-const ContentCard = styled(Link)`
+const ContentCard = styled.div`
   ${center()}
+  height: 100%;
   width: min-content;
   border-radius: 0.7rem 0.7rem 0 0;
   width: 100%;

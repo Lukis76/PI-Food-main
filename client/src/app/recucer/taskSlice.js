@@ -49,14 +49,14 @@ export const taskSlice = createSlice({
 
       const filterAlldb =
         action.payload === 'db'
-          ? alldb.filter((el) => el.createdb === true)
-          : alldb.filter((el) => el.createdb === false)
+          ? alldb.filter((el) => el.createdb )
+          : alldb.filter((el) => !el.createdb)
 
       state.recipes = action.payload === 'all' ? state.recipesAll : filterAlldb
     },
     setOrderScore: (state, action) => {
       const recipeScore =
-        action.payload === 'SSc'
+        action.payload === 'lower'
           ? state.recipesAll.sort((a, b) => {
               if (a.score - b.score < 0) return 1
               else return -1
@@ -71,11 +71,11 @@ export const taskSlice = createSlice({
     setFilterOrder: (state, action) => {
       const recipesOrder =
         action.payload === 'A-z'
-          ? state.recipesAll.sort((a, b) => {
+          ? state.recipes.sort((a, b) => {
               if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
               else return -1
             })
-          : state.recipesAll.sort((a, b) => {
+          : state.recipes.sort((a, b) => {
               if (a.name.toLowerCase() < b.name.toLowerCase()) return 1
               else return -1
             })
