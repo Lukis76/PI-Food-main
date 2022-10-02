@@ -40,19 +40,14 @@ export const ConstentCars = ({ perPage, page, recipes }) => {
 }
 
 const ContentCard = styled.div`
-margin-top: .5rem;
+  margin-top: 0.5rem;
   ${center()}
   width: 100%;
   height: 100%;
 `
 const GridCards = styled.section`
-  /* padding: 2rem; */
   width: 100%;
-  /* margin: .5rem 0; */
-  /* place-content: center; */
   gap: 1rem;
-  /* grid-auto-rows: 28rem; */
-  /* grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); */
   display: grid;
   grid-template-columns: repeat(auto-fit, 18rem);
   justify-content: center;

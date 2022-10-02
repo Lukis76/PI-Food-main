@@ -25,4 +25,8 @@ body, #root, .App {
   background-size: cover;
   background-image: url(${img});
 }
+a {
+  text-decoration: none;
+  outline: none;
+}
 `

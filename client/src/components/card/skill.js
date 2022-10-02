@@ -42,12 +42,11 @@ export const Skill = ({
 const ContentSkill = styled.div`
   width: 100%;
   border-radius: 0 0 0.7rem 0.7rem;
-  background: ${(props) => props.theme.color.cardDietsBg};
   ${center('row', 'space-evenly')}
+  background: ${(props) => props.theme.color.cardDietsBg};
 `
 const Box = styled.div`
-  ${center('column')}
-  justify-content: space-between;
+  ${center('column', 'space-between')}
   height: 100%;
   padding: 0.5rem 0;
   h6 {
@@ -58,7 +57,6 @@ const Box = styled.div`
   }
   span {
     font-weight: 700;
-    color: ${(props) => props.theme.color.cardDietsSpan}
-
+    color: ${(props) => props.theme.color.cardDietsSpan};
   }
 `
