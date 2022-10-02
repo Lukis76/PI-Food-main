@@ -122,6 +122,7 @@ export const {
   setGetStateID,
   setGetTypes,
   setOrderScore,
+  setFilterDataBase
 } = taskSlice.actions
 
 export default taskSlice.reducer
