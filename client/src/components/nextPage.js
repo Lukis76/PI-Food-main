@@ -1,15 +1,23 @@
+import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { center } from '../style/shorcuts'
 
 export const NextPage = ({ perPage, page, setPage, max }) => {
-  // const numPage = []
-  // for (let i = 0; i < Math.ceil(recipesLength / perPage); i++) {
-  // numPage.push(i + 1)
-  // }
+  const lastRef = useRef()
+  const nextRef = useRef()
+
+  useEffect(() => {
+    page < max
+      ? nextRef.current.classList.add('next_page')
+      : nextRef.current.classList.remove('next_page')
+    page < 2
+      ? lastRef.current.classList.add('last_page')
+      : lastRef.current.classList.remove('last_page')
+  }, [page])
 
   return (
     <ContentNextPage>
-      <Btn>last Page</Btn>
+      <Btn ref={lastRef}> &lt; last</Btn>
       <Content>
         {page > 2 && <div>...</div>}
         {page > 1 && <div>{page - 1}</div>}
@@ -17,9 +25,9 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
         {page < max && <div>{page + 1}</div>}
         {page < max - 1 && <div>...</div>}
         <div> | </div>
-        <div>{max}</div>
+        <div>{max || 1}</div>
       </Content>
-      <Btn>next Page</Btn>
+      <Btn ref={nextRef}>next &gt;</Btn>
     </ContentNextPage>
   )
 }
@@ -27,7 +35,7 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
 const ContentNextPage = styled.div`
   ${center('row', 'space-between')}
   border-radius: .5rem;
-  /* padding: 0.5rem 0; */
+  opacity: .9;
   background: ${(props) => props.theme.color.paginationBg};
 `
 const Content = styled.div`
@@ -36,12 +44,20 @@ const Content = styled.div`
     font-size: 1rem;
     font-weight: 700;
     padding: 0 0.5rem 0 0.5rem;
-    color: ${props => props.theme.color.paginationText}
+    color: ${(props) => props.theme.color.paginationText};
   }
 `
-
 const Btn = styled.button`
   font-size: 1rem;
   font-weight: 700;
-  padding: 0.5rem;
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+  color: ${(props) => props.theme.color.paginationBtnText};
+  background: ${(props) => props.theme.color.paginationBtnBg};
+  &:hover {
+    opacity: 0.6;
+  }
+  & ~ & {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
 `

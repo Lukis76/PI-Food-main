@@ -36,6 +36,7 @@ export const dark = {
 
       // next last pagination
       paginationBtnBg: '#386641;',
+      paginationBtnText: '#fefefe;',
 
 
 
