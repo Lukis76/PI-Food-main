@@ -47,7 +47,7 @@ const ContentSkill = styled.div`
 `
 const Box = styled.div`
   ${center('column', 'space-between')}
-  height: 100%;
+  height: 5rem;
   padding: 0.5rem 0;
   h6 {
     width: min-content;

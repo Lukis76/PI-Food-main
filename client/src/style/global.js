@@ -29,4 +29,10 @@ a {
   text-decoration: none;
   outline: none;
 }
+a:link {
+  color: #50514f;
+}
+a:visited {
+  color: #50514f;
+}
 `

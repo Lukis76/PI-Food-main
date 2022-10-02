@@ -39,10 +39,7 @@ export const Card = ({
   )
 }
 
-const ContentCard = styled.div`
-  text-decoration: none;
-  outline: none;
-
+const ContentCard = styled(Link)`
   ${center()}
   width: min-content;
   border-radius: 0.7rem 0.7rem 0 0;
