@@ -9,7 +9,7 @@ export const NextPage = ({ perPage,page, setPage, max }) => {
 
   return (
     <ContentNextPage>
-<button>last Page</button>
+<Btn>last Page</Btn>
     {/* <div>{perPage}</div> */}
     <div>{page <= 1 ? '' : "..."}</div>
     <div>{page <= 1 ? page : page - 1}</div>
@@ -18,7 +18,7 @@ export const NextPage = ({ perPage,page, setPage, max }) => {
     <div>{page >= 12 ? '' : "..."}</div>
     <div> | </div>
     <div>{max}</div>
-<button>next Page</button>
+<Btn>next Page</Btn>
       {/* {numPage.map((el) => {
         return (
           <div key={el} onClick={() => setPage(el)}>
@@ -38,5 +38,10 @@ background: ${props => props.theme.color.blank};
 div {
   padding: 0 .5rem 0 .5rem;
 }
+
+`
+const Btn =styled.button`
+
+
 
 `

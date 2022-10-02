@@ -1,22 +1,70 @@
 import { center } from '../shorcuts'
 
 export const dark = {
-  color: {
-    blueMidu: '#09f;',
-    blank: '#fefefe;',
-    blueLight: '#0072bb;',
-    grey: '#50514f'
-
+    color: {
+      blueMidu: '#ffe066;',
+      blank: '#50514f;',
+      blueLight: '#8fc93aee;',
+      grey: '#f25f5c;',
+      /*--------------- nav bar ---------------*/ 
+      // Sesrch bar
+      inputText: '',
+      inputBg: '#fefefe;',
+      // button
+      inputBtnText: '',
+      inputBtnBg: '#fefefe;',
+  
+  
+      // Mode
+      modeBg: '#fefefe',
+      modeBtn: '#247ba0',
+      /*--------------------------------------*/ 
+  
+      /*----------- landig page----- ---------*/ 
+      // button
+      btnStart: '#09f;',
+      btnString: '#000000aa;',
+      /*--------------------------------------*/ 
+  
+  
+  
+      /*----- section color cards ---------*/ 
+      // Title
+      titleBg: '#fefefe;',
+      titleH3: '#50514f;',
+  
+  
+      // Summary
+      summaryBg: '#fefefe;',
+      summayP: '#50514f;',
+      
+      // Skill
+      cardDietsH6: '#50514f;',
+      cardDietsSpan: '#50514f;',
+      cardDietsBg: '#8fc93a;',
+      /*----------------------------------*/ 
+  
   },
   mode:`${center('row', 'flex-start')}` ,
+
 }
+
+
 export const light = {
   color: {
     blueMidu: '#ffe066;',
     blank: '#50514f;',
     blueLight: '#8fc93aee;',
     grey: '#f25f5c;',
-    /*----------- landig page----- ---------*/ 
+    /*--------------- nav bar ---------------*/ 
+    // Sesrch bar
+    inputText: '',
+    inputBg: '#fefefe;',
+    // button
+    inputBtnText: '',
+    inputBtnBg: '#fefefe !important;',
+
+
     // Mode
     modeBg: '#fefefe',
     modeBtn: '#247ba0',

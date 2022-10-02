@@ -90,7 +90,7 @@ export const Add = () => {
           setNewRecipe={setNewRecipe}
           newRecipe={newRecipe}
         />
-        <button type='submit'>Add Recipe</button>
+        <Btn type='submit'>Add Recipe</Btn>
       </form>
     </ContentAdd>
   )
@@ -105,4 +105,8 @@ const ContentAdd = styled.div`
     padding: 1rem 2rem;
     border-radius: 1rem;
   }
+`
+const Btn = styled.button`
+
+
 `

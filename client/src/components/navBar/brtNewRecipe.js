@@ -5,17 +5,18 @@ export const BrtNewRecipe = () => {
   return (
     <ContentBtnNewrecipe>
       <Link to='/add'>
-        <button>Add New Recipe</button>
+        <Btn>Add New Recipe</Btn>
       </Link>
     </ContentBtnNewrecipe>
   )
 }
 
 const ContentBtnNewrecipe = styled.div`
-  button {
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.5rem;
-    border-radius: 0.3rem;
-  }
+  margin: 0 1rem;
+`
+const Btn = styled.button`
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
 `

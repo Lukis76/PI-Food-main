@@ -10,12 +10,15 @@ import { light, dark } from './style/theme/theme'
 
 export const App = () => {
   const [theme, setTheme] = useState(true)
-  console.log("🚀 ~ file: App.js ~ line 13 ~ App ~ theme", theme)
+  console.log('🚀 ~ file: App.js ~ line 13 ~ App ~ theme', theme)
   return (
-    <ThemeProvider theme={theme ? dark : light }>
+    <ThemeProvider theme={theme ? dark : light}>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/home' element={<Home setTheme={setTheme} />} />
+        <Route
+          path='/home'
+          element={<Home setTheme={setTheme} theme={theme} />}
+        />
         <Route path='/add' element={<Add />} />
         <Route path='/details' element={<Details />} />
         <Route path='/about' element={<About />} />
