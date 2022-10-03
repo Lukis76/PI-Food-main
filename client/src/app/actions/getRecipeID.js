@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { setGetRecipeID } from '../recucer/taskSlice'
 
-export const getRecipeID = (data) => (dispatch) => {
+export const getRecipeID = (id) => (dispatch) => {
   axios
-    .get(`http://localhost:3088/recipe/${data}`)
+    .get(`http://localhost:3088/recipe/${id}`)
     .then((res) => {
       dispatch(setGetRecipeID(res.data))
     })

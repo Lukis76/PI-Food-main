@@ -86,6 +86,8 @@ router.get('/:RecipeID', async (req, res) => {
   const { RecipeID } = req.params
 
   const result = await getIdInfo(RecipeID)
+  console.log("🚀 ~ file: recipe.js ~ line 89 ~ router.get ~ result", result)
+  
 
   res.json(result)
 })

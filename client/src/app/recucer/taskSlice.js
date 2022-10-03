@@ -42,14 +42,14 @@ export const taskSlice = createSlice({
     /*------------------------------------------------------------------------------------------------------ */
     /*------------------------------------------------------------------------------------------------------ */
     setGetRecipeID: (state, action) => {
-      const detail = state.recipesAll.find((el) => { 
-        if (typeof action.payload === 'number') {
-          if (el.idApi === action.payload) return el
-        } else {
-          if (el.id === action.payload) return el
-        }
-      })
-      state.details = detail
+      // const detail = state.recipesAll.find((el) => { 
+      //   if (typeof action.payload === 'number') {
+      //     if (el.idApi === action.payload) return el
+      //   } else {
+      //     if (el.id === action.payload) return el
+      //   }
+      // })
+      state.details = action.payload
     },
     /*------------------------------------------------------------------------------------------------------ */
     /*------------------------------------------------------------------------------------------------------ */

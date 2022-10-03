@@ -2,8 +2,7 @@ const axios = require('axios')
 require('dotenv').config()
 const { API_KEY,API_URL_TWO } = process.env
 
-const getIdInfo = async () => {
-  const { id } = req.params
+const getIdInfo = async (id) => {
   try {
     const { data } = await axios.get(
       `${API_URL_TWO}${id}/information?${API_KEY}`
@@ -27,7 +26,7 @@ const getIdInfo = async () => {
     //       steps: el.analyzedInstructions[0],
     //     }
     //   })
-    const result = {
+    return {
       name: data.title,
       vegetarian: data.vegetarian,
       vegan: data.vegan,
@@ -42,7 +41,6 @@ const getIdInfo = async () => {
       summary: data.summary,
       steps: data.analyzedInstructions[0],
     }
-    res.json(result)
   } catch (err) {
     console.error(err)
     // return []
