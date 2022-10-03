@@ -20,7 +20,7 @@ export const App = () => {
           element={<Home setTheme={setTheme} theme={theme} />}
         />
         <Route path='/add' element={<Add />} />
-        <Route path='/details' element={<Details />} />
+        <Route path='/details/:id' element={<Details />} />
         <Route path='/about' element={<About />} />
       </Routes>
     </ThemeProvider>

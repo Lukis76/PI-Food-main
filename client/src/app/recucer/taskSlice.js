@@ -36,7 +36,7 @@ export const taskSlice = createSlice({
     // setPostRecipe: () => {},
     /*------------------------------------------------------------------------------------------------------ */
     /*------------------------------------------------------------------------------------------------------ */
-    setGetStateID: (state, action) => {
+    setGetRecipeID: (state, action) => {
       const detail = state.recipesAll.find((el) => {
         if (typeof action.payload === 'number') {
           if (el.idApi === action.payload) return el
@@ -150,7 +150,7 @@ export const {
   setFilterOrder,
   setFilterSearch,
   setGetRecipesName,
-  setGetStateID,
+  setGetRecipeID,
   setGetTypes,
   setOrderScore,
   setFilterDataBase,
