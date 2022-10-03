@@ -11,18 +11,22 @@ export const SearchBar = () => {
   const [name, setName] = useState('')
 
   const handleChange = (e) => {
-    setName((state) => (state = e.target.value))
-    console.log(name)
-    dispatch(searchBarName(name))
+    setName(e.target.value)
+    // console.log("🚀 ~ file: searchBar.js ~ line 15 ~ handleChange ~ value", e.target.value)
+    // console.log("🚀 ~ file: searchBar.js ~ line 16 ~ handleChange ~ name", name)
+    // let data = e.target.value 
+    // === '' ? ' ' : name
+    dispatch(searchBarName(e.target.value))
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (name.length > 1) {
-      console.log('dentro => ', name)
-      dispatch(getRecipesName(name))
+    // if (name.length > 1) {
+      // console.log('dentro => ', name)
+      // dispatch(getRecipesName(name))
+      // e.target.value = ''
       setName('')
-    }
+    // }
   }
 
   return (

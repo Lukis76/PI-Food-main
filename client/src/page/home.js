@@ -17,11 +17,15 @@ export const Home = ({ setTheme, theme }) => {
   const [page, setPage] = useState(1)
   const [perPage, setPerPage] = useState(9)
   const max = Math.ceil(recipes.length / perPage)
-
+  
   useEffect(() => {
     dispatch(getRecipesAll())
     dispatch(getTypes())
   }, [])
+  
+  // useEffect(() => {
+
+  // }, [recipes])
 
   return (
     <ContentHome>

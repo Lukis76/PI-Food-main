@@ -13,17 +13,15 @@ router.get('/', async (req, res) => {
 
     let diets = []
     if (results.length > 0) {
-      results?.forEach((el) => {
-        el.diets.forEach((el) => {
-          if (!diets.includes(el)) {
-            diets.push(el)
-          }
-        })
-      })
-    }
-    console.log('deveris ser un arreglo de diets => ', diets)
+      results.forEach(el => {
+        diets.push(el.diets)
+      });
+      const dat = diets.flat()
+      const data = [...new Set(dat)]
+      res.json(data)
+      console.log('deveris ser un arreglo de diets => ', data)
 
-    res.json(diets)
+    }
   } catch (err) {
     console.error(err)
     res.status(400).send(err)
