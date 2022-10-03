@@ -47,7 +47,7 @@ export const AddName = ({ setError, setNewRecipe, error }) => {
 
 const ContentAddName = styled.div`
   ${center()}
-  margin: 1rem 0;
+  margin: 3rem 0 1rem 0;
   width: 100%;
   div {
     ${center()}

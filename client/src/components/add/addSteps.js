@@ -2,12 +2,9 @@ import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 
 export const AddSteps = ({ setError, setNewRecipe, error }) => {
-  
-  
   const handleChange = (e) => {
     setNewRecipe((state) => ({ ...state, [e.target.name]: e.target.value }))
   }
-
 
   return (
     <ContetAddSteps>

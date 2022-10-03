@@ -18,8 +18,8 @@ export const Home = ({ setTheme, theme }) => {
   const max = Math.ceil(recipes.length / perPage)
   
   useEffect(() => {
-    dispatch(getRecipesAll())
-    dispatch(getTypes())
+    // dispatch(getRecipesAll())
+    // dispatch(getTypes())
   }, [])
 
   return (

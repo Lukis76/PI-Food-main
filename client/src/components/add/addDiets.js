@@ -1,8 +1,9 @@
 // import { useState } from 'react'
 // import { useEffect } from 'react'
-import { 
-  // useDispatch, 
-  useSelector } from 'react-redux'
+import {
+  // useDispatch,
+  useSelector,
+} from 'react-redux'
 import styled from 'styled-components'
 // import { getTypes } from '../../app/actions/getTypes'
 import { center } from '../../style/shorcuts'
@@ -17,24 +18,21 @@ export const AddDiets = () => {
   //   // setDiet(diets)
   // }, [])
 
-
   return (
     <ContentAddDiets>
       <div>
-        {
-         diets?.map((el) => {
-            return (
-              <label key={el}>
-                <input
-                  type='checkbox'
-                  name={el}
-                  onChange={(e) => console.log(e.target.checked)}
-                />
-                <p>{el}</p>
-              </label>
-            )
-          })
-        }
+        {diets?.map((el) => {
+          return (
+            <label key={el}>
+              <input
+                type='checkbox'
+                name={el}
+                onChange={(e) => console.log(e.target.checked)}
+              />
+              <p>{el}</p>
+            </label>
+          )
+        })}
       </div>
     </ContentAddDiets>
   )
@@ -48,11 +46,11 @@ const ContentAddDiets = styled.div`
       width: 100%;
       p {
         font-weight: 600;
-        margin-left: .5rem;
+        margin-left: 0.5rem;
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
-        color : ${props => props.theme.color.addDietsPText}
+        color: ${(props) => props.theme.color.addDietsPText};
       }
     }
   }

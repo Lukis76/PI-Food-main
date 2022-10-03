@@ -76,14 +76,14 @@ export const Filter = ({ setPerPage }) => {
         </select>
       </div>
 
-      <div>
+      {/* <div>
         <select defaultValue={9} onChange={handleItems}>
           <option value='9'>9</option>
           <option value='15'>15</option>
           <option value='21'>21</option>
           <option value='33'>33</option>
         </select>
-      </div>
+      </div> */}
     </ContentFilter>
   )
 }

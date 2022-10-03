@@ -41,7 +41,7 @@ const Content = styled.div`
 `
 const Box = styled.div`
   ${center('row', 'space-evenly')}
-  @media (max-width: 650px) {
+  @media (max-width: 730px) {
     margin-bottom: 0.5rem;
   }
 `
