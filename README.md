@@ -1,7 +1,5 @@
 [![wakatime](https://wakatime.com/badge/user/07cfbf31-e245-4f30-94f6-3a2254b2c020/project/37e746ba-9782-4a88-9561-686f18be89f1.svg)](https://wakatime.com/badge/user/07cfbf31-e245-4f30-94f6-3a2254b2c020/project/37e746ba-9782-4a88-9561-686f18be89f1)
 
-<--||*-------------------------------------------*||-->
-
 
 ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
