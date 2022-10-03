@@ -4,38 +4,38 @@ import { filterdb } from '../app/actions/filterdb'
 import { filterOrder } from '../app/actions/filterOrder'
 import { getFilterDiet } from '../app/actions/getFilterDiet'
 import { orderScore } from '../app/actions/orderScore'
+import { setPaguination } from '../app/recucer/taskSlice'
 import { center } from '../style/shorcuts'
 
-export const Filter = ({ types, setPage, perPage, setPerPage }) => {
+export const Filter = ({ setPerPage }) => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 
   
   
-  const handleOrder = (e) => {            // handleOrderByName
+  const handleOrder = (e) => {
     dispatch(filterOrder(e.target.value))
-    setPage(1)
+    dispatch(setPaguination(1))
   }
-
-  const handleFilterDiet = (e) => {       // handleFilterDiets
+  
+  const handleFilterDiet = (e) => {
     dispatch(getFilterDiet(e.target.value))
-    setPage(1)
+    dispatch(setPaguination(1))
   }
-
-  const handleHealthScore = (e) => {      // handleHealthScore
-  dispatch(orderScore(e.target.value))
-  setPage(1)
+  
+  const handleHealthScore = (e) => {
+    dispatch(orderScore(e.target.value))
+    dispatch(setPaguination(1))
   }
-
-  const handleCreated = (e) => {        // handleCreated
-  dispatch(filterdb(e.target.value))
-
+  
+  const handleCreated = (e) => {
+    dispatch(filterdb(e.target.value))
   }
-
+  
   const handleItems = (e) => {
     console.log('number items => ', e.target.value)
     setPerPage(e.target.value.toString())
-    setPage(1)
+    dispatch(setPaguination(1))
   }
   return (
     <ContentFilter>

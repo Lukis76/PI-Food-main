@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { getRecipesName } from '../../app/actions/getRecipesName'
+// import { getRecipesName } from '../../app/actions/getRecipesName'
 import { searchBarName } from '../../app/actions/searchBarName'
 import { SvgSearch } from '../../assets/svg/svgSearch'
 import { center } from '../../style/shorcuts'

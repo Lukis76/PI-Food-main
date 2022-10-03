@@ -1,29 +1,29 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
+import { setPaguination } from '../app/recucer/taskSlice'
 import { center } from '../style/shorcuts'
 
-export const NextPage = ({ perPage, page, setPage, max }) => {
+export const NextPage = ({ max }) => {
+  const dispatch = useDispatch()
+  const p = useSelector((state) => state.tasks.paguination)
   const lastRef = useRef()
   const nextRef = useRef()
 
-  const handleLast = (e) => {
-    page < 2
+  const handleLast = () => {
+    p < 2
       ? lastRef.current.classList.add('last_page')
       : lastRef.current.classList.remove('last_page')
 
-    page !== 1 && setPage((state) => state - 1)
+    p !== 1 && dispatch(setPaguination(p - 1)) // setPage((state) => state - 1)
   }
-  const handleNext = (e) => {
-    page === max
+  const handleNext = () => {
+    p === max
       ? nextRef.current.classList.add('next_page')
       : nextRef.current.classList.remove('next_page')
 
-    page < max && setPage((state) => state + 1)
+    p < max && dispatch(setPaguination(p + 1)) // setPage((state) => state + 1)
   }
-
-  // page < 2
-  // ? lastRef.current.classList.add('last_page')
-  // : lastRef.current.classList.remove('last_page')
 
   return (
     <ContentNextPage>
@@ -31,11 +31,11 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
         &lt; last
       </Btn>
       <Content>
-        {page > 2 && <div>...</div>}
-        {page > 1 && <div>{page - 1}</div>}
-        <div className='position' >{page}</div>
-        {page < max && <div >{page + 1}</div>}
-        {page < max - 1 && <div>...</div>}
+        {p > 2 && <div>...</div>}
+        {p > 1 && <div>{p - 1}</div>}
+        <div className='position'>{p}</div>
+        {p < max && <div>{p + 1}</div>}
+        {p < max - 1 && <div>...</div>}
         <div> | </div>
         <div>{max || 1}</div>
       </Content>
@@ -63,8 +63,8 @@ const Content = styled.div`
     color: ${(props) => props.theme.color.paginationText};
   }
   & .position {
-  border-radius: 3rem;
-  background: orange;
+    border-radius: 3rem;
+    background: orange;
   }
 `
 const Btn = styled.button`
