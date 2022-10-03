@@ -12,20 +12,30 @@ export const taskSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setTasks: (state, action) => {
       state.data = action.payload
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setGetRecipes: (state, action) => {
       state.recipes = action.payload
       state.recipesAll = action.payload
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setGetTypes: (state, action) => {
       state.types = action.payload
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     // setGetDataBase: (state, action) => {
     //   state.dataBase = action.payload
     // },
     // setPostRecipe: () => {},
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setGetStateID: (state, action) => {
       const detail = state.recipesAll.find((el) => {
         if (typeof action.payload === 'number') {
@@ -36,24 +46,39 @@ export const taskSlice = createSlice({
       })
       state.details = detail
     },
-    setGetRecipesName: (state, action) => {
-      state.recipes = action.payload
-    },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
+    // setGetRecipesName: (state, action) => {
+    //   const result = state.recipesAll.filter(el => el.name.toLowerCase().includes(action.payload.toLowerCase()))
+    //   console.log("🚀 ~ file: taskSlice.js ~ line 41 ~ result", result)
+    //   state.recipes = result
+    // },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setFilterSearch: (state, action) => {
-      state.recipesAll.filter((el) => {
-        if (el.name.toLowerCase().includes(action.payload)) return el
-      })
+      if (action.payload === '') {
+        state.recipes = state.recipesAll
+      } else {
+        const result = state.recipesAll.filter((el) =>
+          el.name.toLowerCase().includes(action.payload)
+        )
+        state.recipes = result
+      }
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setFilterDataBase: (state, action) => {
       const alldb = state.recipesAll
 
       const filterAlldb =
         action.payload === 'db'
-          ? alldb.filter((el) => el.createdb )
+          ? alldb.filter((el) => el.createdb)
           : alldb.filter((el) => !el.createdb)
 
       state.recipes = action.payload === 'all' ? state.recipesAll : filterAlldb
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setOrderScore: (state, action) => {
       const recipeScore =
         action.payload === 'lower'
@@ -68,6 +93,8 @@ export const taskSlice = createSlice({
 
       state.recipes = recipeScore
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setFilterOrder: (state, action) => {
       const recipesOrder =
         action.payload === 'A-z'
@@ -82,6 +109,8 @@ export const taskSlice = createSlice({
 
       state.recipes = recipesOrder
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
     setFilterDiets: (state, action) => {
       const filtDiets =
         action.payload === 'all diets'
@@ -109,6 +138,8 @@ export const taskSlice = createSlice({
             })
       state.recipes = filtDiets
     },
+    /*------------------------------------------------------------------------------------------------------ */
+    /*------------------------------------------------------------------------------------------------------ */
   },
 })
 
@@ -122,7 +153,7 @@ export const {
   setGetStateID,
   setGetTypes,
   setOrderScore,
-  setFilterDataBase
+  setFilterDataBase,
 } = taskSlice.actions
 
 export default taskSlice.reducer

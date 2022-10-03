@@ -14,6 +14,8 @@ export const Card = ({
   vegetarian,
   summary,
 }) => {
+  console.log("🚀 ~ file: card.js ~ line 17 ~ id-recipe", id)
+  
   return (
     <Link className='contentCard'>
       <ContentCard>

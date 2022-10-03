@@ -33,8 +33,8 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
       <Content>
         {page > 2 && <div>...</div>}
         {page > 1 && <div>{page - 1}</div>}
-        <div>{page}</div>
-        {page < max && <div>{page + 1}</div>}
+        <div className='position' >{page}</div>
+        {page < max && <div >{page + 1}</div>}
         {page < max - 1 && <div>...</div>}
         <div> | </div>
         <div>{max || 1}</div>
@@ -61,6 +61,10 @@ const Content = styled.div`
     font-weight: 700;
     padding: 0 0.5rem 0 0.5rem;
     color: ${(props) => props.theme.color.paginationText};
+  }
+  & .position {
+  border-radius: 3rem;
+  background: orange;
   }
 `
 const Btn = styled.button`
