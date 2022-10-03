@@ -17,17 +17,19 @@ export const Details = () => {
   return det.name ? (
     <ContentDetails>
       <h2>{det.name}</h2>
-      <img src={`${det.img}`} alt='' />
-      <p dangerouslySetInnerHTML={{ __html: det.summary}}  ></p>
-      <ul>
-        <li>{det.dairyFree}</li>
+      <ImgSummary>
+        <img src={`${det.img}`} height={'400px'} alt='' />
+        <p dangerouslySetInnerHTML={{ __html: det.summary }}></p>
+      </ImgSummary>
+      {/* <ul> */}
+      {/* <li>{det.dairyFree}</li>
         <li>{det.gluetnFree}</li>
         <li>{det.vegan}</li>
-        <li>{det.vegetarian}</li>
-        <li>{det.healthScore}</li>
-      </ul>
+        <li>{det.vegetarian}</li> */}
+      <p>{det.healthScore}</p>
+      {/* </ul> */}
       {det?.dishType.map((el) => (
-        <div key={el}>{el}</div>
+        <Dish key={el}>{el}</Dish>
       ))}
       {det.steps.steps.map((el) => {
         return (
@@ -51,4 +53,27 @@ const ContentDetails = styled.div`
   min-height: 100vh;
   background: white;
   opacity: 0.6;
+`
+const ImgSummary = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 40rem);
+  justify-content: center;
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, 40rem);
+
+  }
+  img {
+    border-radius: 1rem 0 0 1rem;
+    @media (max-width: 600px) {
+      height: 200px;
+    }
+  }
+  p {
+    width: 100%;
+  }
+`
+
+const Dish = styled.div`
+  background: red;
 `
