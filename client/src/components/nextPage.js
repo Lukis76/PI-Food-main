@@ -6,6 +6,12 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
   const lastRef = useRef()
   const nextRef = useRef()
 
+  const handleLast = (e) => {
+    setPage((state) => state - 1)
+  }
+  const handleNext = (e) => {}
+  setPage((state) => state + 1)
+
   useEffect(() => {
     page < max
       ? nextRef.current.classList.add('next_page')
@@ -17,7 +23,10 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
 
   return (
     <ContentNextPage>
-      <Btn ref={lastRef}> &lt; last</Btn>
+      <Btn ref={lastRef} onClick={handleLast}>
+        {' '}
+        &lt; last
+      </Btn>
       <Content>
         {page > 2 && <div>...</div>}
         {page > 1 && <div>{page - 1}</div>}
@@ -27,17 +36,19 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
         <div> | </div>
         <div>{max || 1}</div>
       </Content>
-      <Btn ref={nextRef}>next &gt;</Btn>
+      <Btn ref={nextRef} onClick={handleNext}>
+        next &gt;
+      </Btn>
     </ContentNextPage>
   )
 }
 
 const ContentNextPage = styled.div`
   ${center('row', 'space-between')}
-  margin-bottom: .8rem;
-  border-radius: .5rem;
+  margin-bottom: 0.8rem;
+  border-radius: 0.5rem;
   width: 90%;
-  opacity: .9;
+  opacity: 0.9;
   background: ${(props) => props.theme.color.paginationBg};
 `
 const Content = styled.div`

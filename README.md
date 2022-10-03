@@ -1,3 +1,8 @@
+[![wakatime](https://wakatime.com/badge/user/07cfbf31-e245-4f30-94f6-3a2254b2c020/project/37e746ba-9782-4a88-9561-686f18be89f1.svg)](https://wakatime.com/badge/user/07cfbf31-e245-4f30-94f6-3a2254b2c020/project/37e746ba-9782-4a88-9561-686f18be89f1)
+
+<--||*-------------------------------------------*||-->
+
+
 ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
 # Individual Project - Henry Food
@@ -187,3 +192,5 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 - [ ] Al menos tener un componente del frontend con sus tests respectivos
 - [ ] Al menos tener una ruta del backend con sus tests respectivos
 - [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+
+
