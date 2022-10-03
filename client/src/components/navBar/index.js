@@ -32,7 +32,7 @@ const Content = styled.div`
   ${center('row', 'space-evenly')}
   width: 100%;
   margin: 1rem;
-  @media (max-width: 650px) {
+  @media (max-width: 730px) {
     ${center('column-reverse', 'space-between')}
   }
 `
