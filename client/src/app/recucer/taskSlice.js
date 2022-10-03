@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
@@ -6,12 +7,16 @@ const initialState = {
   recipesAll: [],
   types: [],
   details: [],
+  paguination: 1
 }
 
 export const taskSlice = createSlice({
   name: 'tasks',
   initialState,
   reducers: {
+    setPaguination: (state, action) => {
+      state.paguination = action.payload
+    },
     /*------------------------------------------------------------------------------------------------------ */
     /*------------------------------------------------------------------------------------------------------ */
     setTasks: (state, action) => {
@@ -37,7 +42,7 @@ export const taskSlice = createSlice({
     /*------------------------------------------------------------------------------------------------------ */
     /*------------------------------------------------------------------------------------------------------ */
     setGetRecipeID: (state, action) => {
-      const detail = state.recipesAll.find((el) => {
+      const detail = state.recipesAll.find((el) => { 
         if (typeof action.payload === 'number') {
           if (el.idApi === action.payload) return el
         } else {
@@ -154,6 +159,7 @@ export const {
   setGetTypes,
   setOrderScore,
   setFilterDataBase,
+  setPaguination
 } = taskSlice.actions
 
 export default taskSlice.reducer

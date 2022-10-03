@@ -13,7 +13,7 @@ export const Details = () => {
   console.log("🚀 ~ file: details.js ~ line 12 ~ Details ~ id", details)
   useEffect(() => {
     dispatch(getRecipeID(id))
-  },[])
+  },[dispatch, id])
   return (
     <ContentDetails>
     {/* <p>{details.name}</p> */}

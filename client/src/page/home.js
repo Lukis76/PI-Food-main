@@ -14,9 +14,9 @@ export const Home = ({ setTheme, theme }) => {
   const recipes = useSelector((state) => state.tasks.recipes)
   const types = useSelector((state) => state.tasks.types)
 
-  const [page, setPage] = useState(1)
   const [perPage, setPerPage] = useState(9)
   const max = Math.ceil(recipes.length / perPage)
+<<<<<<< HEAD
   
   useEffect(() => {
   //   dispatch(getRecipesAll())
@@ -24,25 +24,25 @@ export const Home = ({ setTheme, theme }) => {
   }, [])
   
   // useEffect(() => {
+=======
+>>>>>>> origin/master
 
-  // }, [recipes])
+  useEffect(() => {
+    // dispatch(getRecipesAll())
+    // dispatch(getTypes())
+  }, [dispatch])
 
   return (
     <ContentHome>
       <NavBar setTheme={setTheme} theme={theme} />
       <Box>
         <Content>
-          <Filter
-            types={types}
-            setPage={setPage}
-            perPage={perPage}
-            setPerPage={setPerPage}
-          />
-          <NextPage page={page} perPage={perPage} setPage={setPage} max={max} />
+          <Filter types={types} setPerPage={setPerPage} />
+          <NextPage max={max} />
         </Content>
-        <ConstentCars perPage={perPage} page={page} recipes={recipes} />
+        <ConstentCars perPage={perPage} recipes={recipes} />
 
-        <NextPage page={page} perPage={perPage} setPage={setPage} max={max} />
+        <NextPage max={max} />
       </Box>
     </ContentHome>
   )
@@ -55,7 +55,6 @@ const ContentHome = styled.div`
 const Box = styled.div`
   ${center('column', 'space-between')}
   min-height: 90vh;
-  /* height: 100%; */
   width: 100%;
 `
 const Content = styled.div`

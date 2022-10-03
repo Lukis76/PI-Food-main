@@ -1,18 +1,18 @@
-// import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { Card } from '../card/card'
 import loader from '../../assets/gifs/food_loader_sarten.gif'
 import { center } from '../../style/shorcuts'
 
-export const ConstentCars = ({ perPage, page, recipes }) => {
-  // const recipes = useSelector((state) => state.tasks.recipes)
+export const ConstentCars = ({ perPage, recipes }) => {
+  const p = useSelector((state) => state.tasks.paguination)
 
   return (
     <ContentCard>
       {recipes.length ? (
         <GridCards>
           {recipes
-            .slice((page - 1) * perPage, (page - 1) * perPage + perPage)
+            .slice((p - 1) * perPage, (p - 1) * perPage + perPage)
             .map((el) => {
               return (
                 <Card
@@ -33,7 +33,7 @@ export const ConstentCars = ({ perPage, page, recipes }) => {
             })}
         </GridCards>
       ) : (
-        <Loader src={loader} alt='loader' />
+        <img src={loader} alt='loader' />
       )}
     </ContentCard>
   )
@@ -52,4 +52,3 @@ const GridCards = styled.section`
   grid-template-columns: repeat(auto-fit, 18rem);
   justify-content: center;
 `
-const Loader = styled.img``
