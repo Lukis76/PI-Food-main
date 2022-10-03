@@ -27,6 +27,9 @@ const ContentNavBar = styled.div`
   width: 100%;
   padding: 0 1rem;
   ${center('row')}
+  @media (max-width: 525px) {
+    ${center()}
+  }
 `
 const Content = styled.div`
   ${center('row', 'space-evenly')}
