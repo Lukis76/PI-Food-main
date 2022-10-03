@@ -3,20 +3,32 @@ import { center } from '../../style/shorcuts'
 import { BrtNewRecipe } from './brtNewRecipe'
 import { Mode } from './mode'
 import { SearchBar } from './searchBar'
+import food from '../../assets/food_logo.png'
+import { Link } from 'react-router-dom'
 
 export const NavBar = ({ setTheme, theme }) => {
   return (
     <ContentNavBar>
-      <SearchBar />
-      <Box>
-        <BrtNewRecipe />
-        <Mode setTheme={setTheme} theme={theme} />
-      </Box>
+      <Link to={'/home'}>
+        <img src={food} height={100} alt='logo food' />
+      </Link>
+      <Content>
+        <SearchBar />
+        <Box>
+          <BrtNewRecipe />
+          <Mode setTheme={setTheme} theme={theme} />
+        </Box>
+      </Content>
     </ContentNavBar>
   )
 }
 
 const ContentNavBar = styled.div`
+  width: 100%;
+  padding: 0 1rem;
+  ${center('row')}
+`
+const Content = styled.div`
   ${center('row', 'space-evenly')}
   width: 100%;
   margin: 1rem;
@@ -29,6 +41,4 @@ const Box = styled.div`
   @media (max-width: 650px) {
     margin-bottom: 0.5rem;
   }
-  /* margin: 0 1rem; */
-  /* width: 100%; */
 `

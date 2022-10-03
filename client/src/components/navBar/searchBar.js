@@ -17,6 +17,7 @@ export const SearchBar = () => {
     // let data = e.target.value 
     // === '' ? ' ' : name
     dispatch(searchBarName(e.target.value))
+    
   }
 
   const handleSubmit = (e) => {

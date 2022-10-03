@@ -30,7 +30,7 @@ const ContentMode = styled.div`
     }
     div {
       position: absolute;
-      scale: 1.1;
+      scale: 1.15;
       height: 100%;
       width: 50%;
       border-radius: 50%;
