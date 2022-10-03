@@ -21,22 +21,9 @@ router.get('/', async (req, res) => {
         })
       })
     }
-    // const typeDiet = await Diet.findAll()
-    console.log('deveris ser un arreglo de diets => ',diets);
+    console.log('deveris ser un arreglo de diets => ', diets)
 
-    const desvio = [
-      'gluten free',
-      'dairy free',
-      'lacto ovo vegetarian',
-      'vegan',
-      'paleolithic',
-      'primal',
-      'whole 30',
-      'pescatarian',
-      'ketogenic',
-      'fodmap friendly'
-    ]
-    res.json(desvio)
+    res.json(diets)
   } catch (err) {
     console.error(err)
     res.status(400).send(err)
