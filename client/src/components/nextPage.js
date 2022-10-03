@@ -7,24 +7,27 @@ export const NextPage = ({ perPage, page, setPage, max }) => {
   const nextRef = useRef()
 
   const handleLast = (e) => {
-    setPage((state) => state - 1)
-  }
-  const handleNext = (e) => {}
-  setPage((state) => state + 1)
-
-  useEffect(() => {
-    page < max
-      ? nextRef.current.classList.add('next_page')
-      : nextRef.current.classList.remove('next_page')
     page < 2
       ? lastRef.current.classList.add('last_page')
       : lastRef.current.classList.remove('last_page')
-  }, [page])
+
+    page !== 1 && setPage((state) => state - 1)
+  }
+  const handleNext = (e) => {
+    page === max
+      ? nextRef.current.classList.add('next_page')
+      : nextRef.current.classList.remove('next_page')
+
+    page < max && setPage((state) => state + 1)
+  }
+
+  // page < 2
+  // ? lastRef.current.classList.add('last_page')
+  // : lastRef.current.classList.remove('last_page')
 
   return (
     <ContentNextPage>
       <Btn ref={lastRef} onClick={handleLast}>
-        {' '}
         &lt; last
       </Btn>
       <Content>

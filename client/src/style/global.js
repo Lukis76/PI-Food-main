@@ -35,4 +35,12 @@ a:link {
 a:visited {
   color: #50514f;
 }
+
+.next_page {
+  opacity: .2;
+}
+.last_page {
+  opacity: .2;
+}
+
 `
