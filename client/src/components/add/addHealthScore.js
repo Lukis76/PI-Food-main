@@ -34,6 +34,7 @@ export const AddHealthScore = (error, setError) => {
         />
         <span>{value}</span>
       </div>
+      <p>{error.validHealthScore}</p>
     </ContentAddHealthScore>
   )
 }
@@ -61,5 +62,12 @@ const ContentAddHealthScore = styled.div`
       font-family: 'Roboto', sans-serif;
       color: #575757ee;
     }
+  }
+  p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    border-radius: 1rem;
+    color: red;
   }
 `
