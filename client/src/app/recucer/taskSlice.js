@@ -102,9 +102,10 @@ export const taskSlice = createSlice({
     /*-------------------------------------------------------------------------- */
     /*-------------------------------------------------------------------------- */
     setFilter: (state, action) => {
-      let result = [...state.recipesAll]
+      let result = state.recipesAll
       const data = action.payload
-      ////////////////////// Order A-z Z-a //////////////////////////
+      console.log('aca de desde el filter de el reducer => ', state.recipesAll);
+      /*///////////////////// Order A-z Z-a /////////////////////////*/
       if (data.az === 'az') {
         result = result.sort((a, b) => {
           if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
@@ -129,7 +130,7 @@ export const taskSlice = createSlice({
         })
       }
       ///////////////////////// db vs api ///////////////////////////
-      if ((data.db = 'db')) {
+      if (data.db = 'database') {
         result = result.filter((el) => el.createdb)
       } else if (data.db === 'api') {
         result = result.filter((el) => !el.createdb)

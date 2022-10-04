@@ -16,52 +16,55 @@ export const Filter = ({ setPerPage }) => {
   const [fil, setFil] = useState({
     az: 'all',
     score: 'all',
-    db: 'all',
+    // db: 'all',
     diet: 'all',
   })
 
   // const handleFilter = () => filter(fil)
-
+  
   const handleOrder = (e) => {
+    console.log("🚀 ~ file: filter.js ~ line 26 ~ handleOrder ~ e", e)
+    console.log("🚀 ~ file: filter.js ~ line 27 ~ handleOrder ~ fil", fil)
+    
+    dispatch(filter({ ...fil, az: e.target.value }))
     setFil({
       ...fil,
       az: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter({ ...fil, az: e.target.value }))
     // dispatch(handleFilter())
     // dispatch(filterOrder({az:e.target.value}))
   }
 
   const handleFilterDiet = (e) => {
+    dispatch(filter({ ...fil, diet: e.target.value }))
     setFil({
       ...fil,
       diet: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter({ ...fil, diet: e.target.value }))
     // dispatch(getFilterDiet(e.target.value))
   }
 
   const handleHealthScore = (e) => {
+    dispatch(filter({ ...fil, score: e.target.value }))
     setFil({
       ...fil,
       score: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter({ ...fil, score: e.target.value }))
     // dispatch(orderScore(e.target.value))
   }
 
-  const handleCreated = (e) => {
-    setFil({
-      ...fil,
-      db: e.target.value,
-    })
-    dispatch(setPaguination(1))
-    dispatch(filter({ ...fil, score: e.target.value }))
-    // dispatch(filterdb(e.target.value))
-  }
+  // const handleCreated = (e) => {
+  //   dispatch(filter({ ...fil, db: e.target.value }))
+  //   setFil({
+  //     ...fil,
+  //     db: e.target.value,
+  //   })
+  //   dispatch(setPaguination(1))
+  //   // dispatch(filterdb(e.target.value))
+  // }
 
   // const handleItems = (e) => {
   //   console.log('number items => ', e.target.value)
@@ -86,13 +89,13 @@ export const Filter = ({ setPerPage }) => {
         </select>
       </div>
 
-      <div>
+      {/* <div>
         <select defaultValue='all' onChange={handleCreated}>
           <option value='all'>all</option>
           <option value='api'>Api</option>
-          <option value='db'>db</option>
+          <option value='database'>db</option>
         </select>
-      </div>
+      </div> */}
 
       <div>
         <select defaultValue='all diets' onChange={handleFilterDiet}>
