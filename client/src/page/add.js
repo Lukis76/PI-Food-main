@@ -73,7 +73,7 @@ export const Add = () => {
         <AddHealthScore
           setError={setError}
           setNewRecipe={setNewRecipe}
-          newRecipe={newRecipe}
+          error={error}
         />
         <AddImg
           setError={setError}
