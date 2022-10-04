@@ -10,7 +10,6 @@ import { light, dark } from './style/theme/theme'
 
 export const App = () => {
   const [theme, setTheme] = useState(true)
-  console.log('🚀 ~ file: App.js ~ line 13 ~ App ~ theme', theme)
   return (
     <ThemeProvider theme={theme ? dark : light}>
       <Routes>

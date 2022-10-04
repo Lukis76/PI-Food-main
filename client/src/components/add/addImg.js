@@ -53,7 +53,7 @@ export const AddImg = () => {
     <ContentAddImg>
     <div>
         <input
-          autoFocus
+          // autoFocus
           type='text'
           name='name'
           // onChange={handleChange}

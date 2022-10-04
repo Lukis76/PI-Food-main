@@ -1,7 +1,6 @@
 // eslint-disable
 
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { center } from '../style/shorcuts'
 import { useNavigate } from 'react-router-dom'
@@ -16,7 +15,6 @@ import { AddSteps } from '../components/add/addSteps'
 // import { getTypes } from '../app/actions/getTypes'
 
 export const Add = () => {
-  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const [error, setError] = useState({
@@ -44,7 +42,7 @@ export const Add = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     // console.log('newrecipeantisipado dispatch => ', newRecipe)
-    dispatch(postRecipe(newRecipe))
+    postRecipe(newRecipe)
     setNewRecipe({
       name: '',
       summary: '',
