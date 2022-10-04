@@ -9,62 +9,35 @@ import { center } from '../style/shorcuts'
 import { filter } from '../app/actions/filter'
 import { useState } from 'react'
 
-export const Filter = ({ setPerPage }) => {
+export const Filter = () => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 
-  const [fil, setFil] = useState({
-    az: 'all',
-    score: 'all',
-    // db: 'all',
-    diet: 'all',
-  })
+  const [fil, setFil] = useState({ order: 'all', score: 'all', diet: 'all' })
 
-  // const handleFilter = () => filter(fil)
-  
-  const handleOrder = (e) => {
-    console.log("🚀 ~ file: filter.js ~ line 26 ~ handleOrder ~ e", e)
-    console.log("🚀 ~ file: filter.js ~ line 27 ~ handleOrder ~ fil", fil)
-    
-    dispatch(filter({ ...fil, az: e.target.value }))
-    setFil({
-      ...fil,
-      az: e.target.value,
-    })
+  const handleHealthScore = (e) => {
+    dispatch(filter({ ...fil, score: e.target.value }))
+    setFil({ ...fil, score: e.target.value })
     dispatch(setPaguination(1))
-    // dispatch(handleFilter())
-    // dispatch(filterOrder({az:e.target.value}))
+  }
+
+  const handleOr = (e) => {
+    dispatch(filter({ ...fil, order: e.target.value }))
+    setFil({ ...fil, order: e.target.value })
+    dispatch(setPaguination(1))
   }
 
   const handleFilterDiet = (e) => {
     dispatch(filter({ ...fil, diet: e.target.value }))
-    setFil({
-      ...fil,
-      diet: e.target.value,
-    })
+    setFil({ ...fil, diet: e.target.value })
     dispatch(setPaguination(1))
-    // dispatch(getFilterDiet(e.target.value))
   }
 
-  const handleHealthScore = (e) => {
-    dispatch(filter({ ...fil, score: e.target.value }))
-    setFil({
-      ...fil,
-      score: e.target.value,
-    })
+  const handleCreated = (e) => {
+    dispatch(filter({ ...fil, database: e.target.value }))
+    setFil({ ...fil, database: e.target.value })
     dispatch(setPaguination(1))
-    // dispatch(orderScore(e.target.value))
   }
-
-  // const handleCreated = (e) => {
-  //   dispatch(filter({ ...fil, db: e.target.value }))
-  //   setFil({
-  //     ...fil,
-  //     db: e.target.value,
-  //   })
-  //   dispatch(setPaguination(1))
-  //   // dispatch(filterdb(e.target.value))
-  // }
 
   // const handleItems = (e) => {
   //   console.log('number items => ', e.target.value)
@@ -74,7 +47,7 @@ export const Filter = ({ setPerPage }) => {
   return (
     <ContentFilter>
       <div>
-        <select defaultValue='all' onChange={handleOrder}>
+        <select defaultValue='all' onChange={handleOr}>
           <option value='all'>all</option>
           <option value='az'>A-z</option>
           <option value='za'>Z-a</option>
@@ -89,17 +62,17 @@ export const Filter = ({ setPerPage }) => {
         </select>
       </div>
 
-      {/* <div>
+      <div>
         <select defaultValue='all' onChange={handleCreated}>
           <option value='all'>all</option>
           <option value='api'>Api</option>
-          <option value='database'>db</option>
+          <option value='db'>db</option>
         </select>
-      </div> */}
+      </div>
 
       <div>
-        <select defaultValue='all diets' onChange={handleFilterDiet}>
-          <option value='all diets'>all diets</option>
+        <select defaultValue='all' onChange={handleFilterDiet}>
+          <option value='all'>all diets</option>
           {diets?.map((el) => (
             <option key={el} value={el}>
               {el}

@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 export const NavBar = ({ setTheme, theme }) => {
   return (
     <ContentNavBar>
-      <Link to={'/home'}>
+      <Link to={'/'}>
         <img src={food} height={100} alt='logo food' />
       </Link>
       <Content>
