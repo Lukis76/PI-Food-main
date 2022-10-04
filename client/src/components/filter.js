@@ -1,42 +1,73 @@
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { filterdb } from '../app/actions/filterdb'
-import { filterOrder } from '../app/actions/filterOrder'
-import { getFilterDiet } from '../app/actions/getFilterDiet'
-import { orderScore } from '../app/actions/orderScore'
+// import { filterdb } from '../app/actions/filterdb'
+// import { filterOrder } from '../app/actions/filterOrder'
+// import { getFilterDiet } from '../app/actions/getFilterDiet'
+// import { orderScore } from '../app/actions/orderScore'
 import { setPaguination } from '../app/recucer/taskSlice'
 import { center } from '../style/shorcuts'
+import { filter } from '../app/actions/filter'
+import { useState } from 'react'
 
 export const Filter = ({ setPerPage }) => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 
-  
-  
+  const [fil, setFil] = useState({
+    az: 'all',
+    score: 'all',
+    db: 'all',
+    diet: 'all',
+  })
+
+  // const handleFilter = () => filter(fil)
+
   const handleOrder = (e) => {
-    dispatch(filterOrder(e.target.value))
+    setFil({
+      ...fil,
+      az: e.target.value
+    })
     dispatch(setPaguination(1))
+    dispatch(filter(fil))
+    // dispatch(handleFilter())
+    // dispatch(filterOrder({az:e.target.value}))
   }
-  
+
   const handleFilterDiet = (e) => {
-    dispatch(getFilterDiet(e.target.value))
+    setFil({
+      ...fil,
+      diet: e.target.value
+    })
     dispatch(setPaguination(1))
+    dispatch(filter(fil))
+    // dispatch(getFilterDiet(e.target.value))
   }
-  
+
   const handleHealthScore = (e) => {
-    dispatch(orderScore(e.target.value))
+    setFil({
+      ...fil,
+      score: e.target.value
+    })
     dispatch(setPaguination(1))
+    dispatch(filter(fil))
+    // dispatch(orderScore(e.target.value))
   }
-  
+
   const handleCreated = (e) => {
-    dispatch(filterdb(e.target.value))
-  }
-  
-  const handleItems = (e) => {
-    console.log('number items => ', e.target.value)
-    setPerPage(e.target.value.toString())
+    setFil({
+      ...fil,
+      db: e.target.value
+    })
     dispatch(setPaguination(1))
+    dispatch(filter(fil))
+    // dispatch(filterdb(e.target.value))
   }
+
+  // const handleItems = (e) => {
+  //   console.log('number items => ', e.target.value)
+  //   setPerPage(e.target.value.toString())
+  //   dispatch(setPaguination(1))
+  // }
   return (
     <ContentFilter>
       <div>
@@ -44,24 +75,28 @@ export const Filter = ({ setPerPage }) => {
           <option disabled value='all'>
             all
           </option>
-          <option value='A-z'>A-z</option>
-          <option value='Z-a'>Z-a</option>
+          <option value='az'>A-z</option>
+          <option value='za'>Z-a</option>
         </select>
       </div>
 
       <div>
-        <select defaultValue='all' onChange={handleHealthScore} >
-          <option disabled value="all">all</option>
-          <option value="lower">Lower</option>
-          <option value="higher">Higher</option>
+        <select defaultValue='all' onChange={handleHealthScore}>
+          <option disabled value='all'>
+            all
+          </option>
+          <option value='lower'>Lower</option>
+          <option value='higher'>Higher</option>
         </select>
       </div>
 
       <div>
-        <select defaultValue='all' onChange={handleCreated} >
-          <option value="api">Api</option>
-          <option disabled value="all">all</option>
-          <option value="db">db</option>
+        <select defaultValue='all' onChange={handleCreated}>
+          <option value='api'>Api</option>
+          <option disabled value='all'>
+            all
+          </option>
+          <option value='db'>db</option>
         </select>
       </div>
 
