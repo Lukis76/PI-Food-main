@@ -117,7 +117,6 @@ export const {
   setTasks,
   setGetRecipes,
   setFilterSearch,
-  setGetRecipesName,
   setGetRecipeID,
   setGetTypes,
   setPaguination,
