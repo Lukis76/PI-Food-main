@@ -9,7 +9,7 @@ export const Filter = () => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 
-  const [fil, setFil] = useState({ order: 'all', score: 'all', diet: 'all' })
+  const [fil, setFil] = useState({ order: 'all', score: 'all', diet: 'all', database: 'all'})
 
   const handleHealthScore = (e) => {
     dispatch(filter({ ...fil, score: e.target.value }))

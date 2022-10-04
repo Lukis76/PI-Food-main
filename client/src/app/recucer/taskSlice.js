@@ -1,8 +1,7 @@
 /* eslint-disable */
-import { createSlice, current } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  data: [],
   recipes: [],
   recipesAll: [],
   types: [],
@@ -57,7 +56,7 @@ export const taskSlice = createSlice({
     setFilter: (state, action) => {
       let result = state.recipesAll
       /*///////////////////// Order A-z Z-a /////////////////////////*/
-      if (data.az === 'az') {
+      if (action.payload.order === 'az') {
         result = result.sort((a, b) => {
           if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
           else return -1
@@ -69,10 +68,9 @@ export const taskSlice = createSlice({
         })
       }
       /*////////////////////// Health Score /////////////////////////*/
-      if (data.score === 'lower') {
+      if (action.payload.score === 'lower') {
         result = result.sort((a, b) => {
-          if (a.score - b.score < 0) return 1
-          else return -1
+          return a.healthScore - b.healthScore
         })
       } else if (action.payload.score === 'higher') {
         result.sort((a, b) => {
@@ -80,13 +78,13 @@ export const taskSlice = createSlice({
         })
       }
       ///////////////////////// db vs api ///////////////////////////
-      if (data.db = 'db') {
+      if (action.payload.database === 'db') {
         result = result.filter((el) => el.createdb)
-      } else if (data.db === 'api') {
+      } else if (action.payload.database === 'api') {
         result = result.filter((el) => !el.createdb)
       }
       /////////////////////////// Diets //////////////////////////////
-      if (data.diet !== 'all diets') {
+      if (action.payload.diet !== 'all') {
         result = result.filter((el) => {
           if (el.diets.length > 0) {
             if (el.diets.find((el) => el === action.payload.diet)) {
@@ -110,7 +108,6 @@ export const taskSlice = createSlice({
 })
 
 export const {
-  setTasks,
   setGetRecipes,
   setFilterSearch,
   setGetRecipeID,
