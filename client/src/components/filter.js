@@ -23,12 +23,12 @@ export const Filter = ({ setPerPage }) => {
   // const handleFilter = () => filter(fil)
 
   const handleOrder = (e) => {
+    dispatch(filter({ ...fil, az: e.target.value }))
     setFil({
       ...fil,
       az: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter({ ...fil, az: e.target.value }))
     // dispatch(handleFilter())
     // dispatch(filterOrder({az:e.target.value}))
   }
