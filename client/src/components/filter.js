@@ -72,9 +72,7 @@ export const Filter = ({ setPerPage }) => {
     <ContentFilter>
       <div>
         <select defaultValue='all' onChange={handleOrder}>
-          <option disabled value='all'>
-            all
-          </option>
+          <option value='all'>all</option>
           <option value='az'>A-z</option>
           <option value='za'>Z-a</option>
         </select>
@@ -82,9 +80,7 @@ export const Filter = ({ setPerPage }) => {
 
       <div>
         <select defaultValue='all' onChange={handleHealthScore}>
-          <option disabled value='all'>
-            all
-          </option>
+          <option value='all'>all</option>
           <option value='lower'>Lower</option>
           <option value='higher'>Higher</option>
         </select>
@@ -92,10 +88,8 @@ export const Filter = ({ setPerPage }) => {
 
       <div>
         <select defaultValue='all' onChange={handleCreated}>
+          <option value='all'>all</option>
           <option value='api'>Api</option>
-          <option disabled value='all'>
-            all
-          </option>
           <option value='db'>db</option>
         </select>
       </div>
