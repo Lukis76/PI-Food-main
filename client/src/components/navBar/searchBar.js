@@ -32,13 +32,13 @@ export const SearchBar = () => {
 
   return (
     <ContentSearchBar>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={handleSubmit}>
         <Input
           type='text'
           name='search'
           value={name}
           placeholder='Search Recipe...'
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange}
         />
         <BtnSearch 
         // type='submit'

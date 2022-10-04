@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const { Diet } = require('../db')
+// const { Diet } = require('../db')
 const axios = require('axios')
 
 const { API_KEY, API_URL_ONE, API_EXTRA } = process.env
@@ -13,14 +13,13 @@ router.get('/', async (req, res) => {
 
     let diets = []
     if (results.length > 0) {
-      results.forEach(el => {
+      results.forEach((el) => {
         diets.push(el.diets)
-      });
+      })
       const dat = diets.flat()
       const data = [...new Set(dat)]
       res.json(data)
       console.log('deveris ser un arreglo de diets => ', data)
-
     }
   } catch (err) {
     console.error(err)

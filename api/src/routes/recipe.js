@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const { getAllInfo, getInfoName } = require('./utils/index.js')
-const { Recipe, diet, Op } = require('../db')
+const { Recipe } = require('../db')
 const { getIdInfo } = require('./utils/getIdInfo.js')
 
 const router = Router()
@@ -44,7 +44,6 @@ router.post('/', async (req, res) => {
     vegan,
     vegetarian,
   } = req.body
-  console.log("🚀 ~ file: recipe.js ~ line 46 ~ router.post ~ body", req.body)
 
   try {
     const createRecipe = await Recipe.create({
@@ -84,11 +83,8 @@ router.post('/', async (req, res) => {
 
 router.get('/:RecipeID', async (req, res) => {
   const { RecipeID } = req.params
-
   const result = await getIdInfo(RecipeID)
-  console.log("🚀 ~ file: recipe.js ~ line 89 ~ router.get ~ result", result)
   
-
   res.json(result)
 })
 

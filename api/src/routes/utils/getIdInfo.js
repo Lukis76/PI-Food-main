@@ -7,25 +7,6 @@ const getIdInfo = async (id) => {
     const { data } = await axios.get(
       `${API_URL_TWO}${id}/information?${API_KEY}`
     )
-
-    // if (results.length > 0) {
-    //   let result = results?.map((el) => {
-    //     return {
-    //       name: el.title,
-    //       vegetarian: el.vegetarian,
-    //       vegan: el.vegan,
-    //       glutenFree: el.glutenFree,
-    //       dairyFree: el.dairyFree,
-    //       img: el.image,
-    //       apiID: el.id,
-    //       score: el.spoonacularScore,
-    //       healthScore: el.healthScore,
-    //       dishType: el.dishTypes?.map((el) => el),
-    //       diets: el.diets?.map((el) => el),
-    //       summary: el.summary,
-    //       steps: el.analyzedInstructions[0],
-    //     }
-    //   })
     return {
       name: data.title,
       vegetarian: data.vegetarian,
@@ -43,7 +24,6 @@ const getIdInfo = async (id) => {
     }
   } catch (err) {
     console.error(err)
-    // return []
   }
 }
 
