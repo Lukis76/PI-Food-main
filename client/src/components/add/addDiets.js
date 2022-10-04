@@ -1,22 +1,21 @@
 // import { useState } from 'react'
-// import { useEffect } from 'react'
-import {
-  // useDispatch,
-  useSelector,
-} from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-// import { getTypes } from '../../app/actions/getTypes'
+import { getTypes } from '../../app/actions/getTypes'
 import { center } from '../../style/shorcuts'
 
 export const AddDiets = () => {
+  const dispatch = useDispatch()
   const diets = useSelector((state) => state.tasks.types)
   // const[diet, setDiet] = useState('')
-  // const dispatch = useDispatch()
   // console.log('🚀 ~ file: addDiets.js ~ line 7 ~ AddDiets ~ diets', diets)
-  // useEffect(() => {
-  //   dispatch(getTypes())
-  //   // setDiet(diets)
-  // }, [])
+  useEffect(() => {
+    if (!diets.length) {
+      dispatch(getTypes())
+    }
+    //   // setDiet(diets)
+  }, [])
 
   return (
     <ContentAddDiets>

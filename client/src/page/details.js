@@ -39,7 +39,7 @@ export const Details = () => {
           ))}
         </Dish>
         <h6>Steps</h6>
-        {det.steps.steps.map((el) => {
+        {det?.steps?.steps.map((el) => {
           return (
             <Step key={el.number}>
               <b>{el.number}</b>
