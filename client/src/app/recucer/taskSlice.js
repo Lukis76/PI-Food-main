@@ -56,8 +56,8 @@ export const taskSlice = createSlice({
     setFilter: (state, action) => {
       let result = state.recipesAll
       /*///////////////////// Order A-z Z-a /////////////////////////*/
-      if (action.payload.order === 'az') {
-        result.sort((a, b) => {
+      if (data.az === 'az') {
+        result = result.sort((a, b) => {
           if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
           else return -1
         })
@@ -68,17 +68,24 @@ export const taskSlice = createSlice({
         })
       }
       /*////////////////////// Health Score /////////////////////////*/
-      if (action.payload.score === 'lower') {
-        result.sort((a, b) => {
-          return a.healthScore - b.healthScore
+      if (data.score === 'lower') {
+        result = result.sort((a, b) => {
+          if (a.score - b.score < 0) return 1
+          else return -1
         })
       } else if (action.payload.score === 'higher') {
         result.sort((a, b) => {
           return b.healthScore - a.healthScore
         })
       }
-      /*////////////////////////// Diets /////////////////////////////*/
-      if (action.payload.diet !== 'all') {
+      ///////////////////////// db vs api ///////////////////////////
+      if (data.db = 'db') {
+        result = result.filter((el) => el.createdb)
+      } else if (data.db === 'api') {
+        result = result.filter((el) => !el.createdb)
+      }
+      /////////////////////////// Diets //////////////////////////////
+      if (data.diet !== 'all diets') {
         result = result.filter((el) => {
           if (el.diets.length > 0) {
             if (el.diets.find((el) => el === action.payload.diet)) {
