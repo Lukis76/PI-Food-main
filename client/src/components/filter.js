@@ -25,10 +25,10 @@ export const Filter = ({ setPerPage }) => {
   const handleOrder = (e) => {
     setFil({
       ...fil,
-      az: e.target.value
+      az: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter(fil))
+    dispatch(filter({ ...fil, az: e.target.value }))
     // dispatch(handleFilter())
     // dispatch(filterOrder({az:e.target.value}))
   }
@@ -36,30 +36,30 @@ export const Filter = ({ setPerPage }) => {
   const handleFilterDiet = (e) => {
     setFil({
       ...fil,
-      diet: e.target.value
+      diet: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter(fil))
+    dispatch(filter({ ...fil, diet: e.target.value }))
     // dispatch(getFilterDiet(e.target.value))
   }
 
   const handleHealthScore = (e) => {
     setFil({
       ...fil,
-      score: e.target.value
+      score: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter(fil))
+    dispatch(filter({ ...fil, score: e.target.value }))
     // dispatch(orderScore(e.target.value))
   }
 
   const handleCreated = (e) => {
     setFil({
       ...fil,
-      db: e.target.value
+      db: e.target.value,
     })
     dispatch(setPaguination(1))
-    dispatch(filter(fil))
+    dispatch(filter({ ...fil, score: e.target.value }))
     // dispatch(filterdb(e.target.value))
   }
 
