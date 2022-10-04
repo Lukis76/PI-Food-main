@@ -209,6 +209,7 @@ export const {
   setOrderScore,
   setFilterDataBase,
   setPaguination,
+  setFilter
 } = taskSlice.actions
 
 export default taskSlice.reducer
