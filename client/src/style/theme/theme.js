@@ -67,15 +67,21 @@ export const dark = {
       /*-------------- add recipe -----------*/ 
       // Form 
       addFormBg: '#ffffffc0',
-
+      
       // Diets
       addDietsPText: '#50514f',
-
+      
       // Button submit
       addBtnText: '#fefefe',
       addBtnBg:  '#09f',
-
+      
       /*--------------------------------------*/ 
+      /*---------------- detail --------------*/ 
+      numScoreDetail: '#50514f',
+
+
+
+      /*---------------------------------------*/ 
     },
     mode:`${center('row', 'flex-start')}` ,
 
