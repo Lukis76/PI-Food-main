@@ -17,11 +17,6 @@ export const taskSlice = createSlice({
     setPaguination: (state, action) => {
       state.paguination = action.payload
     },
-    /*------------------------------------------------------------------ */
-    /*------------------------------------------------------------------ */
-    setTasks: (state, action) => {
-      state.data = action.payload
-    },
     /*------------------------------------------------------------------- */
     /*------------------------------------------------------------------- */
     setGetRecipes: (state, action) => {
@@ -61,12 +56,6 @@ export const taskSlice = createSlice({
     /*-------------------------------------------------------------------------- */
     setFilter: (state, action) => {
       let result = state.recipesAll
-
-      console.log(
-        '🚀 ~ file: taskSlice.js ~ line 111 ~ action.payload',
-        action.payload
-      )
-
       /*///////////////////// Order A-z Z-a /////////////////////////*/
       if (action.payload.order === 'az') {
         result.sort((a, b) => {
