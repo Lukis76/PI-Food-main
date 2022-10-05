@@ -59,7 +59,11 @@ export const AddImg = ({ setError, setNewRecipe, error }) => {
       setNewRecipe(state => ({...state, img: e.target.value}))
       setError(state => ({...state, validImg: ''}))
 
-    } else if(e.target.value === '') {
+    } else {
+      setError(state => ({...state, validImg: 'this link is not valid'}))
+
+    } 
+    if(e.target.value === '') {
       setError(state => ({...state, validImg: 'image link field required'}))
     }
   }

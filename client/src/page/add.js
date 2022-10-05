@@ -58,7 +58,7 @@ export const Add = () => {
   return (
     <ContentAdd>
       <form onSubmit={handleSubmit}>
-        <Clear onClick={() => navigate('/home')}/>
+        <Clear onClick={() => navigate('/home')} />
         <AddName
           setError={setError}
           setNewRecipe={setNewRecipe}
@@ -74,11 +74,7 @@ export const Add = () => {
           setNewRecipe={setNewRecipe}
           error={error}
         />
-        <AddImg
-          setError={setError}
-          setNewRecipe={setNewRecipe}
-          error={error}
-        />
+        <AddImg setError={setError} setNewRecipe={setNewRecipe} error={error} />
         <AddSteps
           setError={setError}
           setNewRecipe={setNewRecipe}
@@ -89,7 +85,12 @@ export const Add = () => {
           setNewRecipe={setNewRecipe}
           error={error}
         />
-        <Btn type='submit'>Add Recipe</Btn>
+        {newRecipe.name.length > 6 &&
+          newRecipe.summary.length > 10 &&
+          newRecipe.steps[0].step.length > 10 &&
+          /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi.test(
+            newRecipe.img
+          ) && <Btn type='submit'>Add Recipe</Btn>}
       </form>
     </ContentAdd>
   )
@@ -115,12 +116,13 @@ const Clear = styled.div`
   position: absolute;
   height: 2.5rem;
   width: 2.5rem;
-  opacity: .6;
+  opacity: 0.6;
   top: 5px;
   right: 5px;
-  border-radius: .7rem;
+  border-radius: 0.7rem;
   background: red;
-  &:after , &::before {
+  &:after,
+  &::before {
     content: '';
     position: absolute;
     width: 30px;
@@ -143,9 +145,9 @@ const Clear = styled.div`
     right: 5px;
   }
   &:hover {
-    opacity: .8;
+    opacity: 0.8;
     scale: 1.1;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
   }
 `
 const Btn = styled.button`
