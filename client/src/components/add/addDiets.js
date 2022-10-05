@@ -5,17 +5,23 @@ import styled from 'styled-components'
 import { getTypes } from '../../app/actions/getTypes'
 import { center } from '../../style/shorcuts'
 
-export const AddDiets = () => {
+export const AddDiets = ({setNewRecipe}) => {
   const dispatch = useDispatch()
   const diets = useSelector((state) => state.tasks.types)
-  // const[diet, setDiet] = useState('')
-  // console.log('🚀 ~ file: addDiets.js ~ line 7 ~ AddDiets ~ diets', diets)
+ 
   useEffect(() => {
     if (!diets.length) {
       dispatch(getTypes())
     }
-    //   // setDiet(diets)
   }, [])
+
+  const handleChange = (e) => {
+    if(e.target.checked) {
+      setNewRecipe(state => ({...state, diet: [...state.diet, e.target.name]}))
+    } else {
+      setNewRecipe(state => ({...state, diet: state.diet.filter(el => el !== e.target.name)}))
+    }
+  }
 
   return (
     <ContentAddDiets>
@@ -26,7 +32,7 @@ export const AddDiets = () => {
               <input
                 type='checkbox'
                 name={el}
-                onChange={(e) => console.log(e.target.checked)}
+                onChange={handleChange}
               />
               <p>{el}</p>
             </label>

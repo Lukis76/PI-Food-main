@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 import { useRef, useState } from 'react'
 
-export const AddImg = () => {
+export const AddImg = ({ setError, setNewRecipe, error }) => {
   // let file = ''
   // const [valid, setValid] = useState({
   //   locura: 'automatica',
@@ -49,6 +49,20 @@ export const AddImg = () => {
   //   }
   // }
   // console.log('console programatico => ', valid)
+
+  // const handleChange = (e) => {
+
+  // }
+
+  const handleBlur = (e) => {
+    if(/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig.test(e.target.value)) {
+      setNewRecipe(state => ({...state, img: e.target.value}))
+      setError(state => ({...state, validImg: ''}))
+
+    } else if(e.target.value === '') {
+      setError(state => ({...state, validImg: 'image link field required'}))
+    }
+  }
   return (
     <ContentAddImg>
     <div>
@@ -57,7 +71,7 @@ export const AddImg = () => {
           type='text'
           name='name'
           // onChange={handleChange}
-          // onBlur={handleBlur}
+          onBlur={handleBlur}
           placeholder=' '
         />
         <label>link img</label>
@@ -81,6 +95,7 @@ export const AddImg = () => {
         <input type='file' name='img' id='input-file' hidden ref={inputRef} />
       </Box>
       <p id='preview'>{valid.imgextensionValid}</p> */}
+      <p>{error.validImg}</p>
     </ContentAddImg>
   )
 }
@@ -125,13 +140,13 @@ const ContentAddImg = styled.div`
       z-index: 110;
     }
   }
-  /* p {
+  p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 0.5rem;
     font-size: 0.7rem;
     border-radius: 1rem;
     color: red;
-  } */
+  }
 `
 
 // const Box = styled.div`

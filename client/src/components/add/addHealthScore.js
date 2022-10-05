@@ -2,23 +2,26 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 
-export const AddHealthScore = (error, setError) => {
+export const AddHealthScore = ({ error, setError, setNewRecipe }) => {
   const [value, setValue] = useState(1)
 
   const handleChange = (e) => {
-    e.preventDefault()
     setValue(e.target.value)
-    if(e.target.value !== '1') {
-      setError(state => ({...state, validHealthScore: ''}))
+    if (e.target.value !== '1') {
+      setError((state) => ({ ...state, validHealthScore: '' }))
     }
+    setNewRecipe((state) => ({ ...state, healthScore: e.target.value }))
   }
 
   const handleBlur = (e) => {
-    if(e.target.vale === '1') {
-      setError(state => ({...state , validHealthScore: 'Are you sure to leave health score 1'}))
+    if (e.target.value === '1') {
+      setError((state) => ({
+        ...state,
+        validHealthScore: 'Are you sure to leave health score 1',
+      }))
     }
-
   }
+
   return (
     <ContentAddHealthScore>
       <label>Health Score</label>
@@ -26,7 +29,7 @@ export const AddHealthScore = (error, setError) => {
         <input
           type='range'
           name='healthScore'
-          defaultValue={1}
+          defaultValue='1'
           min={1}
           max={100}
           onChange={handleChange}
@@ -68,6 +71,6 @@ const ContentAddHealthScore = styled.div`
     margin-top: 0.5rem;
     font-size: 0.7rem;
     border-radius: 1rem;
-    color: red;
+    color: blue;
   }
 `

@@ -20,13 +20,12 @@ export const Add = () => {
   const [error, setError] = useState({
     requiredFieldName: false,
     requiredFieldSummary: false,
-    extraFields: false,
+    requiredFielStep: false,
     validName: '',
     validSummary: '',
     validHealthScore: '',
     validSteps: '',
     validImg: '',
-    validDiets: '',
   })
   const [newRecipe, setNewRecipe] = useState({
     name: '',
@@ -41,18 +40,18 @@ export const Add = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // console.log('newrecipeantisipado dispatch => ', newRecipe)
-    postRecipe(newRecipe)
-    setNewRecipe({
-      name: '',
-      summary: '',
-      healthScore: 1,
-      steps: [],
-      img: '',
-      diet: [],
-    })
+    console.log('newrecipeantisipado dispatch => ', newRecipe)
+    // postRecipe(newRecipe)
+    // setNewRecipe({
+    //   name: '',
+    //   summary: '',
+    //   healthScore: 1,
+    //   steps: [],
+    //   img: '',
+    //   diet: [],
+    // })
 
-    navigate('/home')
+    // navigate('/home')
     // console.log('submit ejecutado')
   }
 
@@ -73,22 +72,22 @@ export const Add = () => {
         <AddHealthScore
           setError={setError}
           setNewRecipe={setNewRecipe}
-          newRecipe={newRecipe}
+          error={error}
         />
         <AddImg
           setError={setError}
           setNewRecipe={setNewRecipe}
-          newRecipe={newRecipe}
+          error={error}
         />
         <AddSteps
           setError={setError}
           setNewRecipe={setNewRecipe}
-          newRecipe={newRecipe}
+          error={error}
         />
         <AddDiets
           setError={setError}
           setNewRecipe={setNewRecipe}
-          newRecipe={newRecipe}
+          error={error}
         />
         <Btn type='submit'>Add Recipe</Btn>
       </form>

@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
       const dat = diets.flat()
       const data = [...new Set(dat)]
       res.json(data)
-      console.log('deveris ser un arreglo de diets => ', data)
     }
   } catch (err) {
     console.error(err)
