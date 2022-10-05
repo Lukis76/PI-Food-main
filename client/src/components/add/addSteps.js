@@ -26,6 +26,7 @@ export const AddSteps = ({ setError, setNewRecipe, error }) => {
         ...state,
         steps: [
           ...state.steps,
+          // state.steps[e.target.id - 1] = 
           { number: e.target.id, [e.target.name]: e.target.value },
         ],
       }))

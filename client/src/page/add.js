@@ -41,7 +41,7 @@ export const Add = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log('newrecipeantisipado dispatch => ', newRecipe)
-    // postRecipe(newRecipe)
+    postRecipe(newRecipe)
     // setNewRecipe({
     //   name: '',
     //   summary: '',
@@ -87,7 +87,7 @@ export const Add = () => {
         />
         {newRecipe.name.length > 6 &&
           newRecipe.summary.length > 10 &&
-          newRecipe.steps[0].step.length > 10 &&
+          newRecipe.steps[0]?.step.length > 10 &&
           /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi.test(
             newRecipe.img
           ) && <Btn type='submit'>Add Recipe</Btn>}
