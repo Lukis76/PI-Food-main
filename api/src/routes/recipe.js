@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const { getAllInfo, getInfoName } = require('./utils/index.js')
-const { Recipe } = require('../db')
+const { Recipe, Diet, Steps } = require('../db')
 const { getIdInfo } = require('./utils/getIdInfo.js')
 
 const router = Router()
@@ -31,33 +31,26 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-  console.log('ejecutando el post a nivel bak-end')
-  const {
-    name,
-    summary,
-    healthScore,
-    img,
-    steps,
-    diets,
-    glutenFree,
-    dairyFree,
-    vegan,
-    vegetarian,
-  } = req.body
+  const { name, summary, healthScore, img, steps, diets, createdb } = req.body
 
   try {
+    console.log('ejecutando el post a nivel bak-end')
+
     const createRecipe = await Recipe.create({
       name,
       summary,
       healthScore,
-      // img,
-      // steps,
-      // diets,
-      // glutenFree,
-      // dairyFree,
-      // vegan,
-      // vegetarian,
+      img,
+      createdb,
     })
+
+    // await steps?.map(async (el) => {
+    //   await Steps.create({
+    //     id: createRecipe.id,
+    //     number: el.number,
+    //     step: el.step,
+    //   })
+    // })
 
     const dietDB = await Diet.findAll({
       where: {
@@ -77,14 +70,16 @@ router.post('/', async (req, res) => {
 
     createRecipe.addDiet(dietDB)
 
-    res.send('Successfully created a new Recipe !')
-  } catch (error) {}
+    res.status(200).send('Created New Recipe !')
+  } catch (err) {
+    res.status(500)
+  }
 })
 
 router.get('/:RecipeID', async (req, res) => {
   const { RecipeID } = req.params
   const result = await getIdInfo(RecipeID)
-  
+
   res.json(result)
 })
 

@@ -6,9 +6,6 @@ const { Sequelize } = require('sequelize')
 const fs = require('fs')
 const path = require('path')
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env
-console.log("🚀 ~ file: db.js ~ line 9 ~ DB_HOST", DB_HOST)
-
-// 'postgres://postgres:mano76@localhost:7777/henry_sequelize'
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/food`,
@@ -44,10 +41,13 @@ sequelize.models = Object.fromEntries(capsEntries)
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 //----------------------------------------------------------------
-const { Recipe, Diet } = sequelize.models
+const { Recipe, Diet, Steps } = sequelize.models
 
 Recipe.belongsToMany(Diet, { through: 'recipe_diet' })
 Diet.belongsToMany(Recipe, { through: 'recipe_diet' })
+
+Recipe.hasMany(Steps, {foreignKey: 'steps_recipe', sourceKey: 'id'})
+Steps.belongsTo(Recipe, {foreignKey: 'steps_recipe', targetKey: 'id'})
 
 //----------------------------------------------------------------
 
