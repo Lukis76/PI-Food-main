@@ -19,19 +19,19 @@ export const Filter = () => {
   const handleHealthScore = (e) => {
     setFil((state) => ({ ...state, score: e.target.value }))
     dispatch(setPaguination(1))
-    dispatch(filter(fil))
+    dispatch(filter({ ...fil, score: e.target.value }))
   }
 
   const handleOr = (e) => {
     setFil((state) => ({ ...state, order: e.target.value }))
     dispatch(setPaguination(1))
-    dispatch(filter(fil))
+    dispatch(filter({ ...fil, order: e.target.value }))
   }
 
   const handleFilterDiet = (e) => {
     setFil((state) => ({ ...state, diet: e.target.value }))
     dispatch(setPaguination(1))
-    dispatch(filter(fil))
+    dispatch(filter({ ...fil, diet: e.target.value }))
   }
 
   const handleCreated = (e) => {

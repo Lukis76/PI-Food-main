@@ -6,7 +6,6 @@ export const Mode = ({ setTheme, theme }) => {
   const handleClick = () => {
     setTheme((start) => (start = !start))
   }
-  console.log('mode => ', theme)
   return (
     <ContentMode>
       <div>

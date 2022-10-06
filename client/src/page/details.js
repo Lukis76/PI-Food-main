@@ -132,6 +132,7 @@ const ImgSummary = styled.div`
   }
 `
 const Summary = styled.div`
+min-width: 280px;
   ${center('column', 'flex-start', 'flex-start')}
 `
 const Score = styled.div`

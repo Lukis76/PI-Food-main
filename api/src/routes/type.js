@@ -6,7 +6,7 @@ const router = Router()
 router.get('/', async (req, res) => {
   try {
     const allDiets = await Diet.findAll()
-    
+
     const arrayDiets = []
     allDiets.forEach((el) => {
       arrayDiets.push(el.name)

@@ -19,11 +19,11 @@ const Btn = styled.button`
   font-weight: 700;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  background: ${props => props.theme.color.newRecipeBg};
-  color: ${props => props.theme.color.newRecipeText};
-  opacity: .9;
+  background: ${(props) => props.theme.color.newRecipeBg};
+  color: ${(props) => props.theme.color.newRecipeText};
+  opacity: 0.9;
   &:hover {
     scale: 1.1;
-    transition: scale .2s ease-out;
+    transition: scale 0.2s ease-out;
   }
 `

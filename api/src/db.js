@@ -46,8 +46,8 @@ const { Recipe, Diet, Steps } = sequelize.models
 Recipe.belongsToMany(Diet, { through: 'recipe_diet' })
 Diet.belongsToMany(Recipe, { through: 'recipe_diet' })
 
-// Recipe.hasMany(Steps, {foreignKey: 'steps_recipe', sourceKey: 'id'})
-// Steps.belongsTo(Recipe, {foreignKey: 'steps_recipe', targetKey: 'id'})
+Recipe.hasMany(Steps, {as: "steps", foreignKey: 'recetaId'})
+Steps.belongsTo(Recipe, {as: "receta"})
 
 //----------------------------------------------------------------
 

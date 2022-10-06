@@ -57,7 +57,7 @@ export const taskSlice = createSlice({
       let result = state.recipesAll
       /*///////////////////// Order A-z Z-a /////////////////////////*/
       if (action.payload.order === 'az') {
-        result = result.sort((a, b) => {
+        result.sort((a, b) => {
           if (a.name.toLowerCase() > b.name.toLowerCase()) return 1
           else return -1
         })
@@ -69,7 +69,7 @@ export const taskSlice = createSlice({
       }
       /*////////////////////// Health Score /////////////////////////*/
       if (action.payload.score === 'lower') {
-        result = result.sort((a, b) => {
+        result.sort((a, b) => {
           return a.healthScore - b.healthScore
         })
       } else if (action.payload.score === 'higher') {

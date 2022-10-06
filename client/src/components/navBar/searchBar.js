@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-// import { getRecipesName } from '../../app/actions/getRecipesName'
 import { searchBarName } from '../../app/actions/searchBarName'
 import { SvgSearch } from '../../assets/svg/svgSearch'
 import { center } from '../../style/shorcuts'
@@ -12,22 +11,12 @@ export const SearchBar = () => {
 
   const handleChange = (e) => {
     setName(e.target.value)
-    // console.log("🚀 ~ file: searchBar.js ~ line 15 ~ handleChange ~ value", e.target.value)
-    // console.log("🚀 ~ file: searchBar.js ~ line 16 ~ handleChange ~ name", name)
-    // let data = e.target.value 
-    // === '' ? ' ' : name
     dispatch(searchBarName(e.target.value))
-    
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // if (name.length > 1) {
-      // console.log('dentro => ', name)
-      // dispatch(getRecipesName(name))
-      // e.target.value = ''
-      setName('')
-    // }
+    setName('')
   }
 
   return (
@@ -40,9 +29,7 @@ export const SearchBar = () => {
           placeholder='Search Recipe...'
           onChange={handleChange}
         />
-        <BtnSearch 
-        // type='submit'
-        >
+        <BtnSearch type='submit'>
           <SvgSearch height={28} width={28} />
         </BtnSearch>
       </form>
