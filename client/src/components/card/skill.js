@@ -5,11 +5,8 @@ import { SvgCheckTrue } from '../../assets/svg/checkTrue'
 import { SvgCheckFalse } from '../../assets/svg/checkFalse'
 
 export const Skill = ({
+  types,
   healthScore,
-  glutenFree,
-  dairyFree,
-  vegan,
-  vegetarian,
 }) => {
   return (
     <ContentSkill>
@@ -21,19 +18,19 @@ export const Skill = ({
       </Box>
       <Box>
         <h6>gluten free</h6>
-        {glutenFree ? <SvgCheckTrue /> : <SvgCheckFalse />}
+        {types.includes('gluten free') ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
       <Box>
         <h6>dairy free</h6>
-        {dairyFree ? <SvgCheckTrue /> : <SvgCheckFalse />}
+        {types.includes('dairy free') ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
       <Box>
         <h6>vegan</h6>
-        {vegan ? <SvgCheckTrue /> : <SvgCheckFalse />}
+        {types.includes('vegan') ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
       <Box>
         <h6>veget.</h6>
-        {vegetarian ? <SvgCheckTrue /> : <SvgCheckFalse />}
+        {types.includes('lacto ovo vegetarian') ? <SvgCheckTrue /> : <SvgCheckFalse />}
       </Box>
     </ContentSkill>
   )

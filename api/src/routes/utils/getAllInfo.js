@@ -5,9 +5,7 @@ const getAllInfo = async () => {
   try {
     const apiInfo = await getApiInfo()
     const dbInfo = await getDbInfo()
-
     const result = apiInfo.concat(dbInfo)
-
     return result
   } catch (err) {
     console.error(err)

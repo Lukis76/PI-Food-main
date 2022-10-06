@@ -11,20 +11,20 @@ const getApiInfo = async () => {
       let result = results?.map((el) => {
         return {
           name: el.title,
-          vegetarian: el.vegetarian,
-          vegan: el.vegan,
-          glutenFree: el.glutenFree,
-          dairyFree: el.dairyFree,
           img: el.image,
           apiID: el.id,
-          score: el.spoonacularScore,
           healthScore: el.healthScore,
-          dishType: el.dishTypes?.map((el) => el),
           diets: el.diets?.map((el) => el),
           summary: el.summary,
-          steps: el.analyzedInstructions[0],
+          steps: el.analyzedInstructions[0]?.steps?.map((el) => {
+            return {
+              number: el.number,
+              step: el.step,
+            }
+          }),
         }
       })
+
       return result
     }
   } catch (err) {

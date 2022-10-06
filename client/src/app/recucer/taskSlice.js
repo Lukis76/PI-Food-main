@@ -93,13 +93,6 @@ export const taskSlice = createSlice({
           }
         })
       }
-      /*///////////////////////// db vs api /////////////////////////*/
-      if (action.payload.database === 'db') {
-        result = result.filter((el) => el.createdb)
-      } else if (action.payload.database === 'api') {
-        result = result.filter((el) => !el.createdb)
-      }
-      /*//////////////////////////////////////////////////////////// */
       state.recipes = result
     },
     /*------------------------------------------------------------ */

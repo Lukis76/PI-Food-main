@@ -11,17 +11,17 @@ import { ConstentCars } from '../components/cards/constentCars'
 
 export const Home = ({ setTheme, theme }) => {
   const dispatch = useDispatch()
-  const recipesAll = useSelector(state => state.tasks.recipesAll)
+  const recipesAll = useSelector((state) => state.tasks.recipesAll)
   const recipes = useSelector((state) => state.tasks.recipes)
   const types = useSelector((state) => state.tasks.types)
 
   const [perPage, setPerPage] = useState(9)
   const max = Math.ceil(recipes.length / perPage)
-  
+
   useEffect(() => {
-    if(!recipesAll.length) {
-    dispatch(getRecipesAll())
-    dispatch(getTypes())
+    if (!recipesAll.length) {
+      dispatch(getRecipesAll())
+      dispatch(getTypes())
     }
   }, [])
 

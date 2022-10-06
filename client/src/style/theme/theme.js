@@ -1,92 +1,80 @@
 import { center } from '../shorcuts'
 
 export const dark = {
-    color: {
-      blueMidu: '#ffe066;',
-      blank: '#50514f;',
-      blueLight: '#8fc93aee;',
-      grey: '#f25f5c;',
-      /*--------------- nav bar ---------------*/ 
-      /*----------------------------------------*/
-      // Sesrch bar
-      inputText: '',
-      inputBg: '#fefefe;',
-      // button
-      inputBtnText: '',
-      inputBtnBg: '#fefefe;',
-      /*----------------------------------------*/
-      // btn new recipe
-      newRecipeBg: '#e18335;',
-      newRecipeText: '#fefefe;',
+  color: {
+    blueMidu: '#ffe066;',
+    blank: '#50514f;',
+    blueLight: '#8fc93aee;',
+    grey: '#f25f5c;',
+    /*--------------- nav bar ---------------*/
+    /*----------------------------------------*/
+    // Sesrch bar
+    inputText: '',
+    inputBg: '#fefefe;',
+    // button
+    inputBtnText: '',
+    inputBtnBg: '#fefefe;',
+    /*----------------------------------------*/
+    // btn new recipe
+    newRecipeBg: '#e18335;',
+    newRecipeText: '#fefefe;',
 
+    /*----------------------------------------*/
 
+    // Mode
+    modeBg: '#fefefe;',
+    modeBtn: '#247ba0;',
+    /*--------------------------------------*/
 
+    /*-----------  pagination--------------*/
+    // position
+    paginationBg: '#50514f;',
+    paginationText: '#fefefe;',
 
-      /*----------------------------------------*/
-  
-      // Mode
-      modeBg: '#fefefe;',
-      modeBtn: '#247ba0;',
-      /*--------------------------------------*/ 
-      
-      /*-----------  pagination--------------*/ 
-      // position
-      paginationBg: '#50514f;',
-      paginationText: '#fefefe;',
+    // next last pagination
+    paginationBtnBg: '#386641;',
+    paginationBtnText: '#fefefe;',
 
-      // next last pagination
-      paginationBtnBg: '#386641;',
-      paginationBtnText: '#fefefe;',
+    /*--------------------------------------*/
+    /*----------- landig page--------------*/
+    // button
+    btnStart: '#09f;',
+    btnString: '#000000aa;',
+    /*--------------------------------------*/
 
+    /*----- section color cards ---------*/
+    // Title
+    titleBg: '#fefefe;',
+    titleH3: '#50514f;',
 
+    // Summary
+    summaryBg: '#fefefe;',
+    summayP: '#50514f;',
 
-      /*--------------------------------------*/ 
-      /*----------- landig page--------------*/ 
-      // button
-      btnStart: '#09f;',
-      btnString: '#000000aa;',
-      /*--------------------------------------*/ 
-  
-  
-  
-      /*----- section color cards ---------*/ 
-      // Title
-      titleBg: '#fefefe;',
-      titleH3: '#50514f;',
-  
-  
-      // Summary
-      summaryBg: '#fefefe;',
-      summayP: '#50514f;',
-      
-      // Skill
-      cardDietsH6: '#50514f;',
-      cardDietsSpan: '#50514f;',
-      cardDietsBg: '#8fc93a;',
-      /*----------------------------------*/ 
-      /*-------------- add recipe -----------*/ 
-      // Form 
-      addFormBg: '#ffffffc0',
-      
-      // Diets
-      addDietsPText: '#50514f',
-      
-      // Button submit
-      addBtnText: '#fefefe',
-      addBtnBg:  '#09f',
-      
-      /*--------------------------------------*/ 
-      /*---------------- detail --------------*/ 
-      numScoreDetail: '#50514f',
+    // Skill
+    cardDietsH6: '#50514f;',
+    cardDietsSpan: '#50514f;',
+    cardDietsBg: '#8fc93a;',
+    /*----------------------------------*/
+    /*-------------- add recipe -----------*/
+    // Form
+    addFormBg: '#ffffffc0',
 
+    // Diets
+    addDietsPText: '#50514f',
 
+    // Button submit
+    addBtnText: '#fefefe',
+    addBtnBg: '#09f',
 
-      /*---------------------------------------*/ 
-    },
-    mode:`${center('row', 'flex-start')}` ,
+    /*--------------------------------------*/
+    /*---------------- detail --------------*/
+    numScoreDetail: '#50514f',
 
+    /*---------------------------------------*/
+  },
+  mode: `${center('row', 'flex-start')}`,
 }
-
 
 export const light = {
   color: {
@@ -94,7 +82,7 @@ export const light = {
     blank: '#50514f;',
     blueLight: '#8fc93aee;',
     grey: '#f25f5c;',
-    /*--------------- nav bar ---------------*/ 
+    /*--------------- nav bar ---------------*/
     // Sesrch bar
     inputText: '',
     inputBg: '#fefefe;',
@@ -102,39 +90,33 @@ export const light = {
     inputBtnText: '',
     inputBtnBg: '#fefefe !important;',
 
-
     // Mode
     modeBg: '#fefefe',
     modeBtn: '#247ba0',
-    /*--------------------------------------*/ 
+    /*--------------------------------------*/
 
-    /*----------- landig page----- ---------*/ 
+    /*----------- landig page----- ---------*/
     // button
     btnStart: '#09f;',
     btnString: '#000000aa;',
-    /*--------------------------------------*/ 
+    /*--------------------------------------*/
 
-
-
-    /*----- section color cards ---------*/ 
+    /*----- section color cards ---------*/
     // Title
     titleBg: '#fefefe;',
     titleH3: '#50514f;',
 
-
     // Summary
     summaryBg: '#fefefe;',
     summayP: '#50514f;',
-    
+
     // Skill
     cardDietsH6: '#50514f;',
     cardDietsSpan: '#50514f;',
     cardDietsBg: '#8fc93a;',
-    /*----------------------------------*/ 
-
-
+    /*----------------------------------*/
   },
-  mode:`${center('row', 'flex-end')}` ,
+  mode: `${center('row', 'flex-end')}`,
 }
 
 // #09f

@@ -22,7 +22,6 @@ const apiDiets = async () => {
           default: { name: el },
         })
       })
-      console.log('🚀 ~ insersion de dietas en db exitosa')
     }
   } catch (error) {
     console.log(

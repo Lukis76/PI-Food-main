@@ -21,12 +21,7 @@ export const ConstentCars = ({ perPage, recipes }) => {
                   name={el.name}
                   img={el.img}
                   types={el.diets}
-                  diets={el.dishType}
                   healthScore={el.healthScore}
-                  glutenFree={el.glutenFree}
-                  dairyFree={el.dairyFree}
-                  vegan={el.vegan}
-                  vegetarian={el.vegetarian}
                   summary={el.summary}
                 />
               )

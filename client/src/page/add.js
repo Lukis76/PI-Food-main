@@ -11,8 +11,6 @@ import { AddSummary } from '../components/add/addSummary'
 import { AddHealthScore } from '../components/add/addHealthScore'
 import { AddImg } from '../components/add/addImg'
 import { AddSteps } from '../components/add/addSteps'
-// import { useEffect } from 'react'
-// import { getTypes } from '../app/actions/getTypes'
 
 export const Add = () => {
   const navigate = useNavigate()
@@ -34,25 +32,22 @@ export const Add = () => {
     steps: [],
     img: '',
     diet: [],
-    createdb: true,
   })
   // console.log('init => ', newRecipe)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('newrecipeantisipado dispatch => ', newRecipe)
     postRecipe(newRecipe)
-    // setNewRecipe({
-    //   name: '',
-    //   summary: '',
-    //   healthScore: 1,
-    //   steps: [],
-    //   img: '',
-    //   diet: [],
-    // })
+    setNewRecipe({
+      name: '',
+      summary: '',
+      healthScore: 1,
+      steps: [],
+      img: '',
+      diet: [],
+    })
 
-    // navigate('/home')
-    // console.log('submit ejecutado')
+    navigate('/home')
   }
 
   return (

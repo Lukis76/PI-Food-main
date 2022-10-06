@@ -5,10 +5,10 @@ import styled from 'styled-components'
 import { getTypes } from '../../app/actions/getTypes'
 import { center } from '../../style/shorcuts'
 
-export const AddDiets = ({setNewRecipe}) => {
+export const AddDiets = ({ setNewRecipe }) => {
   const dispatch = useDispatch()
   const diets = useSelector((state) => state.tasks.types)
- 
+
   useEffect(() => {
     if (!diets.length) {
       dispatch(getTypes())
@@ -16,10 +16,16 @@ export const AddDiets = ({setNewRecipe}) => {
   }, [])
 
   const handleChange = (e) => {
-    if(e.target.checked) {
-      setNewRecipe(state => ({...state, diet: [...state.diet, e.target.name]}))
+    if (e.target.checked) {
+      setNewRecipe((state) => ({
+        ...state,
+        diet: [...state.diet, e.target.name],
+      }))
     } else {
-      setNewRecipe(state => ({...state, diet: state.diet.filter(el => el !== e.target.name)}))
+      setNewRecipe((state) => ({
+        ...state,
+        diet: state.diet.filter((el) => el !== e.target.name),
+      }))
     }
   }
 
@@ -29,11 +35,7 @@ export const AddDiets = ({setNewRecipe}) => {
         {diets?.map((el) => {
           return (
             <label key={el}>
-              <input
-                type='checkbox'
-                name={el}
-                onChange={handleChange}
-              />
+              <input type='checkbox' name={el} onChange={handleChange} />
               <p>{el}</p>
             </label>
           )

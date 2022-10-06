@@ -26,7 +26,7 @@ export const AddSteps = ({ setError, setNewRecipe, error }) => {
         ...state,
         steps: [
           ...state.steps,
-          // state.steps[e.target.id - 1] = 
+          // state.steps[e.target.id - 1] =
           { number: e.target.id, [e.target.name]: e.target.value },
         ],
       }))
@@ -35,13 +35,6 @@ export const AddSteps = ({ setError, setNewRecipe, error }) => {
 
   return (
     <ContetAddSteps>
-      {/* <NumSteps>
-          <strong>number steps: </strong>
-          <div onClick={handleDecrement}></div>
-          {num.length}
-          <div onClick={handleIncrement}></div>
-      </NumSteps> */}
-
       <Step>
         <textarea
           name='step'

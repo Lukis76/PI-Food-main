@@ -9,30 +9,35 @@ export const Filter = () => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 
-  const [fil, setFil] = useState({ order: 'all', score: 'all', diet: 'all', database: 'all'})
+  const [fil, setFil] = useState({
+    order: 'all',
+    score: 'all',
+    diet: 'all',
+    database: 'all',
+  })
 
   const handleHealthScore = (e) => {
-    dispatch(filter({ ...fil, score: e.target.value }))
-    setFil({ ...fil, score: e.target.value })
+    setFil((state) => ({ ...state, score: e.target.value }))
     dispatch(setPaguination(1))
+    dispatch(filter(fil))
   }
 
   const handleOr = (e) => {
-    dispatch(filter({ ...fil, order: e.target.value }))
-    setFil({ ...fil, order: e.target.value })
+    setFil((state) => ({ ...state, order: e.target.value }))
     dispatch(setPaguination(1))
+    dispatch(filter(fil))
   }
 
   const handleFilterDiet = (e) => {
-    dispatch(filter({ ...fil, diet: e.target.value }))
-    setFil({ ...fil, diet: e.target.value })
+    setFil((state) => ({ ...state, diet: e.target.value }))
     dispatch(setPaguination(1))
+    dispatch(filter(fil))
   }
 
   const handleCreated = (e) => {
-    dispatch(filter({ ...fil, database: e.target.value }))
-    setFil({ ...fil, database: e.target.value })
+    setFil((state) => ({ ...state, database: e.target.value }))
     dispatch(setPaguination(1))
+    dispatch(filter({ ...fil, database: e.target.value }))
   }
 
   // const handleItems = (e) => {

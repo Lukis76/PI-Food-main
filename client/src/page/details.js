@@ -11,14 +11,13 @@ export const Details = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
   const navigate = useNavigate()
-  console.log('🚀 ~ file: details.js ~ line 12 ~ Details ~ id', det)
   useEffect(() => {
     dispatch(getRecipeID(id))
   }, [dispatch, id])
   return det.name ? (
     <ContentDetails>
       <Marco>
-      <Clear onClick={() => navigate('/home')}/>
+        <Clear onClick={() => navigate('/home')} />
 
         <h2>{det.name}</h2>
         <ImgSummary>
@@ -34,12 +33,12 @@ export const Details = () => {
         </Score>
         <Dish>
           <h4>diets list:</h4>
-          {det?.dishType.map((el) => (
+          {det?.diets.map((el) => (
             <li key={el}>{el}</li>
           ))}
         </Dish>
         <h6>Steps</h6>
-        {det?.steps?.steps.map((el) => {
+        {det?.steps?.map((el) => {
           return (
             <Step key={el.number}>
               <b>{el.number}</b>
@@ -62,7 +61,7 @@ const ContentDetails = styled.div`
   min-height: 100vh;
 `
 const Marco = styled.div`
-position: relative;
+  position: relative;
   ${center()}
   margin: 1rem 0;
   padding: 3rem 1rem 1rem 1rem;
@@ -81,12 +80,13 @@ const Clear = styled.div`
   position: absolute;
   height: 2.5rem;
   width: 2.5rem;
-  opacity: .6;
+  opacity: 0.6;
   top: 5px;
   right: 5px;
-  border-radius: .7rem;
+  border-radius: 0.7rem;
   background: red;
-  &:after , &::before {
+  &:after,
+  &::before {
     content: '';
     position: absolute;
     width: 30px;
@@ -109,9 +109,9 @@ const Clear = styled.div`
     right: 5px;
   }
   &:hover {
-    opacity: .8;
+    opacity: 0.8;
     scale: 1.1;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
   }
 `
 const ImgSummary = styled.div`

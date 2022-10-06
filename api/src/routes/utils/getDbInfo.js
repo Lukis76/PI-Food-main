@@ -1,4 +1,3 @@
-const express = require('express')
 const { Recipe, Diet } = require('../../db')
 
 const getDbInfo = async () => {
@@ -22,6 +21,7 @@ const getDbInfo = async () => {
         img: el.img,
         steps: el.steps,
         diets: el.diets?.map((el) => el.name),
+        createdb: el.createdb,
       }
     })
     return res

@@ -3,19 +3,7 @@ import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 import { Skill } from './skill'
 
-export const Card = ({
-  id,
-  name,
-  img,
-  healthScore,
-  glutenFree,
-  dairyFree,
-  vegan,
-  vegetarian,
-  summary,
-}) => {
-  // console.log("🚀 ~ file: card.js ~ line 17 ~ id-recipe", id)
-  
+export const Card = ({ id, name, img, healthScore, types, summary }) => {
   return (
     <Link to={`/details/${id}`}>
       <ContentCard>
@@ -29,13 +17,7 @@ export const Card = ({
           <p dangerouslySetInnerHTML={{ __html: summary }}></p>
         </ContSummary>
 
-        <Skill
-          healthScore={healthScore}
-          glutenFree={glutenFree}
-          dairyFree={dairyFree}
-          vegan={vegan}
-          vegetarian={vegetarian}
-        />
+        <Skill types={types} healthScore={healthScore} />
       </ContentCard>
     </Link>
   )
