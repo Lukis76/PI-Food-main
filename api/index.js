@@ -17,12 +17,14 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
+const server = require('./src/app.js')
+const { conn } = require('./src/db.js')
+const { apiDiets } = require('./src/routes/utils/getCreateDietsdb.js')
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3088, () => {
-    console.log('%s listening at 3088'); // eslint-disable-line no-console
-  });
-});
+conn.sync({ force: false }).then(() => {
+  server.listen(3088, async () => {
+    console.log('%s listening at 3088') // eslint-disable-line no-console
+    await apiDiets()
+  })
+})
