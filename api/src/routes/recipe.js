@@ -36,17 +36,17 @@ router.post('/', async (req, res) => {
   try {
     console.log('ejecutando el post a nivel bak-end')
     if (!name) {
-      console.log('negado por name => ');
+      console.log('negado por name => ')
       return res
-      .status(400)
-      .send({ msg: 'Deve ingresar el name para la receta' })
+        .status(400)
+        .send({ msg: 'Deve ingresar el name para la receta' })
     } else if (!summary) {
-      console.log('negado por summry => ');
+      console.log('negado por summry => ')
       return res
         .status(400)
         .send({ msg: 'Deve ingresar el summary para la receta' })
     } else {
-      console.log('etapa crear receta => ');
+      console.log('etapa crear receta => ')
       const createRecipe = await Recipe.create({
         name,
         summary,
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
         img,
         createdb,
       })
-      console.log('receta creada =>');
+      console.log('receta creada =>')
 
       // await steps?.map(async (el) => {
       //   await Steps.create({
@@ -64,15 +64,15 @@ router.post('/', async (req, res) => {
       //   })
       // })
       // await diets.forEach(async (el) => {
-        console.log('🚀 ~ file: recipe ermanando')
-        const dietDB = await Diet.findAll({
-          where: {
-            name: diets,
-          },
-        })
-        console.log('🚀 ~ file: recipe.etapa filal =>')
+      console.log('🚀 ~ file: recipe ermanando')
+      const dietDB = await Diet.findAll({
+        where: {
+          name: diets,
+        },
+      })
+      console.log('🚀 ~ file: recipe.etapa filal =>',dietDB)
 
-        createRecipe.addDiet(dietDB)
+      createRecipe.addDiet(dietDB)
       // })
 
       res.status(200).send('Created New Recipe !')
