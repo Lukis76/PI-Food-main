@@ -8,8 +8,6 @@ const router = Router()
 router.get('/', async (req, res) => {
   const { name } = req.query
   try {
-    // const preData = await getAll()
-    // res.json(preData)
     const allData = await getAllInfo()
     if (name) {
       const allDataName = allData.filter((el) =>
