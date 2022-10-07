@@ -1,12 +1,15 @@
 const { Router } = require('express')
 const { getAllInfo } = require('./utils/index.js')
 const { Recipe, Diet, Steps } = require('../db')
+// const { getAll } = require('./utils/getAll.js')
 
 const router = Router()
 
 router.get('/', async (req, res) => {
   const { name } = req.query
   try {
+    // const preData = await getAll()
+    // res.json(preData)
     const allData = await getAllInfo()
     if (name) {
       const allDataName = allData.filter((el) =>

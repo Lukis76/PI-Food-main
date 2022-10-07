@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -L",
-    "test-jest": "jest --verbose",
+    "test-jest":"jest --verbose --silent --detectOpenHandles",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "author": "Henry",

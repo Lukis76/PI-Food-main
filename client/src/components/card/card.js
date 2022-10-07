@@ -4,7 +4,6 @@ import { center } from '../../style/shorcuts'
 import { Skill } from './skill'
 
 export const Card = ({ id, name, img, healthScore, types, summary }) => {
-  console.log("🚀 ~ file: card.js ~ line 7 ~ Card ~ id", id)
   return (
     <Link to={`/details/${id}`}>
       <ContentCard>
