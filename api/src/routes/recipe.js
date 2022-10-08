@@ -48,39 +48,46 @@ router.post('/', async (req, res) => {
       return res.status(400).send({
         msg: 'Deve ingresar el summary para la receta con almenos 10 characters',
       })
-    } else if (!steps || !steps.length) {
-      return res
-        .status(400)
-        .send({
-          msg: 'deves proprsionar almenos un step o no estas proporsionando los steps',
-        })
+    } else if (!steps || !steps.length || Array.isArray(steps)) {
+      return res.status(400).send({
+        msg: 'deves proprsionar almenos un step valido o no estas proporsionando los steps',
+      })
     } else {
-      let createRecipe = await Recipe.create({
-        name,
-        summary,
-        healthScore,
-        img,
+      steps.map((el) => {
+        if (el.step.length < 11)
+          return res
+            .status(400)
+            .send({
+              msg: 'alguno de los steps de proposionados no contiene mas de 10 characters',
+            })
       })
-      /////////////////////////////////////
-      await steps?.forEach(async (el) => {
-        await Steps.create({
-          recetaId: createRecipe.id,
-          number: el.number,
-          step: el.step,
-        })
-      })
-      //////////////////////////////////
-      let dietDB = await Diet.findAll({
-        where: {
-          name: diet,
-        },
-      })
-      ////////////////////////////
-      createRecipe.addDiet(dietDB)
-      ////////////////////////////////////////////
-      res.status(201).send('Created New Recipe !')
-      ////////////////////////////////////////////
     }
+    /////////////////////////////////////////
+    let createRecipe = await Recipe.create({
+      name,
+      summary,
+      healthScore: healthScore >= 1 ? healthScore : 1,
+      img,
+    })
+    /////////////////////////////////////
+    await steps?.forEach(async (el) => {
+      await Steps.create({
+        recetaId: createRecipe.id,
+        number: el.number,
+        step: el.step,
+      })
+    })
+    //////////////////////////////////
+    let dietDB = await Diet.findAll({
+      where: {
+        name: diet,
+      },
+    })
+    ////////////////////////////
+    createRecipe.addDiet(dietDB)
+    ////////////////////////////////////////////
+    res.status(201).send('Created New Recipe !')
+    ////////////////////////////////////////////
   } catch (err) {
     res.status(500)
   }
