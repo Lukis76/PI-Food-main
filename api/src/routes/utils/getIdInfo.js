@@ -1,5 +1,4 @@
-require('dotenv').config()
-const { API_KEY, API_URL_TWO } = process.env
+const { API_KEY, API_URL_TWO } = require('../../../config')
 const { getDbInfo } = require('./getDbInfo')
 const axios = require('axios')
 //

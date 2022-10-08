@@ -107,3 +107,4 @@ dist
 package-lock.json
 api/demo.db.js
 api/.sql
+# api/config.js

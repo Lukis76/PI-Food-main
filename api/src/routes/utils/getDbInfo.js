@@ -1,7 +1,8 @@
 const { Recipe, Diet, Steps } = require('../../db')
-
+//
 const getDbInfo = async () => {
   try {
+    //////////////////////////////////////
     const dbData = await Recipe.findAll({
       include: [{
         model: Diet,
@@ -15,6 +16,7 @@ const getDbInfo = async () => {
         attributes: ['number', 'step']
       }]
     })
+    /////////////////////////////////////////
     let result = await dbData?.map((el) => {
       return {
         id: el.id,
@@ -28,10 +30,11 @@ const getDbInfo = async () => {
         createdb: el.createdb,
       }
     })
+    ///////////////
     return result
+    /////////////
   } catch (err) {
     console.error(err)
-    return 'error'
   }
 }
 

@@ -1,8 +1,8 @@
 const { get } = require('axios')
 const { Diet } = require('../../db')
-
-const { API_KEY, API_URL_ONE, API_EXTRA } = process.env
-
+//
+const { API_KEY, API_URL_ONE, API_EXTRA } = require('../../../config')
+//
 const apiDiets = async () => {
   try {
     const lengthDiets = await Diet.findAll()
@@ -23,11 +23,8 @@ const apiDiets = async () => {
         })
       })
     }
-  } catch (error) {
-    console.log(
-      '🚀 ~ a ocurrido algun error al dargarlas dietas en la db =>',
-      error
-    )
+  } catch (err) {
+    console.error(err);
   }
 }
 

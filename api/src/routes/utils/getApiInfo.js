@@ -1,5 +1,4 @@
-require('dotenv').config()
-const { API_KEY, API_URL_ONE, API_EXTRA } = process.env
+const { API_KEY, API_URL_ONE, API_EXTRA } = require('../../../config')
 const axios = require('axios')
 //
 const getApiInfo = async () => {

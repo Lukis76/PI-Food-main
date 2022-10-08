@@ -1,9 +1,15 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const session = require('supertest-session')
-
+//
 const server = require('../../src/app.js')
-
+//
 const app = session(server)
+////////////////////////////////////////////////////////////////////////////////////
+test(' test prueba conflicto expext de chia (mocha), two plus two is four', () => {
+  expect(2 + 2).toBe(4)
+})
+///////////////////////////////////////////////////////////////////////////////////
+//
 /*----------------------------------------------------------------------------- */
 xdescribe('GET /recipes', () => {
   /////////////////////////////////////////////////////////////////////////
@@ -126,7 +132,3 @@ describe('POST /recipes', () => {
 //   expect(response.body.id).toBeDefined()
 // })
 /*----------------------------------------------------------------------------- */
-
-test('two plus  two is four', () => {
-  expect(2 + 2).toBe(4)
-})
