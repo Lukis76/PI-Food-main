@@ -40,14 +40,20 @@ router.post('/', async (req, res) => {
   const { name, summary, healthScore, img, steps, diet } = req.body
   /////////////////////////////////////////////////////////////////
   try {
-    if (!name) {
+    if (!name || name.length < 6) {
+      return res.status(400).send({
+        msg: 'Deve ingresar el name para la receta con almenos 5 characters',
+      })
+    } else if (!summary || summary.length < 11) {
+      return res.status(400).send({
+        msg: 'Deve ingresar el summary para la receta con almenos 10 characters',
+      })
+    } else if (!steps || !steps.length) {
       return res
-        .status(401)
-        .send({ msg: 'Deve ingresar el name para la receta' })
-    } else if (!summary) {
-      return res
-        .status(401)
-        .send({ msg: 'Deve ingresar el summary para la receta' })
+        .status(400)
+        .send({
+          msg: 'deves proprsionar almenos un step o no estas proporsionando los steps',
+        })
     } else {
       let createRecipe = await Recipe.create({
         name,
