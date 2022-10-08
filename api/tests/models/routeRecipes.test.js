@@ -11,7 +11,7 @@ test(' test prueba conflicto expext de chia (mocha), two plus two is four', () =
 ///////////////////////////////////////////////////////////////////////////////////
 //
 /*----------------------------------------------------------------------------- */
-xdescribe('GET /recipes', () => {
+describe('GET /recipes', () => {
   /////////////////////////////////////////////////////////////////////////
   test('get all recipes, response status 200', async () => {
     await app.get('/recipes').send().expect(200)
@@ -32,7 +32,7 @@ xdescribe('GET /recipes', () => {
 describe('POST /recipes', () => {
   /*-------------------------------- */
   /*-------------------------------- */
-  xdescribe('post not content', () => {
+  describe('post not content', () => {
     ///////////////////////////////////////////////////////////////////////////
     test('post body recipe not constent, response status 400 ', async () => {
       const res = await app.post('/recipes').send()
@@ -55,38 +55,38 @@ describe('POST /recipes', () => {
   /*------------------------------------------------------- */
   describe('post content name and summary and steps', () => {
     ///////////////////////////////////////////////////////////////////////////
-    xtest('name < 6 characters not pass,respons obj content msg', async () => {
+    test('name < 6 characters not pass,respons obj content msg', async () => {
       const res = await app.post('/recipes').send({ name: 'pera' })
       expect(res.body.msg).toBeDefined()
     })
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    xtest('name < 6 characters not pass response { msg: "Deve ingresar el name para la receta con almenos 5 characters" }', async () => {
+    test('name < 6 characters not pass response { msg: "Deve ingresar el name para la receta con almenos 5 characters" }', async () => {
       const res = await app.post('/recipes').send({ name: 'uva' })
       expect(res.body.msg).toBe(
         'Deve ingresar el name para la receta con almenos 5 characters'
       )
     })
     //////////////////////////////////////////////////////////////////////////////////////////
-    xtest('name > 5 charcters pass  name not summary response obj constent msg', async () => {
+    test('name > 5 charcters pass  name not summary response obj constent msg', async () => {
       const res = await app.post('/recipes').send({ name: 'la guayava loca' })
       expect(res.body.msg).toBeDefined()
     })
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    xtest('name > 5 charcters pass name not summary respons { msg: "Deve ingresar el summary para la receta con almenos 10 characters" } ', async () => {
+    test('name > 5 charcters pass name not summary respons { msg: "Deve ingresar el summary para la receta con almenos 10 characters" } ', async () => {
       const res = await app.post('/recipes').send({ name: 'la guayava loca' })
       expect(res.body.msg).toBe(
         'Deve ingresar el summary para la receta con almenos 10 characters'
       )
     })
     //////////////////////////////////////////////////////////////////////////////////////////////
-    xtest('summary < 11 characters and name > 5 characters, respons obj content msg', async () => {
+    test('summary < 11 characters and name > 5 characters, respons obj content msg', async () => {
       const res = await app
         .post('/recipes')
         .send({ name: 'pollo naranja', summary: 'orange' })
       expect(res.body.msg).toBeDefined()
     })
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    xtest('summary < 11 characters and name > 5 characters, respons { msg: "Deve ingresar el summary para la receta con almenos 10 characters" }', async () => {
+    test('summary < 11 characters and name > 5 characters, respons { msg: "Deve ingresar el summary para la receta con almenos 10 characters" }', async () => {
       const res = await app
         .post('/recipes')
         .send({ name: 'papas asadas', summary: 'crocantes' })
@@ -95,7 +95,7 @@ describe('POST /recipes', () => {
       )
     })
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    xtest('summary > 10 characters and name > 5 characters, respons obj content msg', async () => {
+    test('summary > 10 characters and name > 5 characters, respons obj content msg', async () => {
       const res = await app
         .post('/recipes')
         .send({ name: 'milanesas', summary: 'doracas y crocantes' })
@@ -108,6 +108,58 @@ describe('POST /recipes', () => {
         .send({ name: 'tamalindo', summary: 'zumo de tamalindo' })
       expect(res.body.msg).toBe(
         'deves proprsionar almenos un step valido o no estas proporsionando los steps'
+      )
+    })
+    ///////////////////////////////////////////////////////////////////////////
+    test('1 steps contain less than 10 characters, response {msg: "alguno de los steps de proposionados no contiene mas de 10 characters"}', async () => {
+      const res = await app.post('/recipes').send({
+        name: 'tamalindo',
+        summary: 'zumo de tamalindo',
+        steps: [{ number: 1, step: 'revolver' }],
+      })
+      expect(res.body.msg).toBe(
+        'alguno de los steps de proposionados no contiene mas de 10 characters'
+      )
+    })
+    ///////////////////////////////////////////////////////////////////////////
+    test('4 steps contain less than 10 characters, response {msg: "alguno de los steps de proposionados no contiene mas de 10 characters"}', async () => {
+      const res = await app.post('/recipes').send({
+        name: 'tamalindo',
+        summary: 'zumo de tamalindo',
+        steps: [
+          { number: 1, step: 'revolver' },
+          { number: 2, step: 'revolver' },
+          { number: 3, step: 'revolver' },
+          { number: 4, step: 'revolver' },
+        ],
+      })
+      expect(res.body.msg).toBe(
+        'alguno de los steps de proposionados no contiene mas de 10 characters'
+      )
+    })
+    ///////////////////////////////////////////////////////////////////////////
+    test('1 steps with more than 10 characters, response status 201', async () => {
+      const res = await app.post('/recipes').send({
+        name: 'tamalindo',
+        summary: 'zumo de tamalindo',
+        steps: [{ number: 1, step: 'revolver a punto caramelo' }],
+      })
+      expect(res.status).toBe(201)
+    })
+    ///////////////////////////////////////////////////////////////////////////
+    test('4 steps, two with < 10 characters and two with more than 10 characters, response {msg: "alguno de los steps de proposionados no contiene mas de 10 characters"}', async () => {
+      const res = await app.post('/recipes').send({
+        name: 'tamalindo',
+        summary: 'zumo de tamalindo',
+        steps: [
+          { number: 1, step: 'revolver a punto caramelo' },
+          { number: 2, step: 'revolver' },
+          { number: 3, step: 'revolver a punto caramelo' },
+          { number: 4, step: 'revolver' },
+        ],
+      })
+      expect(res.body.msg).toBe(
+        'alguno de los steps de proposionados no contiene mas de 10 characters'
       )
     })
     ///////////////////////////////////////////////////////////////////////////

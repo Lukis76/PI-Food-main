@@ -48,18 +48,16 @@ router.post('/', async (req, res) => {
       return res.status(400).send({
         msg: 'Deve ingresar el summary para la receta con almenos 10 characters',
       })
-    } else if (!steps || !steps.length || Array.isArray(steps)) {
+    } else if (!steps || !steps.length || !Array.isArray(steps)) {
       return res.status(400).send({
         msg: 'deves proprsionar almenos un step valido o no estas proporsionando los steps',
       })
     } else {
       steps.map((el) => {
         if (el.step.length < 11)
-          return res
-            .status(400)
-            .send({
-              msg: 'alguno de los steps de proposionados no contiene mas de 10 characters',
-            })
+          return res.status(400).send({
+            msg: 'alguno de los steps de proposionados no contiene mas de 10 characters',
+          })
       })
     }
     /////////////////////////////////////////
@@ -78,13 +76,17 @@ router.post('/', async (req, res) => {
       })
     })
     //////////////////////////////////
-    let dietDB = await Diet.findAll({
-      where: {
-        name: diet,
-      },
-    })
-    ////////////////////////////
-    createRecipe.addDiet(dietDB)
+    if (diet) {
+      //////////////////////////////////
+      let dietDB = await Diet.findAll({
+        where: {
+          name: diet,
+        },
+      })
+      ////////////////////////////
+      createRecipe.addDiet(dietDB)
+      ////////////////////////////
+    }
     ////////////////////////////////////////////
     res.status(201).send('Created New Recipe !')
     ////////////////////////////////////////////
