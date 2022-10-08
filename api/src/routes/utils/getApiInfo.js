@@ -1,12 +1,12 @@
-const axios = require('axios')
 require('dotenv').config()
 const { API_KEY, API_URL_ONE, API_EXTRA } = process.env
-
+const axios = require('axios')
+//
 const getApiInfo = async () => {
   try {
     const resAxio = await axios.get(`${API_URL_ONE}${API_KEY}${API_EXTRA}`)
     const { results } = resAxio.data
-
+    ////////////////////////////////
     if (results.length > 0) {
       let result = results?.map((el) => {
         return {
@@ -24,12 +24,12 @@ const getApiInfo = async () => {
           }),
         }
       })
-
+      //////////////
       return result
+      //////////////
     }
   } catch (err) {
-    console.error(err)
-    return []
+    return err
   }
 }
 

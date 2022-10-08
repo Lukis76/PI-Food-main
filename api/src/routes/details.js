@@ -1,14 +1,19 @@
-const { Router } = require('express')
 const { getIdInfo } = require('./utils/getIdInfo.js')
-
+const { Router } = require('express')
+//
 const router = Router()
-
+//
 router.get('/:RecipeID', async (req, res) => {
   const { RecipeID } = req.params
-  console.log("🚀 ~ file: details.js ~ line 8 ~ router.get ~ RecipeID", RecipeID)
-  const result = await getIdInfo(RecipeID)
-
-  res.json(result)
+  ///////////////////////////////
+  try {
+    const result = await getIdInfo(RecipeID)
+    ///////////////////////////////////////
+    res.json(result)
+    ///////////////
+  } catch (err) {
+    console.error(err)
+  }
 })
 
 module.exports = router

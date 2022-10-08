@@ -1,24 +1,20 @@
-const axios = require('axios')
-const e = require('express')
-const { getDbInfo } = require('./getDbInfo')
 require('dotenv').config()
 const { API_KEY, API_URL_TWO } = process.env
-
+const { getDbInfo } = require('./getDbInfo')
+const axios = require('axios')
+//
 const getIdInfo = async (id) => {
   try {
     const dbTotal = await getDbInfo()
-    console.log("🚀 ~ file: getIdInfo.js ~ line 10 ~ getIdInfo ~ dbTotal", dbTotal)
-    
-
+    ////////////////////////////////////////////////////////////
     const dbFilterId = await dbTotal.filter((el) => el.id == id)
-    console.log("🚀 ~ file: getIdInfo.js ~ line 14 ~ dbFilterId ~ dbFilterId", dbFilterId)
-    
+    ////////////////////////////////////////////////////////////
     if (dbFilterId.length) return dbFilterId[0]
-    
-
+    ///////////////////////////////////////////
     const { data } = await axios.get(
       `${API_URL_TWO}${id}/information?${API_KEY}`
     )
+    /////////////////////////////////////////////
     return {
       name: data.title,
       img: data.image,
@@ -33,6 +29,7 @@ const getIdInfo = async (id) => {
         }
       }),
     }
+    /////////////////////////////////////////////////////////////
   } catch (err) {
     console.error(err)
   }
