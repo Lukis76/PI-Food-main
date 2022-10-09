@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { BACKEND_FOOD } from '../../../config'
+import { BACKEND_FOOD } from '../../config'
 
 export const postRecipe = (data) => {
   axios

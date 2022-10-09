@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { setGetTypes } from '../recucer/taskSlice'
-import { BACKEND_FOOD } from '../../../config'
+import { BACKEND_FOOD } from '../../config'
 
 export const getTypes = () => (dispatch) => {
   axios
