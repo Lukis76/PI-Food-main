@@ -68,7 +68,7 @@ router.post('/', async (req, res) => {
       img,
     })
     /////////////////////////////////////
-    await steps?.forEach(async (el) => {
+    steps?.forEach(async (el) => {
       await Steps.create({
         recetaId: createRecipe.id,
         number: el.number,
