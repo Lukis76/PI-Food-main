@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
-import {Err, TextArea} from './viewAdd'
+import { Err, TextArea } from './viewAdd'
 
 export const AddSummary = ({ setError, setNewRecipe, error, value }) => {
   const handleChange = (e) => {
@@ -57,13 +57,12 @@ const ContentAdSummary = styled.div`
       width: 100%;
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
-      color: #5757577e;
+      color: ${(props) => props.theme.color.addLabel};
       position: absolute;
       top: 0;
       left: 5px;
       transform: translateY(20px);
       transition: transform 0.5s, color 0.3s;
     }
-
   }
 `

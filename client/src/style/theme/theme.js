@@ -9,82 +9,89 @@ export const dark = {
     /*--------------- nav bar ---------------*/
     /*----------------------------------------*/
     // Sesrch bar
-    inputText: '',
-    inputBg: '#fefefe',
+    inputText: '#fefefe',
+    inputBg: '#222222ae',
     // button
     inputBtnText: '',
-    inputBtnBg: '#fefefe',
+    inputBtnBg: '#222222ae',
     /*----------------------------------------*/
     // btn new recipe
     newRecipeBg: '#e18335',
-    newRecipeText: '#fefefe',
+    newRecipeText: '#222',
 
     /*----------------------------------------*/
 
     // Mode
-    modeBg: '#fefefeaa',
-    modeBtn: '#247ba0',
+    modeBg: '#222222aa',
+    modeBtn: '#fefefeee',
     /*--------------------------------------*/
 
     /*-----------  pagination--------------*/
     // position
-    paginationBg: '#fefefecf',
-    paginationText: '#50514f',
+    paginationBg: '#222222ee',
+    paginationText: '#fefefe',
     // apuntador page
-    currentPage:'#e18335',
+    currentPage:'#8fc93a9f',
 
     // next last pagination
-    paginationBtnBg: '#8fc93adf',
-    paginationBtnText: '#50514f',
+    paginationBtnBg: '#e18335ee',
+    paginationBtnText: '#fefefe',
 
     /*--------------------------------------*/
     /*----------- landig page--------------*/
     // content card
-    contLanding:'#04040444',
+    contLanding:'#fefefe44',
     // content string
-    textLanding:'#fefefe',
+    textLanding:'#222222ee',
  
 
     // button
-    btnStart: '#ffe066',
-    btnString: '#000000',
+    btnStart: '#8fc93aee',
+    btnString: '#222222',
     /*--------------------------------------*/
 
     /*----- section color cards ---------*/
     // Title
-    titleBg: '#fefefe',
-    titleH3: '#50514f',
+    titleBg: '#000000ae',
+    titleH3: '#efefefee',
 
     // Summary
-    summaryBg: '#fefefe',
-    summayP: '#50514f',
+    summaryBg: '#000000ae',
+    summaryP: '#efefefee',
 
     // Skill
-    cardDietsH6: '#50514f',
-    cardDietsSpan: '#50514f',
-    cardDietsBg: '#8fc93a',
+    cardDietsH6: '#fefefe',
+    cardDietsSpan: '#efefef',
+    cardDietsBg: '#8fc93a9f',
     /*----------------------------------*/
     /*-------------- add recipe -----------*/
     // Form
-    addFormBg: '#ffffffc0',
+    addFormBg: '#222222ce',
 
     // Diets
-    addDietsPText: '#50514f',
+    addDietsPText: '#fefefe',
 
     // Button submit
-    addBtnText: '#fefefe',
-    addBtnBg: '#09f',
+    addBtnText: '#222',
+    addBtnBg: '#8fc93a9f',
+    // inputs
+    addLabel: '#fefefeca',
+    addInp: '#fefefe',
+    addTexA: '#fefefe',
+
+    addBrButt: '#fefefe88',
+    addScoreSpan: '#fefefe',
 
     /*--------------------------------------*/
     /*---------------- detail --------------*/
-    numScoreDetail: '#50514f',
-    marcoBg: '#fefefe',
-    textDetail: '#222',
-    linkSummaryDetail: '#0f80f0',
+    numScoreDetail: '#fefefe',
+    marcoBg: '#000000ee',
+    textDetail: '#fefefe',
+    linkSummaryDetail: '#09f',
 
     // btm put and ok cancel
     btnPutBg:'#0f80f0',
-    btnPutDelText: '#000',
+    btnPutDelText: '#fefefe',
     btnDeleteBg: '#f00',
 
     /*---------------------------------------*/
@@ -94,9 +101,10 @@ export const dark = {
     /*---------------------------------------*/
     /*---------------- model ----------------*/
     // delete
-    modelOverlayBg: '#000000b6',
-    modelContBg: '#fefefe',
-    modelMsgText: '#222',
+    modelOverlayBg: '#fefefe88',
+    modelContBg: '#222222fe',
+    modelMsgText: '#fefefe',
+    modalBtnText: '#fefefe',
     /*---------------------------------------*/
     /*---------------------------------------*/
 
@@ -113,10 +121,9 @@ export const light = {
     /*--------------- nav bar ---------------*/
     /*----------------------------------------*/
     // Sesrch bar
-    inputText: '',
+    inputText: '#444',
     inputBg: '#fefefe',
     // button
-    inputBtnText: '',
     inputBtnBg: '#fefefe',
     /*----------------------------------------*/
     // btn new recipe
@@ -178,6 +185,16 @@ export const light = {
     // Button submit
     addBtnText: '#fefefe',
     addBtnBg: '#09f',
+
+
+
+     // inputs
+     addLabel: '#50514f88',
+     addInp: '#222',
+     addTexA: '#222',
+ 
+     addBrButt: '#22222266',
+     addScoreSpan: '#222',
 
     /*--------------------------------------*/
     /*---------------- detail --------------*/

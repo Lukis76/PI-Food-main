@@ -74,14 +74,14 @@ export const Btn = styled.button`
 export const Input = styled.input`
   width: 100%;
   background: none;
-  color: #706c6c;
+  color: ${props => props.theme.color.addInp};
   font-family: 'Roboto', sans-serif;
   font-size: 1.1rem;
   font-weight: 500;
   padding: 0.2rem 0.3rem;
   border: none;
   outline: none;
-  border-bottom: 1px solid #5757577e;
+  border-bottom: 1px solid ${props => props.theme.color.addBrButt};
   &:focus + label,
   &:not(:placeholder-shown) + label {
     transform: translateY(-12px) scale(0.7);
@@ -94,7 +94,7 @@ export const Input = styled.input`
 export const TextArea = styled.textarea`
   width: 100%;
   background: none;
-  color: #706c6c;
+  color: ${props => props.theme.color.addInp};
   font-size: 1rem;
   font-weight: 500;
   font-family: 'Roboto', sans-serif;
@@ -102,7 +102,7 @@ export const TextArea = styled.textarea`
   border: none;
   outline: none;
   resize: none;
-  border-bottom: 1px solid #5757577e;
+  border-bottom: 1px solid ${props => props.theme.color.addBrButt};
   &::-webkit-scrollbar {
     width: 0;
   }

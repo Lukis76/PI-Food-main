@@ -48,7 +48,7 @@ const ContentAddHealthScore = styled.div`
   width: 100%;
   label {
     width: 100%;
-    color: #5757577e;
+    color: ${props => props.theme.color.addLabel};
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     text-align: center;
@@ -64,7 +64,7 @@ const ContentAddHealthScore = styled.div`
       font-size: 1rem;
       font-weight: 700;
       font-family: 'Roboto', sans-serif;
-      color: #575757ee;
+      color: ${props => props.theme.color.addScoreSpan};
     }
   }
   p {

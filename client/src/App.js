@@ -12,7 +12,7 @@ import { Edit } from './page/edit'
 export const App = () => {
   const [theme, setTheme] = useState(true)
   return (
-    <ThemeProvider theme={theme ? dark : light}>
+    <ThemeProvider theme={theme ? light : dark}>
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route

@@ -93,7 +93,7 @@ const Step = styled.div`
     width: 100%;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
-    color: #5757577e;
+    color: ${props => props.theme.color.addLabel};
     position: absolute;
     top: 0;
     left: 5px;

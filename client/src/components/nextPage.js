@@ -60,7 +60,7 @@ const Content = styled.div`
   div {
     font-size: 1rem;
     font-weight: 700;
-    padding: 0 0.5rem 0 0.5rem;
+    padding: 0 0.3rem 0 0.3rem;
     color: ${(props) => props.theme.color.paginationText};
   }
 `
@@ -74,7 +74,7 @@ const Btn = styled.button`
   display: inline;
   font-size: 1rem;
   font-weight: 700;
-  padding: 0.3rem 1rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 0.5rem 0 0 0.5rem;
   color: ${(props) => props.theme.color.paginationBtnText};
   background: ${(props) => props.theme.color.paginationBtnBg};

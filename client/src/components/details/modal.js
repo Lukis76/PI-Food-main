@@ -41,7 +41,7 @@ const Content = styled.div`
     width: 100%;
     margin: 1rem 0;
     text-align: center;
-    color: ${props => props.theme.color.modelMasText}
+    color: ${props => props.theme.color.modelMsgText}
   }
 `
 
@@ -51,6 +51,7 @@ const Btn = styled.div`
   justify-content: space-around;
   button {
     padding: 0.5rem 1rem;
+    color: ${props => props.theme.color.modalBtnText};
     background: ${props => props.theme.color.btnPutBg};
     font-size: 1rem;
     font-weight: 700;

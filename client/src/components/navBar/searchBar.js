@@ -55,6 +55,9 @@ const Input = styled.input`
   background: ${(props) => props.theme.color.inputBg};
   color: ${(props) => props.theme.color.inputText};
   max-width: 18rem;
+  &::placeholder {
+    color: ${(props) => props.theme.color.inputText};
+  }
 `
 
 const BtnSearch = styled.button`
