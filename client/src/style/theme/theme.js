@@ -106,43 +106,103 @@ export const dark = {
 
 export const light = {
   color: {
-    blueMidu: '#ffe066;',
-    blank: '#50514f;',
-    blueLight: '#8fc93aee;',
-    grey: '#f25f5c;',
+    blueMidu: '#ffe066',
+    blank: '#505140',
+    blueLight: '#8fc93aee',
+    grey: '#f25f5c',
     /*--------------- nav bar ---------------*/
+    /*----------------------------------------*/
     // Sesrch bar
     inputText: '',
-    inputBg: '#fefefe;',
+    inputBg: '#fefefe',
     // button
     inputBtnText: '',
-    inputBtnBg: '#fefefe !important;',
+    inputBtnBg: '#fefefe',
+    /*----------------------------------------*/
+    // btn new recipe
+    newRecipeBg: '#e18335',
+    newRecipeText: '#fefefe',
+
+    /*----------------------------------------*/
 
     // Mode
-    modeBg: '#fefefe',
+    modeBg: '#fefefeaa',
     modeBtn: '#247ba0',
     /*--------------------------------------*/
 
-    /*----------- landig page----- ---------*/
+    /*-----------  pagination--------------*/
+    // position
+    paginationBg: '#fefefecf',
+    paginationText: '#50514f',
+    // apuntador page
+    currentPage:'#e18335',
+
+    // next last pagination
+    paginationBtnBg: '#8fc93adf',
+    paginationBtnText: '#50514f',
+
+    /*--------------------------------------*/
+    /*----------- landig page--------------*/
+    // content card
+    contLanding:'#04040444',
+    // content string
+    textLanding:'#fefefe',
+ 
+
     // button
-    btnStart: '#09f;',
-    btnString: '#000000aa;',
+    btnStart: '#ffe066',
+    btnString: '#000000',
     /*--------------------------------------*/
 
     /*----- section color cards ---------*/
     // Title
-    titleBg: '#fefefe;',
-    titleH3: '#50514f;',
+    titleBg: '#fefefe',
+    titleH3: '#50514f',
 
     // Summary
-    summaryBg: '#fefefe;',
-    summayP: '#50514f;',
+    summaryBg: '#fefefe',
+    summayP: '#50514f',
 
     // Skill
-    cardDietsH6: '#50514f;',
-    cardDietsSpan: '#50514f;',
-    cardDietsBg: '#8fc93a;',
+    cardDietsH6: '#50514f',
+    cardDietsSpan: '#50514f',
+    cardDietsBg: '#8fc93a',
     /*----------------------------------*/
+    /*-------------- add recipe -----------*/
+    // Form
+    addFormBg: '#ffffffc0',
+
+    // Diets
+    addDietsPText: '#50514f',
+
+    // Button submit
+    addBtnText: '#fefefe',
+    addBtnBg: '#09f',
+
+    /*--------------------------------------*/
+    /*---------------- detail --------------*/
+    numScoreDetail: '#50514f',
+    marcoBg: '#fefefe',
+    textDetail: '#222',
+    linkSummaryDetail: '#0f80f0',
+
+    // btm put and ok cancel
+    btnPutBg:'#0f80f0',
+    btnPutDelText: '#000',
+    btnDeleteBg: '#f00',
+
+    /*---------------------------------------*/
+    /*---------------- Clear Btn ------------*/
+    clearBg:'#f00',
+    clearX: '#222',
+    /*---------------------------------------*/
+    /*---------------- model ----------------*/
+    // delete
+    modelOverlayBg: '#000000b6',
+    modelContBg: '#fefefe',
+    modelMsgText: '#222',
+    /*---------------------------------------*/
+    /*---------------------------------------*/
   },
   mode: `${center('row', 'flex-end')}`,
 }
