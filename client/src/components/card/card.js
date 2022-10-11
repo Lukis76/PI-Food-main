@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 import { Skill } from './skill'
+import notImg from '../../assets/No_image.jpg'
 
 export const Card = ({ id, name, img, healthScore, types, summary }) => {
   return (
     <Link to={`/details/${id}`}>
       <ContentCard>
-        <Image src={img} alt={name} />
+        <Image src={img || notImg} alt={name} />
 
         <Title>
           <h3>{name}</h3>

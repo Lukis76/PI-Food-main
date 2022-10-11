@@ -5,7 +5,7 @@ import { center } from '../style/shorcuts'
 import { filter } from '../app/actions/filter'
 import { useState } from 'react'
 
-export const Filter = () => {
+export const Filter = (setPerPage) => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 
@@ -22,7 +22,7 @@ export const Filter = () => {
     dispatch(filter({ ...fil, score: e.target.value }))
   }
 
-  const handleOr = (e) => {
+  const handleOrder = (e) => {
     setFil((state) => ({ ...state, order: e.target.value }))
     dispatch(setPaguination(1))
     dispatch(filter({ ...fil, order: e.target.value }))
@@ -40,15 +40,14 @@ export const Filter = () => {
     dispatch(filter({ ...fil, database: e.target.value }))
   }
 
-  // const handleItems = (e) => {
-  //   console.log('number items => ', e.target.value)
-  //   setPerPage(e.target.value.toString())
-  //   dispatch(setPaguination(1))
-  // }
+  const handleItems = (e) => {
+    setPerPage(e.target.value.toString())
+    dispatch(setPaguination(1))
+  }
   return (
     <ContentFilter>
       <div>
-        <select defaultValue='all' onChange={handleOr}>
+        <select defaultValue='all' onChange={handleOrder}>
           <option value='all'>all</option>
           <option value='az'>A-z</option>
           <option value='za'>Z-a</option>
@@ -82,14 +81,14 @@ export const Filter = () => {
         </select>
       </div>
 
-      {/* <div>
+      <div>
         <select defaultValue={9} onChange={handleItems}>
           <option value='9'>9</option>
           <option value='15'>15</option>
           <option value='21'>21</option>
           <option value='33'>33</option>
         </select>
-      </div> */}
+      </div>
     </ContentFilter>
   )
 }
@@ -97,6 +96,6 @@ export const Filter = () => {
 const ContentFilter = styled.div`
   ${center('row')}
   div {
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
 `

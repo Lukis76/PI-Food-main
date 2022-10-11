@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { setPaguination } from '../app/recucer/taskSlice'
@@ -11,19 +11,20 @@ export const NextPage = ({ max }) => {
   const nextRef = useRef()
 
   const handleLast = () => {
-    p < 2
-      ? lastRef.current.classList.add('last_page')
-      : lastRef.current.classList.remove('last_page')
-
     p !== 1 && dispatch(setPaguination(p - 1)) // setPage((state) => state - 1)
   }
   const handleNext = () => {
+    p < max && dispatch(setPaguination(p + 1)) // setPage((state) => state + 1)
+  }
+
+  useEffect(() => {
+    p == 1
+      ? lastRef.current.classList.add('last_page')
+      : lastRef.current.classList.remove('last_page')
     p === max
       ? nextRef.current.classList.add('next_page')
       : nextRef.current.classList.remove('next_page')
-
-    p < max && dispatch(setPaguination(p + 1)) // setPage((state) => state + 1)
-  }
+  }, [handleNext, handleLast])
 
   return (
     <ContentNextPage>
@@ -33,7 +34,7 @@ export const NextPage = ({ max }) => {
       <Content>
         {p > 2 && <div>...</div>}
         {p > 1 && <div>{p - 1}</div>}
-        <div className='position'>{p}</div>
+        <Current className='position'>{p}</Current>
         {p < max && <div>{p + 1}</div>}
         {p < max - 1 && <div>...</div>}
         <div> | </div>
@@ -62,12 +63,15 @@ const Content = styled.div`
     padding: 0 0.5rem 0 0.5rem;
     color: ${(props) => props.theme.color.paginationText};
   }
-  & .position {
-    border-radius: 3rem;
-    background: orange;
-  }
 `
+
+const Current = styled.div`
+  border-radius: 3rem;
+  background: ${(props) => props.theme.color.currentPage};
+`
+
 const Btn = styled.button`
+  display: inline;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.3rem 1rem;

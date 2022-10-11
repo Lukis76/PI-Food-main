@@ -2,8 +2,8 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 
-export const AddHealthScore = ({ error, setError, setNewRecipe }) => {
-  const [value, setValue] = useState(1)
+export const AddHealthScore = ({ error, setError, setNewRecipe, val}) => {
+  const [value, setValue] = useState(val || 1)
 
   const handleChange = (e) => {
     setValue(e.target.value)
@@ -29,7 +29,8 @@ export const AddHealthScore = ({ error, setError, setNewRecipe }) => {
         <input
           type='range'
           name='healthScore'
-          defaultValue='1'
+          // defaultValue={1}
+          value={value}
           min={1}
           max={100}
           onChange={handleChange}

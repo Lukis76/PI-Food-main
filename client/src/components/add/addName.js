@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
+import { Err, Input } from './viewAdd'
 
-export const AddName = ({ setError, setNewRecipe, error }) => {
+export const AddName = ({ setError, setNewRecipe, error, value }) => {
   const handleChange = (e) => {
     if (e.target.value.length > 5) {
       setError((state) => ({ ...state, validName: '' }))
@@ -30,17 +31,18 @@ export const AddName = ({ setError, setNewRecipe, error }) => {
   return (
     <ContentAddName>
       <div>
-        <input
+        <Input
           autoFocus
           type='text'
           name='name'
+          value={value && value}
           onChange={handleChange}
           onBlur={handleBlur}
           placeholder=' '
         />
-        <label>New Recipe </label>
+        <label>New Recipe</label>
       </div>
-      <p>{error.validName}</p>
+      <Err>{error.validName}</Err>
     </ContentAddName>
   )
 }
@@ -63,33 +65,8 @@ const ContentAddName = styled.div`
       left: 5px;
       transform: translateY(8px);
       transition: transform 0.5s, color 0.3s;
-      z-index: 100;
     }
-    input {
-      width: 100%;
-      background: none;
-      color: #706c6c;
-      font-family: 'Roboto', sans-serif;
-      /* font-size: 1rem; */
-      padding: 0.4rem 0.3rem;
-      border: none;
-      outline: none;
-      border-bottom: 1px solid #5757577e;
-      &:focus + label,
-      &:not(:placeholder-shown) + label {
-        transform: translateY(-12px) scale(0.7);
-        transform-origin: left top;
-        color: #3866f2;
-        z-index: 100;
-      }
-      z-index: 110;
-    }
+   
   }
-  p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 0.5rem;
-    font-size: 0.7rem;
-    border-radius: 1rem;
-    color: red;
-  }
+
 `

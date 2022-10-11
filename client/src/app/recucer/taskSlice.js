@@ -28,6 +28,11 @@ export const taskSlice = createSlice({
     },
     /*------------------------------------------------------------ */
     /*------------------------------------------------------------ */
+    setClearDetail: (state, action) => {
+      state.details = []
+    },
+    /*------------------------------------------------------------ */
+    /*------------------------------------------------------------ */
     setGetRecipeID: (state, action) => {
       state.details = action.payload
     },
@@ -95,6 +100,7 @@ export const taskSlice = createSlice({
 export const {
   setGetRecipes,
   setFilterSearch,
+  setClearDetail,
   setGetRecipeID,
   setGetTypes,
   setPaguination,

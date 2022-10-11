@@ -23,7 +23,7 @@ const ContentMode = styled.div`
     height: 1.2rem;
     border-radius: 9rem;
     ${(props) => props.theme.mode}
-    background: ${(props) => props.theme.color.blueMidu};
+    background: ${(props) => props.theme.color.modeBg};
     &:active {
       transition: justify-content 3s ease;
     }
@@ -33,7 +33,7 @@ const ContentMode = styled.div`
       height: 100%;
       width: 50%;
       border-radius: 50%;
-      background: ${(props) => props.theme.color.blank};
+      background: ${(props) => props.theme.color.modeBtn};
     }
   }
 `

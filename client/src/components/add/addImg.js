@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
 import { useRef, useState } from 'react'
+import { Err, Input } from './viewAdd'
 
-export const AddImg = ({ setError, setNewRecipe, error }) => {
+export const AddImg = ({ setError, setNewRecipe, error, value }) => {
   // let file = ''
   // const [valid, setValid] = useState({
   //   locura: 'automatica',
@@ -53,6 +54,20 @@ export const AddImg = ({ setError, setNewRecipe, error }) => {
   // const handleChange = (e) => {
 
   // }
+  const [imagen, setImagen] = useState(value || '')
+
+  const handleChange = (e) => {
+    setImagen(e.target.value)
+    if(e.target.value === '') {
+      setError(state => ({...state, validImg: 'image link field required'}))
+    }
+    if(e.target.value.length < 6) {
+      setError(state => ({...state, validImg: 'this link is not valid'}))
+    }else if(/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig.test(e.target.value)) {
+      setNewRecipe(state => ({...state, img: e.target.value}))
+      setError(state => ({...state, validImg: ''}))
+    }
+  }
 
   const handleBlur = (e) => {
     if(/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig.test(e.target.value)) {
@@ -70,11 +85,12 @@ export const AddImg = ({ setError, setNewRecipe, error }) => {
   return (
     <ContentAddImg>
     <div>
-        <input
+        <Input
           // autoFocus
           type='text'
           name='name'
-          // onChange={handleChange}
+          value={imagen}
+          onChange={handleChange}
           onBlur={handleBlur}
           placeholder=' '
         />
@@ -99,7 +115,7 @@ export const AddImg = ({ setError, setNewRecipe, error }) => {
         <input type='file' name='img' id='input-file' hidden ref={inputRef} />
       </Box>
       <p id='preview'>{valid.imgextensionValid}</p> */}
-      <p>{error.validImg}</p>
+      <Err>{error.validImg}</Err>
     </ContentAddImg>
   )
 }
@@ -124,12 +140,11 @@ const ContentAddImg = styled.div`
       transition: transform 0.5s, color 0.3s;
       z-index: 100;
     }
-    input {
+    /* input {
       width: 100%;
       background: none;
       color: #706c6c;
       font-family: 'Roboto', sans-serif;
-      /* font-size: 1rem; */
       padding: 0.4rem 0.3rem;
       border: none;
       outline: none;
@@ -142,15 +157,15 @@ const ContentAddImg = styled.div`
         z-index: 100;
       }
       z-index: 110;
-    }
+    } */
   }
-  p {
+  /* p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-top: 0.5rem;
     font-size: 0.7rem;
     border-radius: 1rem;
     color: red;
-  }
+  } */
 `
 
 // const Box = styled.div`

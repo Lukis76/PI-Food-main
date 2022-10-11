@@ -63,5 +63,4 @@ const BtnSearch = styled.button`
   border-radius: 0 0.3rem 0.3rem 0;
   height: 100%;
   background-color: ${(props) => props.theme.color.inputBtnBg};
-  color: ${(props) => props.theme.color.btnText};
 `

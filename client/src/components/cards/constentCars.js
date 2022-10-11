@@ -35,7 +35,6 @@ export const ConstentCars = ({ perPage, recipes }) => {
 }
 
 const ContentCard = styled.div`
-  /* margin-top: 1rem; */
   ${center()}
   width: 100%;
   height: 100%;

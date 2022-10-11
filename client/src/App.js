@@ -7,6 +7,7 @@ import { About } from './page/about'
 import { ThemeProvider } from 'styled-components'
 import { useState } from 'react'
 import { light, dark } from './style/theme/theme'
+import { Edit } from './page/edit'
 
 export const App = () => {
   const [theme, setTheme] = useState(true)
@@ -20,6 +21,7 @@ export const App = () => {
         />
         <Route path='/add' element={<Add />} />
         <Route path='/details/:id' element={<Details />} />
+        <Route path='/edit/:id' element={<Edit />} />
         <Route path='/about' element={<About />} />
       </Routes>
     </ThemeProvider>

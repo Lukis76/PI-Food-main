@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
+import {Err, TextArea} from './viewAdd'
 
-export const AddSummary = ({ setError, setNewRecipe, error }) => {
+export const AddSummary = ({ setError, setNewRecipe, error, value }) => {
   const handleChange = (e) => {
     if (e.target.value.length > 5) {
       setError((state) => ({ ...state, validSummary: '' }))
@@ -30,15 +31,16 @@ export const AddSummary = ({ setError, setNewRecipe, error }) => {
   return (
     <ContentAdSummary>
       <div>
-        <textarea
+        <TextArea
           name='summary'
           placeholder=' '
+          value={value && value}
           onChange={handleChange}
           onBlur={handleBlur}
         />
         <label>Summary</label>
       </div>
-      <p>{error.validSummary}</p>
+      <Err>{error.validSummary}</Err>
     </ContentAdSummary>
   )
 }
@@ -61,36 +63,7 @@ const ContentAdSummary = styled.div`
       left: 5px;
       transform: translateY(20px);
       transition: transform 0.5s, color 0.3s;
-      z-index: 100;
     }
-    textarea {
-      width: 100%;
-      background: none;
-      color: #706c6c;
-      font-family: 'Roboto', sans-serif;
-      padding: 0.4rem 0.3rem;
-      border: none;
-      outline: none;
-      resize: none;
-      border-bottom: 1px solid #5757577e;
-      &::-webkit-scrollbar {
-        width: 0;
-      }
-      &:focus + label,
-      &:not(:placeholder-shown) + label {
-        transform: translateY(-12px) scale(0.7);
-        transform-origin: left top;
-        color: #3866f2;
-        z-index: 100;
-      }
-      z-index: 110;
-    }
-  }
-  p {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 0.5rem;
-    font-size: 0.7rem;
-    border-radius: 1rem;
-    color: red;
+
   }
 `

@@ -36,10 +36,10 @@ a:visited {
   color: #50514f;
 }
 
-.next_page {
+.next_page, .next_page:hover {
   opacity: .2;
 }
-.last_page {
+.last_page, .last_page:hover {
   opacity: .2;
 }
 

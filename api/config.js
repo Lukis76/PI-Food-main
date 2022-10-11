@@ -11,8 +11,8 @@ const API_EXTRA = '&addRecipeInformation=true&number=100'
 // esta es una clave invalida para pruebas
 // const API_KEY='apiKey=554206c77b4c480eba5024e99485370b'
 ////////////////////////////////////////////////////////////////
-// const API_KEY='apiKey=554206c77b4c480eba5024e99475370b'
-const API_KEY = 'apiKey=ceb9596ab176468383c7e383a025c794'
+// const API_KEY = 'apiKey=ceb9596ab176468383c7e383a025c794'
+const API_KEY='apiKey=554206c77b4c480eba5024e99475370b'
 // const API_KEY='apiKey=93d3ada6455a48c7bf4a6efcce71126a'
 // const API_KEY='apiKey=0f838b873de6487ab11dcb409331156a'
 // const API_KEY='apiKey=a2e8d83672c34baba942597611ed7b5d'

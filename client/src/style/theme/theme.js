@@ -2,59 +2,67 @@ import { center } from '../shorcuts'
 
 export const dark = {
   color: {
-    blueMidu: '#ffe066;',
-    blank: '#50514f;',
-    blueLight: '#8fc93aee;',
-    grey: '#f25f5c;',
+    blueMidu: '#ffe066',
+    blank: '#505140',
+    blueLight: '#8fc93aee',
+    grey: '#f25f5c',
     /*--------------- nav bar ---------------*/
     /*----------------------------------------*/
     // Sesrch bar
     inputText: '',
-    inputBg: '#fefefe;',
+    inputBg: '#fefefe',
     // button
     inputBtnText: '',
-    inputBtnBg: '#fefefe;',
+    inputBtnBg: '#fefefe',
     /*----------------------------------------*/
     // btn new recipe
-    newRecipeBg: '#e18335;',
-    newRecipeText: '#fefefe;',
+    newRecipeBg: '#e18335',
+    newRecipeText: '#fefefe',
 
     /*----------------------------------------*/
 
     // Mode
-    modeBg: '#fefefe;',
-    modeBtn: '#247ba0;',
+    modeBg: '#fefefeaa',
+    modeBtn: '#247ba0',
     /*--------------------------------------*/
 
     /*-----------  pagination--------------*/
     // position
-    paginationBg: '#50514f;',
-    paginationText: '#fefefe;',
+    paginationBg: '#fefefecf',
+    paginationText: '#50514f',
+    // apuntador page
+    currentPage:'#e18335',
 
     // next last pagination
-    paginationBtnBg: '#386641;',
-    paginationBtnText: '#fefefe;',
+    paginationBtnBg: '#8fc93adf',
+    paginationBtnText: '#50514f',
 
     /*--------------------------------------*/
     /*----------- landig page--------------*/
+    // content card
+    contLanding:'#04040444',
+    // content string
+    textLanding:'#fefefe',
+ 
+
     // button
-    btnStart: '#09f;',
-    btnString: '#000000aa;',
+    btnStart: '#ffe066',
+    btnString: '#000000',
     /*--------------------------------------*/
 
     /*----- section color cards ---------*/
     // Title
-    titleBg: '#fefefe;',
-    titleH3: '#50514f;',
+    titleBg: '#fefefe',
+    titleH3: '#50514f',
 
     // Summary
-    summaryBg: '#fefefe;',
-    summayP: '#50514f;',
+    summaryBg: '#fefefe',
+    summayP: '#50514f',
 
     // Skill
-    cardDietsH6: '#50514f;',
-    cardDietsSpan: '#50514f;',
-    cardDietsBg: '#8fc93a;',
+    cardDietsH6: '#50514f',
+    cardDietsSpan: '#50514f',
+    cardDietsBg: '#8fc93a',
     /*----------------------------------*/
     /*-------------- add recipe -----------*/
     // Form
@@ -70,8 +78,18 @@ export const dark = {
     /*--------------------------------------*/
     /*---------------- detail --------------*/
     numScoreDetail: '#50514f',
+    marcoBg: '#fefefe',
+    textDetail: '#222',
+    linkSummaryDetail: '#0f80f0',
 
     /*---------------------------------------*/
+    /*---------------- Clear Btn ------------*/
+    clearBg:'#f00',
+    clearX: '#222',
+    /*---------------------------------------*/
+
+    /*---------------------------------------*/
+
   },
   mode: `${center('row', 'flex-start')}`,
 }

@@ -1,27 +1,47 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { getRecipeID } from '../app/actions/getRecipeID'
 import loader from '../assets/gifs/food_loader_sarten.gif'
 import { center } from '../style/shorcuts'
+import notImg from '../assets/No_image.jpg'
+import { Modal } from '../components/details/modal'
+import axios from 'axios'
+import { BACKEND_FOOD } from '../config'
+import { getRecipesAll } from '../app/actions/getRecipesAll'
+import { clearDetail } from '../app/actions/clearDetail'
 
 export const Details = () => {
-  const det = useSelector((state) => state.tasks.details)
   const dispatch = useDispatch()
-  const { id } = useParams()
   const navigate = useNavigate()
+  const { id } = useParams()
+  const [del, setDel] = useState(false)
+  const det = useSelector((state) => state.tasks.details)
+  ///////////////////////////////////////////////////////
   useEffect(() => {
     dispatch(getRecipeID(id))
-  }, [dispatch, id])
+  }, [dispatch])
+  //////////////////////////////////////////////
+  const handleDelete = () => {
+    axios.delete(`${BACKEND_FOOD}details/${id}`)
+    dispatch(getRecipesAll())
+    navigate('/home')
+  }
+  //////////////////////////
+  const handleClear = () => {
+    dispatch(clearDetail())
+    navigate('/home')
+  }
+  ////////////////////////
   return det.name ? (
     <ContentDetails>
       <Marco>
-        <Clear onClick={() => navigate('/home')} />
+        <Clear onClick={handleClear} />
 
         <h2>{det.name}</h2>
         <ImgSummary>
-          <img src={`${det.img}`} height={'400px'} alt='' />
+          <img src={det.img || notImg} height={'400px'} alt='' />
           <Summary>
             <h3>Summary :</h3>
             <p dangerouslySetInnerHTML={{ __html: det.summary }}></p>
@@ -46,7 +66,20 @@ export const Details = () => {
             </Step>
           )
         })}
+        {det.createdb && (
+          <ContPutDel>
+            <button onClick={() => navigate(`/edit/${id}`)}>PUT</button>
+            <button onClick={() => {dispatch(getRecipesAll()); setDel((state) => !state)}}>DELETE</button>
+          </ContPutDel>
+        )}
       </Marco>
+      {del && (
+        <Modal
+          setModal={setDel}
+          msg={'estas seguro de borrar esta receta ?'}
+          handler={handleDelete}
+        />
+      )}
     </ContentDetails>
   ) : (
     <ContentDetails>
@@ -59,7 +92,7 @@ const ContentDetails = styled.div`
   ${center()}
   width: 100%;
   min-height: 100vh;
-`
+  `
 const Marco = styled.div`
   position: relative;
   ${center()}
@@ -68,7 +101,8 @@ const Marco = styled.div`
   border-radius: 1rem;
   width: min-content;
   opacity: 0.7;
-  background: white;
+  color: ${props => props.theme.color.textDetail};
+  background: ${props => props.theme.color.marcoBg};
   h2,
   h6 {
     width: 100%;
@@ -84,7 +118,7 @@ const Clear = styled.div`
   top: 5px;
   right: 5px;
   border-radius: 0.7rem;
-  background: red;
+  background: ${props => props.theme.color.clearBg};
   &:after,
   &::before {
     content: '';
@@ -94,7 +128,7 @@ const Clear = styled.div`
     background: black;
     border-radius: 9rem;
     top: 18px;
-    box-shadow: 0 0 2px 0 #222;
+    box-shadow: 0 0 2px 0 ${props => props.theme.color.clearX};
   }
   &:before {
     -webkit-transform: rotate(45deg);
@@ -120,6 +154,7 @@ const ImgSummary = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 38rem);
   justify-content: center;
+  justify-items: center;
   @media (max-width: 640px) {
     grid-template-columns: repeat(auto-fit, 20rem);
   }
@@ -132,8 +167,12 @@ const ImgSummary = styled.div`
   }
 `
 const Summary = styled.div`
-min-width: 280px;
+  width: 100%;
+  min-width: 280px;
   ${center('column', 'flex-start', 'flex-start')}
+  a {
+    color: ${props => props.theme.color.linkSummaryDetail};
+  }
 `
 const Score = styled.div`
   ${center('row', 'flex-start')}
@@ -163,5 +202,25 @@ const Step = styled.div`
   b {
     text-align: start;
     margin: 0 0.5rem;
+  }
+`
+const ContPutDel = styled.div`
+  width: 100%;
+  margin-top: 1rem;
+  ${center('row', 'space-around')}
+  button {
+    background: #09f;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    & + button {
+      background: red;
+    }
+    &:hover {
+      scale: 1.05;
+      transition: scale 0.2s ease;
+    }
   }
 `

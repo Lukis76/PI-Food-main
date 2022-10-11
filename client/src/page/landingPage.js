@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { center } from '../style/shorcuts'
 import { Link } from 'react-router-dom'
-import landingChef from '../assets/chef4.webp'
+import landingChef from '../assets/chef3.jpg'
 
 export const LandingPage = () => {
   return (
@@ -25,28 +25,29 @@ const ContentLanging = styled.div`
   max-width: 100vw;
   background-position: center;
   background-attachment: fixed;
-  background-size: auto;
+  background-size: cover;
   background-image: url(${landingChef});
   ${center()}
   div {
     ${center()}
     padding: 3rem 1rem;
     border-radius: 1rem;
-    background: #04040444;
+    background: ${(props) => props.theme.color.contLanding};
+
     h2 {
       font-size: 2rem;
       font-weight: 700;
-      color: #fefefe;
+      color: ${(props) => props.theme.color.textLanding};
     }
     span {
       font-size: 2rem;
       font-weight: 700;
-      color: #fefefe;
+      color: ${(props) => props.theme.color.textLanding};
     }
     h1 {
       text-align: center;
       font-size: 3rem;
-      color: #fefefe;
+      color: ${(props) => props.theme.color.textLanding};
     }
   }
 `
@@ -56,7 +57,8 @@ const Btn = styled.button`
   border-radius: 0.5rem;
   font-size: 2.2rem;
   font-weight: 700;
-  background: ${(props) => props.theme.color.blueMidu};
+  background: ${(props) => props.theme.color.btnStart};
+  color: ${(props) => props.theme.color.btnString};
   opacity: 0.9;
   &:hover {
     scale: 1.1;
