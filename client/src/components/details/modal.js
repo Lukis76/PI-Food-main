@@ -23,7 +23,7 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  background: black;
+  background: ${props => props.theme.color.modelOverlayBg};
   opacity: 0.7;
   ${center()}
 `
@@ -36,12 +36,13 @@ const Content = styled.div`
   height: 100%;
   max-height: 15rem;
   border-radius: 1rem;
-  background: white;
+  background: ${props => props.theme.color.modelContBg};
   padding: 1rem;
   h2 {
     width: 100%;
     margin: 1rem 0;
     text-align: center;
+    color: ${props => props.theme.color.modelMasText}
   }
 `
 

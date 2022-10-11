@@ -82,12 +82,22 @@ export const dark = {
     textDetail: '#222',
     linkSummaryDetail: '#0f80f0',
 
+    // btm put
+    btnPutBg:'#0f80f0',
+    btnPutDelText: '#000',
+    btnDeleteBg: '#f00',
+
     /*---------------------------------------*/
     /*---------------- Clear Btn ------------*/
     clearBg:'#f00',
     clearX: '#222',
     /*---------------------------------------*/
-
+    /*---------------- model ----------------*/
+    // delete
+    modelOverlayBg: '#000',
+    modelContBg: '#fefefe',
+    modelMsgText: '#222',
+    /*---------------------------------------*/
     /*---------------------------------------*/
 
   },

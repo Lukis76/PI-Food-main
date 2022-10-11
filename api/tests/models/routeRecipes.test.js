@@ -8,19 +8,18 @@ test(' test prueba conflicto expext de chia (mocha), two plus two is four', () =
   expect(2 + 2).toBe(4)
 })
 ///////////////////////////////////////////////////////////////////////////////////
-//
 /*----------------------------------------------------------------------------- */
 /*----------------------------------------------------------------------------- */
 describe('GET /recipes', () => {
-  /////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////
   test('get all recipes, response status 200', async () => {
     await app.get('/recipes').send().expect(200)
   })
-  //////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
   test('get recipe query=name(rice) response status 200', async () => {
     await app.get('/recipes?name=rice').expect(200)
   })
-  //////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////
   test('get recipe query=name(calamardo) response status 204', async () => {
     const res = await app.get('/recipes?name=calamardo').send()
     expect(res.status).toBe(204)
@@ -33,7 +32,7 @@ describe('POST /recipes', () => {
   /*-------------------------------- */
   /*-------------------------------- */
   describe('post not content', () => {
-    ///////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////
     test('post body recipe not constent, response status 400 ', async () => {
       const res = await app.post('/recipes').send()
       expect(res.status).toBe(400)

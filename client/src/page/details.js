@@ -68,8 +68,8 @@ export const Details = () => {
         })}
         {det.createdb && (
           <ContPutDel>
-            <button onClick={() => navigate(`/edit/${id}`)}>PUT</button>
-            <button onClick={() => {dispatch(getRecipesAll()); setDel((state) => !state)}}>DELETE</button>
+            <button onClick={() => navigate(`/edit/${id}`)}>Edit</button>
+            <button onClick={() => {dispatch(getRecipesAll()); setDel((state) => !state)}}>Delete</button>
           </ContPutDel>
         )}
       </Marco>
@@ -209,14 +209,15 @@ const ContPutDel = styled.div`
   margin-top: 1rem;
   ${center('row', 'space-around')}
   button {
-    background: #09f;
-    font-size: 1rem;
+    background: ${props => props.theme.color.btnPutBg};
+    color: ${props => props.theme.color.btnPutDelText};
+    font-size: 1.1rem;
     font-weight: 700;
     border-radius: 0.5rem;
     margin: 1rem 0;
     padding: 0.5rem 1rem;
     & + button {
-      background: red;
+      background: ${props => props.theme.color.btnDeleteBg};
     }
     &:hover {
       scale: 1.05;

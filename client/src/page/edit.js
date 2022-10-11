@@ -92,8 +92,3 @@ export const Edit = () => {
     </ContentAdd>
   )
 }
-
-// const ConstentEdit = styled.div`
-//   ${center()}
-//   width: 100%;
-// `
