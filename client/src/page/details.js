@@ -21,7 +21,7 @@ export const Details = () => {
   ///////////////////////////////////////////////////////
   useEffect(() => {
     dispatch(getRecipeID(id))
-  }, [dispatch])
+  }, [])
   //////////////////////////////////////////////
   const handleDelete = () => {
     axios.delete(`${BACKEND_FOOD}details/${id}`)
@@ -68,15 +68,27 @@ export const Details = () => {
         })}
         {det.createdb && (
           <ContPutDel>
-            <button onClick={() => navigate(`/edit/${id}`)}>Edit</button>
-            <button onClick={() => {dispatch(getRecipesAll()); setDel((state) => !state)}}>Delete</button>
+            <button
+              onClick={() => {
+                navigate(`/edit/${id}`)
+              }}
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => {
+                setDel((state) => !state)
+              }}
+            >
+              Delete
+            </button>
           </ContPutDel>
         )}
       </Marco>
       {del && (
         <Modal
           setModal={setDel}
-          msg={'estas seguro de borrar esta receta ?'}
+          msg={'Are you sure you want to delete this recipe ?'}
           handler={handleDelete}
         />
       )}
@@ -92,7 +104,7 @@ const ContentDetails = styled.div`
   ${center()}
   width: 100%;
   min-height: 100vh;
-  `
+`
 const Marco = styled.div`
   position: relative;
   ${center()}
@@ -101,8 +113,8 @@ const Marco = styled.div`
   border-radius: 1rem;
   width: min-content;
   opacity: 0.7;
-  color: ${props => props.theme.color.textDetail};
-  background: ${props => props.theme.color.marcoBg};
+  color: ${(props) => props.theme.color.textDetail};
+  background: ${(props) => props.theme.color.marcoBg};
   h2,
   h6 {
     width: 100%;
@@ -118,7 +130,7 @@ const Clear = styled.div`
   top: 5px;
   right: 5px;
   border-radius: 0.7rem;
-  background: ${props => props.theme.color.clearBg};
+  background: ${(props) => props.theme.color.clearBg};
   &:after,
   &::before {
     content: '';
@@ -128,7 +140,7 @@ const Clear = styled.div`
     background: black;
     border-radius: 9rem;
     top: 18px;
-    box-shadow: 0 0 2px 0 ${props => props.theme.color.clearX};
+    box-shadow: 0 0 2px 0 ${(props) => props.theme.color.clearX};
   }
   &:before {
     -webkit-transform: rotate(45deg);
@@ -171,7 +183,7 @@ const Summary = styled.div`
   min-width: 280px;
   ${center('column', 'flex-start', 'flex-start')}
   a {
-    color: ${props => props.theme.color.linkSummaryDetail};
+    color: ${(props) => props.theme.color.linkSummaryDetail};
   }
 `
 const Score = styled.div`
@@ -209,15 +221,15 @@ const ContPutDel = styled.div`
   margin-top: 1rem;
   ${center('row', 'space-around')}
   button {
-    background: ${props => props.theme.color.btnPutBg};
-    color: ${props => props.theme.color.btnPutDelText};
+    background: ${(props) => props.theme.color.btnPutBg};
+    color: ${(props) => props.theme.color.btnPutDelText};
     font-size: 1.1rem;
     font-weight: 700;
     border-radius: 0.5rem;
     margin: 1rem 0;
     padding: 0.5rem 1rem;
     & + button {
-      background: ${props => props.theme.color.btnDeleteBg};
+      background: ${(props) => props.theme.color.btnDeleteBg};
     }
     &:hover {
       scale: 1.05;

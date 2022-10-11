@@ -8,7 +8,7 @@ export const Modal = ({ setModal, msg, handler }) => {
         <Content>
           <h2>{msg}</h2>
           <Btn>
-            <button onClick={handler}>OK</button>
+            <button onClick={handler}>Ok</button>
             <button onClick={() => setModal((state) => !state)}>Cancel</button>
           </Btn>
         </Content>
@@ -24,7 +24,6 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   background: ${props => props.theme.color.modelOverlayBg};
-  opacity: 0.7;
   ${center()}
 `
 
@@ -52,12 +51,12 @@ const Btn = styled.div`
   justify-content: space-around;
   button {
     padding: 0.5rem 1rem;
-    background: #09f;
+    background: ${props => props.theme.color.btnPutBg};
     font-size: 1rem;
     font-weight: 700;
     border-radius: 0.5rem;
     & ~ button {
-      background: red;
+      background: ${props => props.theme.color.btnDeleteBg};
     }
     &:hover {
       scale: 1.05;

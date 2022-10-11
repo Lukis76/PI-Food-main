@@ -99,7 +99,6 @@ const Step = styled.div`
     left: 5px;
     transform: translateY(20px);
     transition: transform 0.5s, color 0.3s;
-    z-index: 100;
   }
 `
 

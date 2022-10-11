@@ -82,7 +82,7 @@ export const dark = {
     textDetail: '#222',
     linkSummaryDetail: '#0f80f0',
 
-    // btm put
+    // btm put and ok cancel
     btnPutBg:'#0f80f0',
     btnPutDelText: '#000',
     btnDeleteBg: '#f00',
@@ -94,7 +94,7 @@ export const dark = {
     /*---------------------------------------*/
     /*---------------- model ----------------*/
     // delete
-    modelOverlayBg: '#000',
+    modelOverlayBg: '#000000b6',
     modelContBg: '#fefefe',
     modelMsgText: '#222',
     /*---------------------------------------*/
