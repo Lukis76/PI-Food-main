@@ -101,12 +101,3 @@ const Step = styled.div`
     transition: transform 0.5s, color 0.3s;
   }
 `
-
-// const NumSteps = styled.div`
-//   ${center('row', 'flex-start', 'flex-start')}
-//   width: 100%;
-//   div {
-//     padding: 1rem;
-//     background: white;
-//   }
-// `

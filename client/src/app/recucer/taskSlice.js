@@ -43,7 +43,7 @@ export const taskSlice = createSlice({
         state.recipes = state.recipesAll
       } else {
         const result = state.recipesAll.filter((el) =>
-          el.name.toLowerCase().includes(action.payload)
+          el.name.toLowerCase().includes(action.payload.toLowerCase())
         )
         state.recipes = result
       }

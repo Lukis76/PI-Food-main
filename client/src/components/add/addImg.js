@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { center } from '../../style/shorcuts'
+// eslint-disable-next-line
 import { useRef, useState } from 'react'
 import { Err, Input } from './viewAdd'
 
@@ -58,33 +59,41 @@ export const AddImg = ({ setError, setNewRecipe, error, value }) => {
 
   const handleChange = (e) => {
     setImagen(e.target.value)
-    if(e.target.value === '') {
-      setError(state => ({...state, validImg: 'image link field required'}))
+    if (e.target.value === '') {
+      setError((state) => ({ ...state, validImg: 'image link field required' }))
     }
-    if(e.target.value.length < 6) {
-      setError(state => ({...state, validImg: 'this link is not valid'}))
-    }else if(/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig.test(e.target.value)) {
-      setNewRecipe(state => ({...state, img: e.target.value}))
-      setError(state => ({...state, validImg: ''}))
+    if (e.target.value.length < 6) {
+      setError((state) => ({ ...state, validImg: 'this link is not valid' }))
+    } else if (
+      // eslint-disable-next-line
+      /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi.test(
+        e.target.value
+      )
+    ) {
+      setNewRecipe((state) => ({ ...state, img: e.target.value }))
+      setError((state) => ({ ...state, validImg: '' }))
     }
   }
 
   const handleBlur = (e) => {
-    if(/[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/ig.test(e.target.value)) {
-      setNewRecipe(state => ({...state, img: e.target.value}))
-      setError(state => ({...state, validImg: ''}))
-
+    if (
+      // eslint-disable-next-line
+      /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi.test(
+        e.target.value
+      )
+    ) {
+      setNewRecipe((state) => ({ ...state, img: e.target.value }))
+      setError((state) => ({ ...state, validImg: '' }))
     } else {
-      setError(state => ({...state, validImg: 'this link is not valid'}))
-
-    } 
-    if(e.target.value === '') {
-      setError(state => ({...state, validImg: 'image link field required'}))
+      setError((state) => ({ ...state, validImg: 'this link is not valid' }))
+    }
+    if (e.target.value === '') {
+      setError((state) => ({ ...state, validImg: 'image link field required' }))
     }
   }
   return (
     <ContentAddImg>
-    <div>
+      <div>
         <Input
           // autoFocus
           type='text'
@@ -132,16 +141,14 @@ const ContentAddImg = styled.div`
       width: 100%;
       font-family: 'Roboto', sans-serif;
       font-weight: 700;
-      color: ${props => props.theme.color.addLabel};
+      color: ${(props) => props.theme.color.addLabel};
       position: absolute;
       top: 0;
       left: 5px;
       transform: translateY(8px);
       transition: transform 0.5s, color 0.3s;
     }
-
   }
-  
 `
 
 // const Box = styled.div`
@@ -167,14 +174,14 @@ const ContentAddImg = styled.div`
 //   }
 // `
 
-const Btn = styled.button`
-  font-size: 1rem;
-  background: #09f;
-  padding: 0.3rem 0.8rem;
-  border-radius: 0.4rem;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.03);
-    transition: transform 0.2s ease;
-  }
-`
+// const Btn = styled.button`
+//   font-size: 1rem;
+//   background: #09f;
+//   padding: 0.3rem 0.8rem;
+//   border-radius: 0.4rem;
+//   cursor: pointer;
+//   &:hover {
+//     transform: scale(1.03);
+//     transition: transform 0.2s ease;
+//   }
+// `

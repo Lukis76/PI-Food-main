@@ -1,16 +1,16 @@
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
 
-export const About = () => {
-  return (
-    <ContentAbout>
+// export const About = () => {
+//   return (
+//     <ContentAbout>
       
-    </ContentAbout>
-  )
-}
+//     </ContentAbout>
+//   )
+// }
 
 
-const ContentAbout = styled.div`
+// const ContentAbout = styled.div`
 
 
-`
+// `

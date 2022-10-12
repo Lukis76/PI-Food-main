@@ -13,6 +13,7 @@ export const AddDiets = ({ setNewRecipe }) => {
     if (!diets.length) {
       dispatch(getTypes())
     }
+    // eslint-disable-next-line 
   }, [])
 
   const handleChange = (e) => {
