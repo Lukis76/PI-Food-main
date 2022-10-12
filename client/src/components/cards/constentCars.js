@@ -38,6 +38,7 @@ const ContentCard = styled.div`
   ${center()}
   width: 100%;
   height: 100%;
+  margin-bottom: .8rem;
 `
 const GridCards = styled.section`
   width: 100%;

@@ -5,7 +5,7 @@ import { center } from '../style/shorcuts'
 import { filter } from '../app/actions/filter'
 import { useState } from 'react'
 
-export const Filter = (setPerPage) => {
+export const Filter = ({setPerPage}) => {
   const diets = useSelector((state) => state.tasks.types)
   const dispatch = useDispatch()
 

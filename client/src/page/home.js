@@ -46,7 +46,7 @@ const ContentHome = styled.div`
 `
 const Box = styled.div`
   ${center('column', 'space-between')}
-  min-height: 90vh;
+  min-height: 85vh;
   width: 100%;
 `
 const Content = styled.div`
