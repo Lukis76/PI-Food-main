@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon -L",
-    "test":"jest ./tests/models/routeRecipes.test.js --verbose",
+    "test":"jest --verbose",
     "test-mocha": "mocha -w ./tests/**/*.spec.js"
   },
   "author": "Henry",

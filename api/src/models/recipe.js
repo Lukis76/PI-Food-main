@@ -15,8 +15,8 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     summary: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.TEXT,
+      // allowNull: false,
     },
     healthScore: {
       type: DataTypes.INTEGER,
