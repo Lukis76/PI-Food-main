@@ -9,7 +9,7 @@ const recipe = {
   name: 'Milanea a la napolitana',
 };
 
-xdescribe('Recipe routes', () => {
+describe('Recipe routes', () => {
   before(() => conn.authenticate()
   .catch((err) => {
     console.error('Unable to connect to the database:', err);

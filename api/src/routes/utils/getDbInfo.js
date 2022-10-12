@@ -25,7 +25,7 @@ const getDbInfo = async () => {
         score: el.score,
         healthScore: el.healthScore,
         img: el.img,
-        steps: el.steps,
+        steps: el.steps?.sort((a, b) => a.number - b.number),
         diets: el.diets?.map((el) => el.name),
         createdb: el.createdb,
       }

@@ -82,6 +82,7 @@ export const taskSlice = createSlice({
       }
       /*////////////////////////// Diets /////////////////////////////*/
       if (action.payload.diet !== 'all') {
+        // eslint-disable-next-line
         result = result.filter((el) => {
           if (el.diets.length > 0) {
             if (el.diets.find((el) => el === action.payload.diet)) {

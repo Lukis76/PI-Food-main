@@ -9,12 +9,14 @@ import { AddImg } from '../components/add/addImg'
 import { AddSteps } from '../components/add/addSteps'
 import { AddDiets } from '../components/add/addDiets'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { updateRecipe } from '../app/actions/updateRecipe'
+import { getRecipesAll } from '../app/actions/getRecipesAll'
 
 export const Edit = () => {
   const { id } = useParams()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const det = useSelector((state) => state.tasks.details)
   const [error, setError] = useState({
@@ -40,6 +42,7 @@ export const Edit = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     updateRecipe(newRecipe, id)
+    dispatch(getRecipesAll())
 
     navigate('/home')
   }
@@ -85,6 +88,7 @@ export const Edit = () => {
         {newRecipe.name.length > 6 &&
           newRecipe.summary.length > 10 &&
           newRecipe.steps[0]?.step.length > 10 &&
+          // eslint-disable-next-line
           /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi.test(
             newRecipe.img
           ) && <Btn type='submit'>update Recipe</Btn>}

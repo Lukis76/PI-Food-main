@@ -10,8 +10,11 @@ import { AddHealthScore } from '../components/add/addHealthScore'
 import { AddImg } from '../components/add/addImg'
 import { AddSteps } from '../components/add/addSteps'
 import {ContentAdd, Clear, Btn} from '../components/add/viewAdd'
+import { useDispatch } from 'react-redux'
+import { getRecipesAll } from '../app/actions/getRecipesAll'
 
 export const Add = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const [error, setError] = useState({
@@ -37,6 +40,7 @@ export const Add = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     postRecipe(newRecipe)
+    dispatch(getRecipesAll())
     setNewRecipe({
       name: '',
       summary: '',
@@ -82,6 +86,7 @@ export const Add = () => {
         {newRecipe.name.length > 6 &&
           newRecipe.summary.length > 10 &&
           newRecipe.steps[0]?.step.length > 10 &&
+          // eslint-disable-next-line
           /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi.test(
             newRecipe.img
           ) && <Btn type='submit'>Add Recipe</Btn>}
