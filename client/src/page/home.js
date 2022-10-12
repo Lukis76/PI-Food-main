@@ -22,7 +22,8 @@ export const Home = ({ setTheme, theme }) => {
       dispatch(getRecipesAll())
       dispatch(getTypes())
     }
-  }, [])
+    // eslint-disable-next-line
+  }, [dispatch])
 
   return (
     <ContentHome>
