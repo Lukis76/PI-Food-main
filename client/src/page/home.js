@@ -7,7 +7,7 @@ import { getRecipesAll } from '../app/actions/getRecipesAll'
 import { getTypes } from '../app/actions/getTypes'
 import { NextPage } from '../components/home/nextPage'
 import { Filter } from '../components/home/filter'
-import { ConstentCars } from '../components/cards/constentCars'
+import { ContentCars } from '../components/home/contentCars'
 
 export const Home = ({ setTheme, theme }) => {
   const dispatch = useDispatch()
@@ -33,7 +33,7 @@ export const Home = ({ setTheme, theme }) => {
           <Filter setPerPage={setPerPage} />
           <NextPage max={max} />
         </Content>
-        <ConstentCars perPage={perPage} recipes={recipes} />
+        <ContentCars perPage={perPage} recipes={recipes} />
 
         <NextPage max={max} />
       </Box>

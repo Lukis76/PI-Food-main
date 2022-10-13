@@ -4,7 +4,7 @@ import { Card } from '../card/card'
 import loader from '../../assets/gifs/food_loader_sarten.gif'
 import { center } from '../../style/shorcuts'
 
-export const ConstentCars = ({ perPage, recipes }) => {
+export const ContentCars = ({ perPage, recipes }) => {
   const p = useSelector((state) => state.tasks.paguination)
 
   return (

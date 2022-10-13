@@ -25,7 +25,7 @@ export const Clear = styled.div`
   top: 5px;
   right: 5px;
   border-radius: 0.7rem;
-  background: red;
+  background: ${(props) => props.theme.color.clearBg};
   &:after,
   &::before {
     content: '';
@@ -35,7 +35,7 @@ export const Clear = styled.div`
     background: black;
     border-radius: 9rem;
     top: 18px;
-    box-shadow: 0 0 2px 0 #222;
+    box-shadow: 0 0 2px 0 ${(props) => props.theme.color.clearX};
   }
   &:before {
     -webkit-transform: rotate(45deg);
