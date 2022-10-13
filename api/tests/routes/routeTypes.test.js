@@ -6,7 +6,7 @@ const app = session(server)
 //
 /*------------------------------------------------------ */
 /*------------------------------------------------------ */
-describe('GET /types', () => {
+xdescribe('GET /types', () => {
   ////////////////////////////////////////////////////////
   test('get all diets types / recipes 100', async() => {
     await app.get('/types').send().expect(200)

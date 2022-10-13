@@ -5,7 +5,7 @@ const { conn, Recipe } = require('../../src/db.js')
 //
 const app = session(server)
 ////////////////////////////////////////////////////////////////////////////////////
-describe('GET ID details recipe', () => {
+xdescribe('GET ID details recipe', () => {
   //////////////////////////////////////////
   test('detail content name', async () => {
     const res = await app.get(`/details/716426`).send()
@@ -62,7 +62,7 @@ const { recipeHelp, recipeHel } = require('../helpers/recipes')
 describe('DELETE recipes db', () => {
   beforeAll(() => conn.authenticate().catch((err) => console.error(err)))
   beforeEach(() =>
-    Recipe.sync({ force: true }).then(() => Recipe.create({ ...recipeHel }))
+    Recipe.sync({ force: true })//.then(() => Recipe.create({ ...recipeHel }))
   )
 
   test('create recipes in db and delete one recipe', async () => {
