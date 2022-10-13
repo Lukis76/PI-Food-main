@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { setPaguination } from '../app/recucer/taskSlice'
-import { center } from '../style/shorcuts'
+import { setPaguination } from '../../app/recucer/taskSlice'
+import { center } from '../../style/shorcuts'
 
 export const NextPage = ({ max }) => {
   const dispatch = useDispatch()
@@ -18,12 +18,13 @@ export const NextPage = ({ max }) => {
   }
 
   useEffect(() => {
-    p == 1
+    p === 1
       ? lastRef.current.classList.add('last_page')
       : lastRef.current.classList.remove('last_page')
     p === max
       ? nextRef.current.classList.add('next_page')
       : nextRef.current.classList.remove('next_page')
+      // eslint-disable-next-line
   }, [handleNext, handleLast])
 
   return (

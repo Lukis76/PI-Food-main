@@ -42,6 +42,7 @@ const ContentCard = styled.div`
 `
 const GridCards = styled.section`
   width: 100%;
+  max-width: 1000px;
   gap: 1rem;
   display: grid;
   padding: 0 1rem;

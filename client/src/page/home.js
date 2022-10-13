@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 import { getRecipesAll } from '../app/actions/getRecipesAll'
 import { getTypes } from '../app/actions/getTypes'
-import { NextPage } from '../components/nextPage'
-import { Filter } from '../components/filter'
+import { NextPage } from '../components/home/nextPage'
+import { Filter } from '../components/home/filter'
 import { ConstentCars } from '../components/cards/constentCars'
 
 export const Home = ({ setTheme, theme }) => {

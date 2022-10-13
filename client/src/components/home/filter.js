@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { setPaguination } from '../app/recucer/taskSlice'
-import { center } from '../style/shorcuts'
-import { filter } from '../app/actions/filter'
+import { setPaguination } from '../../app/recucer/taskSlice'
+import { center } from '../../style/shorcuts'
+import { filter } from '../../app/actions/filter'
 import { useState } from 'react'
 
 export const Filter = ({setPerPage}) => {
