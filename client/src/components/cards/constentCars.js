@@ -44,6 +44,7 @@ const GridCards = styled.section`
   width: 100%;
   gap: 1rem;
   display: grid;
+  padding: 0 1rem;
   grid-template-columns: repeat(auto-fit, 18rem);
   justify-content: center;
 `

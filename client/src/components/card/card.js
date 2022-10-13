@@ -59,6 +59,7 @@ const ContSummary = styled.section`
   width: 100%;
   background: ${(props) => props.theme.color.summaryBg};
   p {
+    text-align: center;
     width: 100%;
     padding: 0 0.5rem;
     overflow: hidden;
