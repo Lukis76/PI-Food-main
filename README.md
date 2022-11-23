@@ -11,6 +11,8 @@
   <img height="200" src="./cooking.png" />
 </p>
 
+https://youtu.be/ZvUaGTEs-ts
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
