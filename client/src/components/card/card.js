@@ -23,11 +23,11 @@ export const Card = ({ id, name, img, healthScore, types, summary }) => {
     </Link>
   )
 }
+/*   width: min-content; */
 
 const ContentCard = styled.div`
   ${center()}
   height: 100%;
-  width: min-content;
   border-radius: 0.7rem 0.7rem 0 0;
   width: 100%;
   max-width: 18rem;
@@ -42,8 +42,7 @@ const Image = styled.img`
 `
 
 const Title = styled.div`
-  ${center('row')}
-  width: 100%;
+width: -webkit-fill-available;
   padding: 0.5rem 0.5rem 0 0.5rem;
   background: ${(props) => props.theme.color.titleBg};
   h3 {
@@ -51,12 +50,10 @@ const Title = styled.div`
     color: ${(props) => props.theme.color.titleH3};
   }
 `
-
 const ContSummary = styled.section`
-  ${center()}
   height: 100%;
   padding: 0 0.5rem 0.5rem 0.5rem;
-  width: 100%;
+  width: -webkit-fill-available;
   background: ${(props) => props.theme.color.summaryBg};
   p {
     text-align: center;
