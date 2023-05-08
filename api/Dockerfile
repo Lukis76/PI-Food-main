@@ -10,6 +10,6 @@ RUN npm i
 
 COPY . .
 
-EXPOSE 3005
+EXPOSE 443
 
 CMD [ "npm", "run", "dev" ]

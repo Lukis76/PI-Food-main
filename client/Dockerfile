@@ -2,7 +2,7 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm i 
 # or instalacion ligera
@@ -12,7 +12,7 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 3000
+EXPOSE 8080
 
-CMD [ "npm", "start" ]
+CMD [ "npm","run", "dev" ]
 
