@@ -11,30 +11,30 @@ services:
       - POSTGRES_DB=root
     volumes:
       - nps_data:/var/lib/postgresql/data
-  app_back:
-    container_name: food_app_back
-    image: food_app_back:0.0.1
-    build:
-      context: ./api/
-    ports:
-      - "3005:3005"
-    depends_on:
-      - postgres
-    environment:
-      - PORT=3005
-      - POSTGRES_HOST=localhost
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=root
-  app_client:
-    container_name: food_app_client
-    image: food_app_client:0.0.1
-    build:
-      context: ./client
-    ports:
-      - "3000:3000"
-    depends_on:
-      - postgres
-      - app_back
+  # app_back:
+  #   container_name: food_app_back
+  #   image: food_app_back:0.0.1
+  #   build:
+  #     context: ./api/
+  #   ports:
+  #     - "3005:3005"
+  #   depends_on:
+  #     - postgres
+  #   environment:
+  #     - PORT=3005
+  #     - POSTGRES_HOST=localhost
+  #     - POSTGRES_USER=root
+  #     - POSTGRES_PASSWORD=root
+  #     - POSTGRES_DB=root
+  # app_client:
+  #   container_name: food_app_client
+  #   image: food_app_client:0.0.1
+  #   build:
+  #     context: ./client
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     - postgres
+  #     - app_back
 volumes:
   nps_data: {}

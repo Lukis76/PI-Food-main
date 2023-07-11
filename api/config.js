@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 443
+const PORT = process.env.PORT || 3333
 const DB_USER = process.env.POSTGRES_USER || 'root'
 const DB_HOST = process.env.POSTGRES_HOST || '0.0.0.0'
 const DB_PORT = process.env.DB_PORT || '5432'

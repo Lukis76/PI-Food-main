@@ -17,11 +17,13 @@ if (process.env.DATABASE_URL) {
     protocol: 'postgres',
   })
 } else {
+  console.log("como =>>>>>>>>> ")
   sequelize = new Sequelize(DB_USER, DB_PASSWORD, DB_NAME, {
     host: DB_HOST,
     port: DB_PORT,
     dialect: DB,
     database: DB_NAME,
+    
   })
 }
 
