@@ -25,7 +25,7 @@ const { apiDiets } = require('./src/routes/utils/getCreateDietsdb.js')
 // Syncing all the models at once.
 conn.sync({ force: false }).then(() => {
   server.listen(PORT, async () => {
-    console.log(` 🚀 %s listening at ${PORT}`) // eslint-disable-line no-console
+    console.log(` 🚀 %s listening at ${PORT}`) 
     await apiDiets()
   })
 })

@@ -1,9 +1,9 @@
 const PORT = process.env.PORT || 443
-const DB_USER = process.env.POSTGRES_USER || 'postgres'
+const DB_USER = process.env.POSTGRES_USER || 'root'
 const DB_HOST = process.env.POSTGRES_HOST || '0.0.0.0'
-const DB_PORT = process.env.DB_PORT || 5432
-const DB_PASSWORD = process.env.POSTGRES_PASSWORD || '123455'
-const DB_NAME = process.env.POSTGRES_DB || 'postgres-database-general.internal'
+const DB_PORT = process.env.DB_PORT || '5432'
+const DB_PASSWORD = process.env.POSTGRES_PASSWORD || 'root'
+const DB_NAME = process.env.POSTGRES_DB || 'root'
 const DB = process.env.DB || 'postgres'
 const API_URL_ONE = 'https://api.spoonacular.com/recipes/complexSearch?'
 const API_URL_TWO = 'https://api.spoonacular.com/recipes/'
