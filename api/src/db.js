@@ -9,11 +9,12 @@ const {
   DB_PORT,
   DB_NAME,
   DB,
+  DATABASE_URL
 } = require('../config')
 
 let sequelize = undefined
-if (process.env.DATABASE_URL) {
-  sequelize = new Sequelize(process.env.DATABASE_URL, {
+if (DATABASE_URL) {
+  sequelize = new Sequelize(DATABASE_URL, {
     protocol: 'postgres',
   })
 } else {

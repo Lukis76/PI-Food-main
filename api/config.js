@@ -8,6 +8,7 @@ const DB = process.env.DB || 'postgres'
 const API_URL_ONE = 'https://api.spoonacular.com/recipes/complexSearch?'
 const API_URL_TWO = 'https://api.spoonacular.com/recipes/'
 const API_EXTRA = '&addRecipeInformation=true&number=100'
+const DATABASE_URL = process.env.DATABASE_URL || null
 //////////////////////////////////////////////////////////////
 // esta es una clave invalida para pruebas
 // const API_KEY='apiKey=554206c77b4c480eba5024e99485370b'
@@ -19,6 +20,7 @@ const API_EXTRA = '&addRecipeInformation=true&number=100'
 const API_KEY='apiKey=a2e8d83672c34baba942597611ed7b5d'
 // const API_KEY='apiKey=32c5dee4b72d494cb8e13383a41c18b9'
 module.exports = {
+  DATABASE_URL,
   DB,
   PORT,
   DB_USER,
